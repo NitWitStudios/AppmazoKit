@@ -4,28 +4,10 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>AppmazoKit.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>0</integer>
-		</dict>
 		<key>AppmazoKitExample.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>1</integer>
-		</dict>
-	</dict>
-	<key>SuppressBuildableAutocreation</key>
-	<dict>
-		<key>1AEE1DA31F3E606100C4ECE7</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>1AEE1DAC1F3E606100C4ECE7</key>
-		<dict>
-			<key>primary</key>
-			<true/>
 		</dict>
 	</dict>
 </dict>
