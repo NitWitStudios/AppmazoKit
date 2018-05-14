@@ -17,7 +17,7 @@ class PermissionsManagerTableViewController: UITableViewController, PermissionPr
     
     enum Section: Int {
         case location
-//        case pushNotifications
+        case notifications
 //        case biometricID
 //        case camera
 //        case microphone
@@ -31,6 +31,11 @@ class PermissionsManagerTableViewController: UITableViewController, PermissionPr
         case count
     }
     
+    enum NotificationsRow: Int {
+        case push
+        case count
+    }
+
     // MARK: - UITableViewController
   
     override func viewDidLoad() {
@@ -45,6 +50,8 @@ class PermissionsManagerTableViewController: UITableViewController, PermissionPr
             switch permissionType {
             case .location:
                 self?.tableView.reloadSections([Section.location.rawValue], with: .automatic)
+            case .notifications:
+                self?.tableView.reloadSections([Section.notifications.rawValue], with: .automatic)
             default:
                 break
             }
@@ -61,6 +68,8 @@ class PermissionsManagerTableViewController: UITableViewController, PermissionPr
         switch section {
         case Section.location.rawValue:
             return "Location"
+        case Section.notifications.rawValue:
+            return "Notifications"
         default:
             return nil
         }
@@ -70,6 +79,8 @@ class PermissionsManagerTableViewController: UITableViewController, PermissionPr
         switch section {
         case Section.location.rawValue:
             return LocationRow.count.rawValue
+        case Section.notifications.rawValue:
+            return NotificationsRow.count.rawValue
         default:
             return 0
         }
@@ -88,6 +99,14 @@ class PermissionsManagerTableViewController: UITableViewController, PermissionPr
                 case LocationRow.whenInUse.rawValue:
                     cell.permissionType = .locationWhenInUse
                     cell.enabled = !permissionsManager.isLocationsAuthorized() // Should be enabled for both 'whenInUse' and 'always'
+                default:
+                    break
+                }
+            case Section.notifications.rawValue:
+                switch indexPath.row {
+                case NotificationsRow.push.rawValue:
+                    cell.permissionType = .notifications
+                    cell.enabled = !permissionsManager.isNotificationsAuthorized()
                 default:
                     break
                 }
@@ -115,6 +134,13 @@ class PermissionsManagerTableViewController: UITableViewController, PermissionPr
                 permissionsManager.requestLocationPermission(.authorizedAlways)
             case LocationRow.whenInUse.rawValue:
                 permissionsManager.requestLocationPermission(.authorizedWhenInUse)
+            default:
+                break
+            }
+        case Section.notifications.rawValue:
+            switch indexPath?.row {
+            case NotificationsRow.push.rawValue:
+                permissionsManager.requestNotificationsPermission()
             default:
                 break
             }

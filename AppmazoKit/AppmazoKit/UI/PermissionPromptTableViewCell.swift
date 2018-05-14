@@ -17,7 +17,7 @@ public class PermissionPromptTableViewCell: UITableViewCell {
         case generic
         case locationAlways
         case locationWhenInUse
-        case pushNotifications
+        case notifications
     }
     
     public static let reuseIdentifier = "PermissionPromptTableViewCellReuseIdentifier"
@@ -109,13 +109,17 @@ public class PermissionPromptTableViewCell: UITableViewCell {
     private func setupForPermissionType(_ permissionType: PermissionType) {
         switch permissionType {
         case .locationAlways:
-            iconImageView.image = UIImage(named: "icon-map-pin")
+            iconImageView.image = UIImage(named: "icon-pin", in: Bundle(for: LocationTableViewCell.self), compatibleWith: nil)
             titleLabel.text = "Location - Always"
             detailsLabel.text = "We would like to use your location all the time so we can better locate you!"
         case .locationWhenInUse:
-            iconImageView.image = UIImage(named: "icon-map-pin")
+            iconImageView.image = UIImage(named: "icon-pin", in: Bundle(for: LocationTableViewCell.self), compatibleWith: nil)
             titleLabel.text = "Location - When In Use"
             detailsLabel.text = "We would like to use your location while you use the app so we can better locate you!"
+        case .notifications:
+            iconImageView.image = UIImage(named: "icon-bell", in: Bundle(for: LocationTableViewCell.self), compatibleWith: nil)
+            titleLabel.text = "Push Notifications"
+            detailsLabel.text = "We would like to send you push notifications to keep you up to date."
         default:
             break
         }

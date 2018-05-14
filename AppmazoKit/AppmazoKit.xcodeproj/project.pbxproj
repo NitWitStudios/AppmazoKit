@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1A844F4320A908E900C47E73 /* NotificationsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A844F4220A908E900C47E73 /* NotificationsManager.swift */; };
 		1A844F4520A908FF00C47E73 /* PermissionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A844F4420A908FF00C47E73 /* PermissionsManager.swift */; };
 		1A844F4720A90AEB00C47E73 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A844F4620A90AEB00C47E73 /* AlertViewController.swift */; };
 		1A844F4A20A90B3B00C47E73 /* ModalTransitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A844F4920A90B3B00C47E73 /* ModalTransitioning.swift */; };
+		1A844F4E20A931B500C47E73 /* PermissionsManager+Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A844F4D20A931B500C47E73 /* PermissionsManager+Location.swift */; };
+		1A844F5020A932A400C47E73 /* PermissionsManager+Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A844F4F20A932A400C47E73 /* PermissionsManager+Notifications.swift */; };
+		1A844F5320A934A800C47E73 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A844F5220A934A800C47E73 /* UIApplication+Extensions.swift */; };
 		1AD5F57B20A7A3BC008F9082 /* PermissionPromptTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5F57A20A7A3BC008F9082 /* PermissionPromptTableViewCell.swift */; };
 		1AD5F57D20A7A488008F9082 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AD5F57C20A7A488008F9082 /* Media.xcassets */; };
 		1AD5F57F20A7B23D008F9082 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5F57E20A7B23D008F9082 /* LocationTableViewCell.swift */; };
@@ -32,10 +34,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1A844F4220A908E900C47E73 /* NotificationsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsManager.swift; sourceTree = "<group>"; };
 		1A844F4420A908FF00C47E73 /* PermissionsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsManager.swift; sourceTree = "<group>"; };
 		1A844F4620A90AEB00C47E73 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		1A844F4920A90B3B00C47E73 /* ModalTransitioning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalTransitioning.swift; sourceTree = "<group>"; };
+		1A844F4D20A931B500C47E73 /* PermissionsManager+Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PermissionsManager+Location.swift"; sourceTree = "<group>"; };
+		1A844F4F20A932A400C47E73 /* PermissionsManager+Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PermissionsManager+Notifications.swift"; sourceTree = "<group>"; };
+		1A844F5220A934A800C47E73 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
 		1AD5F57A20A7A3BC008F9082 /* PermissionPromptTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionPromptTableViewCell.swift; sourceTree = "<group>"; };
 		1AD5F57C20A7A488008F9082 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		1AD5F57E20A7B23D008F9082 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
@@ -70,6 +74,7 @@
 		1A058FBC1F3E64A900D23193 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				1A844F5220A934A800C47E73 /* UIApplication+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -96,8 +101,9 @@
 			isa = PBXGroup;
 			children = (
 				1AE7DAA020A78C5700847B92 /* LocationManager.swift */,
-				1A844F4220A908E900C47E73 /* NotificationsManager.swift */,
 				1A844F4420A908FF00C47E73 /* PermissionsManager.swift */,
+				1A844F4D20A931B500C47E73 /* PermissionsManager+Location.swift */,
+				1A844F4F20A932A400C47E73 /* PermissionsManager+Notifications.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -256,10 +262,12 @@
 			files = (
 				1A844F4520A908FF00C47E73 /* PermissionsManager.swift in Sources */,
 				1A844F4720A90AEB00C47E73 /* AlertViewController.swift in Sources */,
+				1A844F5320A934A800C47E73 /* UIApplication+Extensions.swift in Sources */,
 				1AD5F57F20A7B23D008F9082 /* LocationTableViewCell.swift in Sources */,
 				1A844F4A20A90B3B00C47E73 /* ModalTransitioning.swift in Sources */,
 				1AD5F57B20A7A3BC008F9082 /* PermissionPromptTableViewCell.swift in Sources */,
-				1A844F4320A908E900C47E73 /* NotificationsManager.swift in Sources */,
+				1A844F5020A932A400C47E73 /* PermissionsManager+Notifications.swift in Sources */,
+				1A844F4E20A931B500C47E73 /* PermissionsManager+Location.swift in Sources */,
 				1AE7DAA120A78C5700847B92 /* LocationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -149,7 +149,7 @@ public class LocationTableViewCell: UITableViewCell {
     }
     
     private func showLocationButton() {
-        primaryButton.setImage(UIImage(named: "icon-map-pin", in: Bundle(for: LocationTableViewCell.self), compatibleWith: nil), for: .normal)
+        primaryButton.setImage(UIImage(named: "icon-pin", in: Bundle(for: LocationTableViewCell.self), compatibleWith: nil), for: .normal)
         primaryButton.setTitle(nil, for: .normal)
         primaryButton.isHidden = false
     }
