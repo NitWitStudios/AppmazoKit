@@ -13,6 +13,7 @@
 		1A844F4E20A931B500C47E73 /* PermissionsManager+Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A844F4D20A931B500C47E73 /* PermissionsManager+Location.swift */; };
 		1A844F5020A932A400C47E73 /* PermissionsManager+Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A844F4F20A932A400C47E73 /* PermissionsManager+Notifications.swift */; };
 		1A844F5320A934A800C47E73 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A844F5220A934A800C47E73 /* UIApplication+Extensions.swift */; };
+		1A8ECB5920AE5A0D00523E7D /* UIScrollView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8ECB5820AE5A0D00523E7D /* UIScrollView+Extensions.swift */; };
 		1AD5F57B20A7A3BC008F9082 /* PermissionPromptTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5F57A20A7A3BC008F9082 /* PermissionPromptTableViewCell.swift */; };
 		1AD5F57D20A7A488008F9082 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AD5F57C20A7A488008F9082 /* Media.xcassets */; };
 		1AD5F57F20A7B23D008F9082 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5F57E20A7B23D008F9082 /* LocationTableViewCell.swift */; };
@@ -40,6 +41,7 @@
 		1A844F4D20A931B500C47E73 /* PermissionsManager+Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PermissionsManager+Location.swift"; sourceTree = "<group>"; };
 		1A844F4F20A932A400C47E73 /* PermissionsManager+Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PermissionsManager+Notifications.swift"; sourceTree = "<group>"; };
 		1A844F5220A934A800C47E73 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
+		1A8ECB5820AE5A0D00523E7D /* UIScrollView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Extensions.swift"; sourceTree = "<group>"; };
 		1AD5F57A20A7A3BC008F9082 /* PermissionPromptTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionPromptTableViewCell.swift; sourceTree = "<group>"; };
 		1AD5F57C20A7A488008F9082 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		1AD5F57E20A7B23D008F9082 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
@@ -75,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				1A844F5220A934A800C47E73 /* UIApplication+Extensions.swift */,
+				1A8ECB5820AE5A0D00523E7D /* UIScrollView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 				1A844F4A20A90B3B00C47E73 /* ModalTransitioning.swift in Sources */,
 				1AD5F57B20A7A3BC008F9082 /* PermissionPromptTableViewCell.swift in Sources */,
 				1A844F5020A932A400C47E73 /* PermissionsManager+Notifications.swift in Sources */,
+				1A8ECB5920AE5A0D00523E7D /* UIScrollView+Extensions.swift in Sources */,
 				1A844F4E20A931B500C47E73 /* PermissionsManager+Location.swift in Sources */,
 				1AE7DAA120A78C5700847B92 /* LocationManager.swift in Sources */,
 			);

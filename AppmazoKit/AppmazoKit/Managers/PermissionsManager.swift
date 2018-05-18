@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreLocation
+import UserNotifications
 
 public class PermissionsManager: NSObject {
     public enum PermissionType {
@@ -28,5 +29,6 @@ public class PermissionsManager: NSObject {
         super.init()
         
         locationManager.delegate = self
+        UNUserNotificationCenter.current().delegate = self
     }
 }
