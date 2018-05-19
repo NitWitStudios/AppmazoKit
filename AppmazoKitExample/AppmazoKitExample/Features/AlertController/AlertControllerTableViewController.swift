@@ -81,21 +81,21 @@ class AlertControllerTableViewController: UITableViewController, Storyboardable 
         case Row.singleButton.rawValue:
             title = "Single Button Alert"
             message = "This is a simple alert that gives the user a single CTA."
-            alertActions.append(AlertAction(withTitle: "Dismiss", style: .normal, handler: nil))
+            alertActions.append(AlertAction(withTitle: "Dismiss", style: .filled, handler: nil))
         case Row.doubleButtonWithImage.rawValue:
             image = UIImage(named: "icon-radioactive")
             title = "Double Button with Image Alert"
             message = "This alert has an image and two CTAs with different styles."
-            alertActions.append(AlertAction(withTitle: "Whoa!", style: .normal, handler: nil))
-            alertActions.append(AlertAction(withTitle: "Dismiss", style: .text, handler: nil))
+            alertActions.append(AlertAction(withTitle: "Whoa!", style: .filled, handler: nil))
+            alertActions.append(AlertAction(withTitle: "Dismiss", style: .normal, handler: nil))
         case Row.tripleButton.rawValue:
             title = "Triple Button Alert"
             message = "This alert has three CTAs with different styles."
-            let coloredAlertAction = AlertAction(withTitle: "Whoa!", style: .normal, handler: nil)
+            let coloredAlertAction = AlertAction(withTitle: "Whoa!", style: .filled, handler: nil)
             coloredAlertAction.color = UIColor(red: 255.0/255.0, green: 76.0/255.0, blue: 0.0, alpha: 1.0)
             alertActions.append(coloredAlertAction)
             alertActions.append(AlertAction(withTitle: "Cool!", style: .hollow, handler: nil))
-            alertActions.append(AlertAction(withTitle: "Dismiss", style: .text, handler: nil))
+            alertActions.append(AlertAction(withTitle: "Dismiss", style: .normal, handler: nil))
         default:
             break
         }

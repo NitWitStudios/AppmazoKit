@@ -11,11 +11,11 @@ import UIKit
 public class Button: UIButton {
     public enum Style {
         case normal
+        case filled
         case hollow
-        case text
     }
     
-    private let style: Button.Style
+    public var style: Button.Style
     
     public var cornerRadius: CGFloat = 0.0 {
         didSet {
@@ -53,7 +53,9 @@ public class Button: UIButton {
     }
     
     required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        self.style = .normal
+        
+        super.init(coder: aDecoder)
     }
     
     // MARK: - UIButton
@@ -71,15 +73,15 @@ public class Button: UIButton {
     private func update() {
         switch style {
         case .normal:
+            backgroundColor = UIColor.clear
+            setTitleColor(titleColor ?? color, for: .normal)
+        case .filled:
             backgroundColor = color
             setTitleColor(titleColor ?? UIColor.white, for: .normal)
         case .hollow:
             backgroundColor = UIColor.clear
             layer.borderWidth = 1.0
             layer.borderColor = color.cgColor
-            setTitleColor(titleColor ?? color, for: .normal)
-        case .text:
-            backgroundColor = UIColor.clear
             setTitleColor(titleColor ?? color, for: .normal)
         }
     }

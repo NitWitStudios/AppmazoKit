@@ -7,14 +7,13 @@
 //
 
 import UIKit
-import ObjectiveC
 
 extension UIScrollView {
     private struct Key {
         static var keyboardObserver = "keyboardObserver"
     }
     
-    private class KeyboardObserver: NSObject {
+    public class KeyboardObserver: NSObject {
         static var keyboardFrame = CGRect.zero
         weak var scrollView: UIScrollView?
         var originalContentInset: CGFloat = 0.0
@@ -46,7 +45,7 @@ extension UIScrollView {
         }
     }
     
-    @objc var automaticallytAdjustsInsetsForKeyboard: Bool {
+    public var automaticallytAdjustsInsetsForKeyboard: Bool {
         get {
             return !(keyboardObserver == nil)
         }
@@ -60,7 +59,7 @@ extension UIScrollView {
         }
     }
     
-    func adjustInsetsForKeyboard() {
+    public func adjustInsetsForKeyboard() {
         adjustBottomInset(forKeyboardFrame: KeyboardObserver.keyboardFrame)
     }
     

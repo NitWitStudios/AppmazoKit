@@ -57,7 +57,7 @@ extension PermissionsManager {
                     alertViewController.addAction(AlertAction.actionWithTitle("Go to Settings", style: .normal, handler: { (alertAction) in
                         UIApplication.shared.open(URL(string:UIApplicationOpenSettingsURLString)!, options:[:], completionHandler:nil)
                     }))
-                    alertViewController.addAction(AlertAction.actionWithTitle("Maybe Later", style: .text, handler: nil))
+                    alertViewController.addAction(AlertAction.actionWithTitle("Maybe Later", style: .normal, handler: nil))
                     UIApplication.shared.keyWindow?.rootViewController?.present(alertViewController, animated: true, completion: nil)
                 }
             }

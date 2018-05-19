@@ -37,19 +37,19 @@ public class PermissionPromptTableViewCell: UITableViewCell {
     public var enabled: Bool = true {
         didSet {
             button.isEnabled = enabled
-            button.backgroundColor = enabled ? enabledColor : disabledColor
+            button.color = enabled ? enabledColor : disabledColor
         }
     }
     
     public var enabledColor: UIColor = UIColor(red: 3.0/255.0, green: 180.0/255.0, blue: 7.0/255.0, alpha: 1.0) {
         didSet {
-            button.backgroundColor = enabledColor
+            button.color = enabledColor
         }
     }
     
     public var disabledColor: UIColor = UIColor(red: 96.0/255.0, green: 96.0/255.0, blue: 96.0/255.0, alpha: 1.0) {
         didSet {
-            button.backgroundColor = disabledColor
+            button.color = disabledColor
         }
     }
     
@@ -78,7 +78,7 @@ public class PermissionPromptTableViewCell: UITableViewCell {
         detailsLabel.numberOfLines = 0
         self.contentView.addSubview(detailsLabel)
         
-        button = Button(style: .normal)
+        button = Button(style: .filled)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17.0)
         button.layer.cornerRadius = 4.0
         button.clipsToBounds = true

@@ -19,6 +19,8 @@ class ExampleTableViewController: UITableViewController, Storyboardable {
         case permissionsManager
         case locationManager
         case alertController
+        case splashAnimationViewController
+        case keyboardScroller
         case count
     }
 
@@ -43,6 +45,10 @@ class ExampleTableViewController: UITableViewController, Storyboardable {
             return "Location Manager"
         case (Section.main.rawValue, Row.alertController.rawValue):
             return "Alert Controllers"
+        case (Section.main.rawValue, Row.splashAnimationViewController.rawValue):
+            return "Splash Animation"
+        case (Section.main.rawValue, Row.keyboardScroller.rawValue):
+            return "Keyboard Scroller"
         default:
             return nil
         }
@@ -56,6 +62,10 @@ class ExampleTableViewController: UITableViewController, Storyboardable {
             return "Helps manage the user's location by providing a simplified manager with useful functions like getting user's current location, allowing custom locations entered as an address, storing last used location and more."
         case (Section.main.rawValue, Row.alertController.rawValue):
             return "A simple, efficient and familiar alert controller for a more elegant way to alert users."
+        case (Section.main.rawValue, Row.splashAnimationViewController.rawValue):
+            return "A simple view controller for showing a splash screen animation."
+        case (Section.main.rawValue, Row.keyboardScroller.rawValue):
+            return "A simple keyboard observer to allow UIScrollView to automatically scroll fields into view when the keyboard appears."
         default:
             return nil
         }
@@ -90,6 +100,18 @@ class ExampleTableViewController: UITableViewController, Storyboardable {
             navigationController?.pushViewController(LocationManagerTableViewController.viewControllerFromStoryboard(), animated: true)
         case (Section.main.rawValue, Row.alertController.rawValue):
             navigationController?.pushViewController(AlertControllerTableViewController.viewControllerFromStoryboard(), animated: true)
+        case (Section.main.rawValue, Row.splashAnimationViewController.rawValue):
+            if let filepath = Bundle.main.path(forResource: "Appmazo Logo Animation", ofType: "mp4") {
+                let fileURL = URL(fileURLWithPath: filepath)
+                let splashVideoViewController = SplashVideoViewController(videoURL: fileURL, videoSize: CGSize(width: 250.0, height: 150.0))
+                present(splashVideoViewController, animated: true) {
+                    splashVideoViewController.playVideo(completion: {
+                        splashVideoViewController.dismiss(animated: true, completion: nil)
+                    })
+                }
+            }
+        case (Section.main.rawValue, Row.keyboardScroller.rawValue):
+            navigationController?.pushViewController(KeyboardScrollerViewController.viewControllerFromStoryboard(), animated: true)
         default:
             break
         }
