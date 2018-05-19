@@ -9,9 +9,7 @@
 import AppmazoKit
 import UIKit
 
-class LocationManagerTableViewController: UITableViewController {
-    static let segueIdentifier = "LocationManagerTableViewControllerSegueIdentifier"
-    
+class LocationManagerTableViewController: UITableViewController, Storyboardable {    
     private let UITableViewCellReuseIdentifier = "UITableViewCellReuseIdentifier"
     
     private enum LocationManagerTableViewControllerSection: Int {
@@ -141,7 +139,7 @@ class LocationManagerTableViewController: UITableViewController {
 }
 
 extension LocationManagerTableViewController: PermissionPromptTableViewCellDelegate {
-    func permissionPromptTableViewCell(_ permissionPromptTableViewCell: PermissionPromptTableViewCell, buttonPressed: UIButton) {
+    func permissionPromptTableViewCell(_ permissionPromptTableViewCell: PermissionPromptTableViewCell, buttonPressed: Button) {
         permissionsManager.requestLocationPermission(.authorizedAlways)
     }
 }
@@ -155,7 +153,7 @@ extension LocationManagerTableViewController: LocationTableViewCellDelegate {
         }
     }
     
-    func locationTableViewCell(_ locationTableViewCell: LocationTableViewCell, locationButtonPressed locationButton: UIButton) {
+    func locationTableViewCell(_ locationTableViewCell: LocationTableViewCell, locationButtonPressed locationButton: Button) {
         locationTableViewCell.state = .loading
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1.0, execute: { // Add delay for smooth loading UI.
             LocationManager.shared.startUpdatingLocation()

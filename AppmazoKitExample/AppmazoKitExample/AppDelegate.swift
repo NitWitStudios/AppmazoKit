@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AppmazoKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,6 +20,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().isTranslucent = false
         UINavigationBar.appearance().tintColor = UIColor.white
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        
+        if let filepath = Bundle.main.path(forResource: "Appmazo Logo Animation", ofType: "mp4") {
+            let fileURL = URL(fileURLWithPath: filepath)
+            let splashVideoViewController = SplashVideoViewController(videoURL: fileURL, videoSize: CGSize(width: 250.0, height: 150.0))
+            window?.rootViewController = splashVideoViewController
+            splashVideoViewController.playVideo { [weak self] in
+                let transition = CATransition()
+                transition.duration = 0.5
+                transition.type = kCATransitionMoveIn
+                transition.subtype = kCATransitionFade
+                self?.window?.layer.add(transition, forKey: kCATransition)
+                self?.window?.rootViewController = UINavigationController(rootViewController: ExampleTableViewController.viewControllerFromStoryboard())
+            }
+        }
+
         return true
     }
 

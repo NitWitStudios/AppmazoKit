@@ -1,5 +1,5 @@
 //
-//  AlertViewController.swift
+//  AlertController.swift
 //  AppmazoKit
 //
 //  Created by James Hickman on 5/13/18.
@@ -8,20 +8,21 @@
 
 import UIKit
 
-public class AlertViewController: UIViewController, AlertActionDelegate {
+public class AlertController: UIViewController {
     private var modalTransitioning: ModalTransitioning!
     
-    private var containerView: UIView!
+    private var containerView = UIView()
+    private var imageView = UIImageView()
+    private var titleLabel = UILabel()
+    private var messageLabel = UILabel()
     private var customView: UIView?
-    private var imageView: UIImageView?
-    private var messageLabel: UILabel?
-    
+
     private var titleText: String?
     private var message: String?
     private var attributedMessage: NSAttributedString?
     
-    var image: UIImage?
-    var imageTintColor: UIColor?
+    public var image: UIImage?
+    public var imageTintColor: UIColor?
     
     var actions = [AlertAction]()
     
@@ -31,16 +32,16 @@ public class AlertViewController: UIViewController, AlertActionDelegate {
         fatalError("init(coder:) has not been implemented")
     }
     
-    class func alertControllerWithTitle(_ title: String, message: String) -> AlertViewController {
-        return AlertViewController(withTitle: title, message: message, attributedMessage: nil, customView: nil)
+    public class func alertControllerWithTitle(_ title: String, message: String) -> AlertController {
+        return AlertController(withTitle: title, message: message, attributedMessage: nil, customView: nil)
     }
     
-    class func alertControllerWithTitle(_ title: String, attributedMessage: NSAttributedString) -> AlertViewController {
-        return AlertViewController(withTitle: title, message: nil, attributedMessage: attributedMessage, customView: nil)
+    public class func alertControllerWithTitle(_ title: String, attributedMessage: NSAttributedString) -> AlertController {
+        return AlertController(withTitle: title, message: nil, attributedMessage: attributedMessage, customView: nil)
     }
     
-    class func alertControllerWithCustomView(_ customView: UIView) -> AlertViewController {
-        return AlertViewController(withTitle: nil, message: nil, attributedMessage: nil, customView: customView)
+    public class func alertControllerWithCustomView(_ customView: UIView) -> AlertController {
+        return AlertController(withTitle: nil, message: nil, attributedMessage: nil, customView: customView)
     }
     
     init(withTitle title: String?, message: String?, attributedMessage: NSAttributedString?, customView: UIView?) {
@@ -51,9 +52,9 @@ public class AlertViewController: UIViewController, AlertActionDelegate {
         self.attributedMessage = attributedMessage
         self.customView = customView
         
-        self.modalTransitioning = ModalTransitioning()
-        self.transitioningDelegate = self.modalTransitioning
-        self.modalPresentationStyle = .overFullScreen
+        modalTransitioning = ModalTransitioning()
+        transitioningDelegate = modalTransitioning
+        modalPresentationStyle = .overFullScreen
     }
     
     // MARK: - UIViewController
@@ -61,40 +62,25 @@ public class AlertViewController: UIViewController, AlertActionDelegate {
     public override func viewDidLoad() {
         super.viewDidLoad()
         
-        let containerView = UIView()
         containerView.backgroundColor = UIColor.white
         containerView.layer.borderColor = UIColor.white.cgColor
         containerView.layer.borderWidth = 1.0
         containerView.layer.cornerRadius = 3.0
         containerView.clipsToBounds = true
-        self.view.addSubview(containerView)
-        self.containerView = containerView
+        view.addSubview(containerView)
         
-        let views = [
-            "containerView": containerView
-        ]
-        let metrics = [String: AnyObject]()
+        let views = ["containerView": containerView]
+        let metrics = ["modalWidth": UIScreen.main.modalWidth()]
         
         for (_, view) in views {
             view.translatesAutoresizingMaskIntoConstraints = false
         }
-        
-        let portraitWidth = min(UIScreen.main.bounds.width, UIScreen.main.bounds.height)
-        if UIDevice.current.userInterfaceIdiom == .pad || portraitWidth == 414.0 {
-            // iPad / iPhone 7+
-            NSLayoutConstraint.activate(NSLayoutConstraint.constraints(withVisualFormat: "[containerView(382)]", options: [], metrics: metrics, views: views))
-        } else if portraitWidth == 375.0 {
-            // iPhone 7
-            NSLayoutConstraint.activate(NSLayoutConstraint.constraints(withVisualFormat: "[containerView(343)]", options: [], metrics: metrics, views: views))
-        } else {
-            // iPhone 4/5
-            NSLayoutConstraint.activate(NSLayoutConstraint.constraints(withVisualFormat: "[containerView(288)]", options: [], metrics: metrics, views: views))
-        }
-        
+
+        NSLayoutConstraint.activate(NSLayoutConstraint.constraints(withVisualFormat: "[containerView(modalWidth)]", options: [], metrics: metrics, views: views))
         NSLayoutConstraint.activate(NSLayoutConstraint.constraints(withVisualFormat: "V:|-(>=8)-[containerView]-(>=8)-|", options: [], metrics: metrics, views: views))
         
-        NSLayoutConstraint(item: containerView, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1.0, constant: 0.0).isActive = true
-        NSLayoutConstraint(item: containerView, attribute: .centerY, relatedBy: .equal, toItem: self.view, attribute: .centerY, multiplier: 1.0, constant: 0.0).isActive = true
+        NSLayoutConstraint(item: containerView, attribute: .centerX, relatedBy: .equal, toItem: view, attribute: .centerX, multiplier: 1.0, constant: 0.0).isActive = true
+        NSLayoutConstraint(item: containerView, attribute: .centerY, relatedBy: .equal, toItem: view, attribute: .centerY, multiplier: 1.0, constant: 0.0).isActive = true
         
         if customView != nil {
             setupCustomAlert()
@@ -105,16 +91,25 @@ public class AlertViewController: UIViewController, AlertActionDelegate {
         addActionConstraints()
     }
     
-    // MARK: - AlertViewController
+    // MARK: - AlertController
     
+    public func addAction(_ action: AlertAction) {
+        action.delegate = self
+        actions.append(action)
+    }
+    
+    public func addActions(_ actions: [AlertAction]) {
+        for action in actions {
+            action.delegate = self
+            self.actions.append(action)
+        }
+    }
+
     private func setupStandardAlert() {
-        let imageView = UIImageView()
         imageView.image = image
         imageView.contentMode = .scaleAspectFit
         containerView.addSubview(imageView)
-        self.imageView = imageView
         
-        let titleLabel = UILabel()
         titleLabel.font = UIFont.systemFont(ofSize: 17.0, weight: .medium)
         titleLabel.text = titleText
         titleLabel.textColor = UIColor.black
@@ -122,13 +117,12 @@ public class AlertViewController: UIViewController, AlertActionDelegate {
         titleLabel.numberOfLines = 0
         containerView.addSubview(titleLabel)
         
-        let messageLabel = UILabel()
+        messageLabel = UILabel()
         messageLabel.font = UIFont.systemFont(ofSize: 17.0, weight: .regular)
         messageLabel.textColor = UIColor.black
         messageLabel.textAlignment = .center
         messageLabel.numberOfLines = 0
         containerView.addSubview(messageLabel)
-        self.messageLabel = messageLabel
         
         let views = [
             "imageView": imageView,
@@ -169,7 +163,7 @@ public class AlertViewController: UIViewController, AlertActionDelegate {
             return
         }
         
-        self.containerView.addSubview(customView)
+        containerView.addSubview(customView)
         
         let views = [
             "customView": customView
@@ -185,7 +179,7 @@ public class AlertViewController: UIViewController, AlertActionDelegate {
     }
     
     private func addActionConstraints() {
-        var previousAction: UIButton?
+        var previousAction: Button?
         for (index, action) in actions.enumerated() {
             action.translatesAutoresizingMaskIntoConstraints = false
             containerView.addSubview(action)
@@ -219,22 +213,18 @@ public class AlertViewController: UIViewController, AlertActionDelegate {
             previousAction = action
         }
     }
-    
-    public func addAction(_ action: AlertAction) {
-        action.delegate = self
-        actions.append(action)
-    }
-    
-    // MARK: EBUIAlertActionDelegate
-    
+}
+
+extension AlertController: AlertActionDelegate {
     func alertActionPressed(_ alertAction: AlertAction) {
-        self.dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: {
+            alertAction.handler?(alertAction)
+        })
     }
 }
 
-public class AlertAction: UIButton {
-    private var style: AlertActionStyle!
-    private var handler: ((AlertAction) -> Void)?
+public class AlertAction: Button {
+    fileprivate var handler: ((AlertAction) -> Void)?
     
     fileprivate weak var delegate: AlertActionDelegate?
     
@@ -244,43 +234,29 @@ public class AlertAction: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     
-    init(withTitle title: String, style: AlertActionStyle, handler: ((AlertAction) -> Void)?) {
-        super.init(frame: CGRect.zero)
+    public init(withTitle title: String, style: AlertAction.Style, handler: ((AlertAction) -> Void)?) {
+        super.init(style: style)
         
-        self.style = style
         self.handler = handler
         
+        cornerRadius = 4.0
         titleLabel?.font = UIFont.systemFont(ofSize: 17.0, weight: .medium)
+        
         setTitle(title, for: .normal)
         addTarget(self, action: #selector(actionPressed(_:)), for: .touchUpInside)
-        
-        switch style {
-        case .button:
-            backgroundColor = UIColor(red: 51.0/255.0, green: 51.0/255.0, blue: 51.0/255.0, alpha: 1.0)
-            setTitleColor(UIColor.white, for: .normal)
-        case .text:
-            backgroundColor = UIColor.clear
-            setTitleColor(UIColor(red: 51.0/255.0, green: 51.0/255.0, blue: 51.0/255.0, alpha: 1.0), for: .normal)
-        }
     }
     
     // MARK: EBUIAlertAction
     
-    class func actionWithTitle(_ title: String, style: AlertActionStyle, handler: ((AlertAction) -> Void)?) -> AlertAction {
+    class func actionWithTitle(_ title: String, style: AlertAction.Style, handler: ((AlertAction) -> Void)?) -> AlertAction {
         return AlertAction(withTitle: title, style: style, handler: handler)
     }
     
     @objc private func actionPressed(_ sender: AlertAction) {
         delegate?.alertActionPressed(self)
-        handler?(sender)
     }
 }
 
 private protocol AlertActionDelegate: AnyObject {
     func alertActionPressed(_ alertAction: AlertAction)
-}
-
-public enum AlertActionStyle: Int {
-    case button
-    case text
 }

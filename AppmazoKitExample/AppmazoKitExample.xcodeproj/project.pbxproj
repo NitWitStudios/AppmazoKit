@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A205C4C20AF58EE002D5E06 /* Appmazo Logo Animation.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1A205C4B20AF58EE002D5E06 /* Appmazo Logo Animation.mp4 */; };
+		1A205C5620AF7828002D5E06 /* LocationManagerTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A205C5520AF7828002D5E06 /* LocationManagerTableViewController.storyboard */; };
+		1A205C5820AF7838002D5E06 /* PermissionsManagerTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A205C5720AF7838002D5E06 /* PermissionsManagerTableViewController.storyboard */; };
+		1A205C5A20AF8C3B002D5E06 /* AlertControllerTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A205C5920AF8C3B002D5E06 /* AlertControllerTableViewController.storyboard */; };
+		1A205C5C20AF8C54002D5E06 /* AlertControllerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A205C5B20AF8C54002D5E06 /* AlertControllerTableViewController.swift */; };
 		1A844F4C20A911C800C47E73 /* LocationManagerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A844F4B20A911C800C47E73 /* LocationManagerTableViewController.swift */; };
 		1A8ECB5B20AE5B9800523E7D /* AppmazoKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1AD5F58020A7C58F008F9082 /* AppmazoKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1AD5F54420A79976008F9082 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5F54320A79976008F9082 /* AppDelegate.swift */; };
@@ -15,8 +20,8 @@
 		1AD5F55920A79977008F9082 /* AppmazoKitExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5F55820A79977008F9082 /* AppmazoKitExampleTests.swift */; };
 		1AD5F56420A79977008F9082 /* AppmazoKitExampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5F56320A79977008F9082 /* AppmazoKitExampleUITests.swift */; };
 		1AD5F57420A79A11008F9082 /* ExampleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5F57120A79A11008F9082 /* ExampleTableViewController.swift */; };
-		1AD5F57520A79A11008F9082 /* PermissionsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5F57220A79A11008F9082 /* PermissionsTableViewController.swift */; };
-		1AD5F57620A79A11008F9082 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AD5F57320A79A11008F9082 /* Main.storyboard */; };
+		1AD5F57520A79A11008F9082 /* PermissionsManagerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5F57220A79A11008F9082 /* PermissionsManagerTableViewController.swift */; };
+		1AD5F57620A79A11008F9082 /* ExampleTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AD5F57320A79A11008F9082 /* ExampleTableViewController.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +56,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1A205C4B20AF58EE002D5E06 /* Appmazo Logo Animation.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Appmazo Logo Animation.mp4"; sourceTree = "<group>"; };
+		1A205C5520AF7828002D5E06 /* LocationManagerTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LocationManagerTableViewController.storyboard; sourceTree = "<group>"; };
+		1A205C5720AF7838002D5E06 /* PermissionsManagerTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PermissionsManagerTableViewController.storyboard; sourceTree = "<group>"; };
+		1A205C5920AF8C3B002D5E06 /* AlertControllerTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AlertControllerTableViewController.storyboard; sourceTree = "<group>"; };
+		1A205C5B20AF8C54002D5E06 /* AlertControllerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControllerTableViewController.swift; sourceTree = "<group>"; };
 		1A844F4B20A911C800C47E73 /* LocationManagerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManagerTableViewController.swift; sourceTree = "<group>"; };
 		1A8ECB5D20AE5F9D00523E7D /* AppmazoKitExample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AppmazoKitExample.entitlements; sourceTree = "<group>"; };
 		1AD5F54020A79976008F9082 /* AppmazoKitExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppmazoKitExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,8 +75,8 @@
 		1AD5F56320A79977008F9082 /* AppmazoKitExampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppmazoKitExampleUITests.swift; sourceTree = "<group>"; };
 		1AD5F56520A79977008F9082 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1AD5F57120A79A11008F9082 /* ExampleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleTableViewController.swift; sourceTree = "<group>"; };
-		1AD5F57220A79A11008F9082 /* PermissionsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PermissionsTableViewController.swift; sourceTree = "<group>"; };
-		1AD5F57320A79A11008F9082 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		1AD5F57220A79A11008F9082 /* PermissionsManagerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PermissionsManagerTableViewController.swift; sourceTree = "<group>"; };
+		1AD5F57320A79A11008F9082 /* ExampleTableViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ExampleTableViewController.storyboard; sourceTree = "<group>"; };
 		1AD5F58020A7C58F008F9082 /* AppmazoKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AppmazoKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -95,6 +105,79 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1A205C4920AF58D6002D5E06 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				1AD5F54A20A79977008F9082 /* Assets.xcassets */,
+				1A205C4A20AF58E2002D5E06 /* Videos */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		1A205C4A20AF58E2002D5E06 /* Videos */ = {
+			isa = PBXGroup;
+			children = (
+				1A205C4B20AF58EE002D5E06 /* Appmazo Logo Animation.mp4 */,
+			);
+			path = Videos;
+			sourceTree = "<group>";
+		};
+		1A205C5420AF77A2002D5E06 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1A8ECB5D20AE5F9D00523E7D /* AppmazoKitExample.entitlements */,
+				1AD5F54F20A79977008F9082 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1A205C5D20AF93B7002D5E06 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				1A205C5F20AF93D2002D5E06 /* AlertController */,
+				1A205C5E20AF93C1002D5E06 /* Examples */,
+				1A205C6120AF93E6002D5E06 /* LocationManager */,
+				1A205C6020AF93DC002D5E06 /* PermissionsManager */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		1A205C5E20AF93C1002D5E06 /* Examples */ = {
+			isa = PBXGroup;
+			children = (
+				1AD5F57320A79A11008F9082 /* ExampleTableViewController.storyboard */,
+				1AD5F57120A79A11008F9082 /* ExampleTableViewController.swift */,
+			);
+			path = Examples;
+			sourceTree = "<group>";
+		};
+		1A205C5F20AF93D2002D5E06 /* AlertController */ = {
+			isa = PBXGroup;
+			children = (
+				1A205C5920AF8C3B002D5E06 /* AlertControllerTableViewController.storyboard */,
+				1A205C5B20AF8C54002D5E06 /* AlertControllerTableViewController.swift */,
+			);
+			path = AlertController;
+			sourceTree = "<group>";
+		};
+		1A205C6020AF93DC002D5E06 /* PermissionsManager */ = {
+			isa = PBXGroup;
+			children = (
+				1A205C5720AF7838002D5E06 /* PermissionsManagerTableViewController.storyboard */,
+				1AD5F57220A79A11008F9082 /* PermissionsManagerTableViewController.swift */,
+			);
+			path = PermissionsManager;
+			sourceTree = "<group>";
+		};
+		1A205C6120AF93E6002D5E06 /* LocationManager */ = {
+			isa = PBXGroup;
+			children = (
+				1A205C5520AF7828002D5E06 /* LocationManagerTableViewController.storyboard */,
+				1A844F4B20A911C800C47E73 /* LocationManagerTableViewController.swift */,
+			);
+			path = LocationManager;
+			sourceTree = "<group>";
+		};
 		1AD5F53720A79976008F9082 = {
 			isa = PBXGroup;
 			children = (
@@ -119,15 +202,11 @@
 		1AD5F54220A79976008F9082 /* AppmazoKitExample */ = {
 			isa = PBXGroup;
 			children = (
-				1A8ECB5D20AE5F9D00523E7D /* AppmazoKitExample.entitlements */,
-				1AD5F54320A79976008F9082 /* AppDelegate.swift */,
-				1AD5F57320A79A11008F9082 /* Main.storyboard */,
-				1AD5F57120A79A11008F9082 /* ExampleTableViewController.swift */,
-				1A844F4B20A911C800C47E73 /* LocationManagerTableViewController.swift */,
-				1AD5F57220A79A11008F9082 /* PermissionsTableViewController.swift */,
 				1AD5F54C20A79977008F9082 /* LaunchScreen.storyboard */,
-				1AD5F54A20A79977008F9082 /* Assets.xcassets */,
-				1AD5F54F20A79977008F9082 /* Info.plist */,
+				1AD5F54320A79976008F9082 /* AppDelegate.swift */,
+				1A205C4920AF58D6002D5E06 /* Assets */,
+				1A205C5D20AF93B7002D5E06 /* Features */,
+				1A205C5420AF77A2002D5E06 /* Supporting Files */,
 			);
 			path = AppmazoKitExample;
 			sourceTree = "<group>";
@@ -268,9 +347,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1AD5F57620A79A11008F9082 /* Main.storyboard in Resources */,
+				1AD5F57620A79A11008F9082 /* ExampleTableViewController.storyboard in Resources */,
+				1A205C5820AF7838002D5E06 /* PermissionsManagerTableViewController.storyboard in Resources */,
 				1AD5F54E20A79977008F9082 /* LaunchScreen.storyboard in Resources */,
+				1A205C4C20AF58EE002D5E06 /* Appmazo Logo Animation.mp4 in Resources */,
+				1A205C5A20AF8C3B002D5E06 /* AlertControllerTableViewController.storyboard in Resources */,
 				1AD5F54B20A79977008F9082 /* Assets.xcassets in Resources */,
+				1A205C5620AF7828002D5E06 /* LocationManagerTableViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -295,10 +378,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A205C5C20AF8C54002D5E06 /* AlertControllerTableViewController.swift in Sources */,
 				1AD5F54420A79976008F9082 /* AppDelegate.swift in Sources */,
 				1AD5F57420A79A11008F9082 /* ExampleTableViewController.swift in Sources */,
 				1A844F4C20A911C800C47E73 /* LocationManagerTableViewController.swift in Sources */,
-				1AD5F57520A79A11008F9082 /* PermissionsTableViewController.swift in Sources */,
+				1AD5F57520A79A11008F9082 /* PermissionsManagerTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -463,10 +547,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = AppmazoKitExample/AppmazoKitExample.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "AppmazoKitExample/Supporting Files/AppmazoKitExample.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7X84H4EGBM;
-				INFOPLIST_FILE = AppmazoKitExample/Info.plist;
+				INFOPLIST_FILE = "AppmazoKitExample/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -482,10 +566,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = AppmazoKitExample/AppmazoKitExample.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "AppmazoKitExample/Supporting Files/AppmazoKitExample.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7X84H4EGBM;
-				INFOPLIST_FILE = AppmazoKitExample/Info.plist;
+				INFOPLIST_FILE = "AppmazoKitExample/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

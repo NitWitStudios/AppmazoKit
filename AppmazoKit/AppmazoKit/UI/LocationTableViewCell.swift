@@ -9,7 +9,7 @@
 import UIKit
 
 public protocol LocationTableViewCellDelegate: NSObjectProtocol {
-    func locationTableViewCell(_ locationTableViewCell: LocationTableViewCell, locationButtonPressed locationButton: UIButton)
+    func locationTableViewCell(_ locationTableViewCell: LocationTableViewCell, locationButtonPressed locationButton: Button)
     func locationTableViewCell(_ locationTableViewCell: LocationTableViewCell, locationTextUpdated locationText:String?)
 }
 
@@ -25,7 +25,7 @@ public class LocationTableViewCell: UITableViewCell {
     public weak var delegate: LocationTableViewCellDelegate?
     
     private let textField = UITextField()
-    private let primaryButton = UIButton()
+    private let primaryButton = Button(style: .normal)
     private let activtyIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
     private var editingConstraints: [NSLayoutConstraint]!
     private var loadingConstraints: [NSLayoutConstraint]!
@@ -168,7 +168,7 @@ public class LocationTableViewCell: UITableViewCell {
         textField.resignFirstResponder()
     }
     
-    @objc func primaryButtonPressed(_ sender: UIButton) {
+    @objc func primaryButtonPressed(_ sender: Button) {
         switch state {
         case .customLocation:
             state = .editingLocation

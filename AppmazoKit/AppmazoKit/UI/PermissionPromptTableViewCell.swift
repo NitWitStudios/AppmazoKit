@@ -9,7 +9,7 @@
 import UIKit
 
 public protocol PermissionPromptTableViewCellDelegate: NSObjectProtocol {
-    func permissionPromptTableViewCell(_ permissionPromptTableViewCell: PermissionPromptTableViewCell, buttonPressed: UIButton)
+    func permissionPromptTableViewCell(_ permissionPromptTableViewCell: PermissionPromptTableViewCell, buttonPressed: Button)
 }
 
 public class PermissionPromptTableViewCell: UITableViewCell {
@@ -32,7 +32,7 @@ public class PermissionPromptTableViewCell: UITableViewCell {
     public var iconImageView: UIImageView!
     public var titleLabel: UILabel!
     public var detailsLabel: UILabel!
-    public var button: UIButton!
+    public var button: Button!
     
     public var enabled: Bool = true {
         didSet {
@@ -78,7 +78,7 @@ public class PermissionPromptTableViewCell: UITableViewCell {
         detailsLabel.numberOfLines = 0
         self.contentView.addSubview(detailsLabel)
         
-        button = UIButton()
+        button = Button(style: .normal)
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 17.0)
         button.layer.cornerRadius = 4.0
         button.clipsToBounds = true
@@ -125,7 +125,7 @@ public class PermissionPromptTableViewCell: UITableViewCell {
         }
     }
     
-    @objc func buttonPressed(_ sender: UIButton) {
+    @objc func buttonPressed(_ sender: Button) {
         delegate?.permissionPromptTableViewCell(self, buttonPressed: sender)
     }
 }

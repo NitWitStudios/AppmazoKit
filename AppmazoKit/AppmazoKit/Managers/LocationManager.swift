@@ -1,5 +1,5 @@
 //
-//  PermissionsManager.swift
+//  LocationManager.swift
 //  AppmazoKit
 //
 //  Created by James Hickman on 5/12/18.
@@ -15,12 +15,11 @@ public class LocationManager: NSObject {
         return instance
     }()
         
-    public static let didUpdateLocationNotificationName = NSNotification.Name(rawValue: "PermissionsManagerDidUpdateLocationName")
-    public static let didUpdateLocationPermissionNotificationName = NSNotification.Name(rawValue: "PermissionsManagerDidUpdateLocationPermissionName")
+    public static let didUpdateLocationNotificationName = NSNotification.Name(rawValue: "LocationManagerDidUpdateLocationName")
 
-    private let PermissionsManagerShouldUseCustomLocationKey = "PermissionsManagerShouldUseCustomLocationKey"
-    private let PermissionsManagerLastLocationLatitudeKey = "PermissionsManagerLastLocationLatitudeKey"
-    private let PermissionsManagerLastLocationLongitudeKey = "PermissionsManagerLastLocationLongitudeKey"
+    private let LocationManagerShouldUseCustomLocationKey = "LocationManagerShouldUseCustomLocationKey"
+    private let LocationManagerLastLocationLatitudeKey = "LocationManagerLastLocationLatitudeKey"
+    private let LocationManagerLastLocationLongitudeKey = "LocationManagerLastLocationLongitudeKey"
 
     private let permissionsManager = PermissionsManager()
     private var locationManager = CLLocationManager()
@@ -31,7 +30,7 @@ public class LocationManager: NSObject {
     
     public var useCustomLocation: Bool = false {
         didSet {
-            UserDefaults.standard.set(useCustomLocation, forKey: PermissionsManagerShouldUseCustomLocationKey)
+            UserDefaults.standard.set(useCustomLocation, forKey: LocationManagerShouldUseCustomLocationKey)
             UserDefaults.standard.synchronize()
             startUpdatingLocation()
         }
@@ -46,7 +45,7 @@ public class LocationManager: NSObject {
         locationManager.delegate = self
         locationManager.distanceFilter = distanceFilter
         locationManager.desiredAccuracy = desiredAccuracy
-        useCustomLocation = UserDefaults.standard.bool(forKey: PermissionsManagerShouldUseCustomLocationKey)
+        useCustomLocation = UserDefaults.standard.bool(forKey: LocationManagerShouldUseCustomLocationKey)
         startUpdatingLocation()
     }
     
@@ -59,7 +58,7 @@ public class LocationManager: NSObject {
     }
     
     private func lastLocation() -> CLLocation? {
-        if let latitude = UserDefaults.standard.value(forKey: PermissionsManagerLastLocationLatitudeKey) as? Double, let longitude = UserDefaults.standard.value(forKey: PermissionsManagerLastLocationLongitudeKey) as? Double {
+        if let latitude = UserDefaults.standard.value(forKey: LocationManagerLastLocationLatitudeKey) as? Double, let longitude = UserDefaults.standard.value(forKey: LocationManagerLastLocationLongitudeKey) as? Double {
             return CLLocation(latitude: latitude, longitude: longitude)
         }
         
@@ -72,15 +71,15 @@ public class LocationManager: NSObject {
         guard let location = location else {
             isLocationUpdating = false
             currentAddress = nil
-            UserDefaults.standard.removeObject(forKey: PermissionsManagerLastLocationLatitudeKey)
-            UserDefaults.standard.removeObject(forKey: PermissionsManagerLastLocationLongitudeKey)
+            UserDefaults.standard.removeObject(forKey: LocationManagerLastLocationLatitudeKey)
+            UserDefaults.standard.removeObject(forKey: LocationManagerLastLocationLongitudeKey)
 
             postUpdatedLocationNotification()
             return
         }
         
-        UserDefaults.standard.set(location.coordinate.latitude, forKey: PermissionsManagerLastLocationLatitudeKey)
-        UserDefaults.standard.set(location.coordinate.longitude, forKey: PermissionsManagerLastLocationLongitudeKey)
+        UserDefaults.standard.set(location.coordinate.latitude, forKey: LocationManagerLastLocationLatitudeKey)
+        UserDefaults.standard.set(location.coordinate.longitude, forKey: LocationManagerLastLocationLongitudeKey)
         UserDefaults.standard.synchronize()
 
         addressForLocation(location, completion: {[weak self] (address, error) in
@@ -185,7 +184,7 @@ extension LocationManager: CLLocationManagerDelegate {
         } else if status == .denied {
             stopUpdatingLocation()
         }
-        NotificationCenter.default.post(name: LocationManager.didUpdateLocationPermissionNotificationName, object: nil, userInfo: nil)
+        NotificationCenter.default.post(name: PermissionsManager.didUpdateLocationAuthorizationNotificationName, object: nil, userInfo: nil)
     }
     
     public func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

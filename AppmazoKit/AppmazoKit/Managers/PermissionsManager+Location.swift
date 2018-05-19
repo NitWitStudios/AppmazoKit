@@ -10,10 +10,12 @@ import Foundation
 import CoreLocation
 
 extension PermissionsManager {
+    public static let didUpdateLocationAuthorizationNotificationName = NSNotification.Name(rawValue: "PermissionsManagerDidUpdateLocationAuthorizationName")
+
     public func requestLocationPermission(_ authorizationStatus: CLAuthorizationStatus) {
         guard CLLocationManager.authorizationStatus() == .notDetermined  else {
-            let alertViewController = AlertViewController.alertControllerWithTitle("Uh-Oh", message: "Looks like you previously set location services authorization for our app.\nPlease visit the Settings App and change the location permissions there.")
-            alertViewController.addAction(AlertAction.actionWithTitle("Go to Settings", style: .button, handler: { (alertAction) in
+            let alertViewController = AlertController.alertControllerWithTitle("Uh-Oh", message: "Looks like you already set the location permissions.\n\nYou can update the authorization in Settings.")
+            alertViewController.addAction(AlertAction.actionWithTitle("Go to Settings", style: .normal, handler: { (alertAction) in
                 UIApplication.shared.open(URL(string:UIApplicationOpenSettingsURLString)!, options:[:], completionHandler:nil)
             }))
             alertViewController.addAction(AlertAction.actionWithTitle("Maybe Later", style: .text, handler: nil))

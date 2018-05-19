@@ -19,24 +19,8 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "AppmazoKit/AppmazoKit/PermissionsManager/PermissionsManager.swift"
-            timestampString = "547948585.463851"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "useCustomLocation"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "AppmazoKit/AppmazoKit/UI/LocationTableViewCell.swift"
-            timestampString = "547961287.521139"
+            timestampString = "548382538.365345"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "144"
@@ -52,11 +36,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AppmazoKit/AppmazoKit/Managers/PermissionsManager+Notifications.swift"
-            timestampString = "548298678.401348"
+            timestampString = "548382538.3656549"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
             landmarkName = "isNotificationsAuthorized()"
             landmarkType = "7">
          </BreakpointContent>

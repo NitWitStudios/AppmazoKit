@@ -9,9 +9,7 @@
 import UIKit
 import AppmazoKit
 
-class PermissionsManagerTableViewController: UITableViewController, PermissionPromptTableViewCellDelegate {
-    static let segueIdentifier = "PermissionsManagerTableViewControllerSegueIdentifier"
-    
+class PermissionsManagerTableViewController: UITableViewController, Storyboardable, PermissionPromptTableViewCellDelegate {    
     private let UITableViewCellReuseIdentifier = "UITableViewCellReuseIdentifier"
     private let permissionsManager = PermissionsManager()
     
@@ -124,7 +122,7 @@ class PermissionsManagerTableViewController: UITableViewController, PermissionPr
     
     // MARK: - PermissionPromptTableViewCellDelegate
     
-    func permissionPromptTableViewCell(_ permissionPromptTableViewCell: PermissionPromptTableViewCell, buttonPressed: UIButton) {
+    func permissionPromptTableViewCell(_ permissionPromptTableViewCell: PermissionPromptTableViewCell, buttonPressed: Button) {
         let indexPath = tableView.indexPath(for: permissionPromptTableViewCell)
         
         switch indexPath?.section {

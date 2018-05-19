@@ -7,8 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1A205C4620AF56D2002D5E06 /* SplashVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A205C4520AF56D2002D5E06 /* SplashVideoViewController.swift */; };
+		1A205C4820AF5769002D5E06 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A205C4720AF5769002D5E06 /* UIView+Extensions.swift */; };
+		1A205C4E20AF5B56002D5E06 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A205C4D20AF5B56002D5E06 /* UIViewController+Extensions.swift */; };
+		1A205C5120AF6EDB002D5E06 /* Storyboardable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A205C5020AF6EDB002D5E06 /* Storyboardable.swift */; };
+		1A205C6520AF98F5002D5E06 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A205C6420AF98F5002D5E06 /* Button.swift */; };
+		1A205C6720AFA052002D5E06 /* UIScreen+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A205C6620AFA052002D5E06 /* UIScreen+Extensions.swift */; };
 		1A844F4520A908FF00C47E73 /* PermissionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A844F4420A908FF00C47E73 /* PermissionsManager.swift */; };
-		1A844F4720A90AEB00C47E73 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A844F4620A90AEB00C47E73 /* AlertViewController.swift */; };
+		1A844F4720A90AEB00C47E73 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A844F4620A90AEB00C47E73 /* AlertController.swift */; };
 		1A844F4A20A90B3B00C47E73 /* ModalTransitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A844F4920A90B3B00C47E73 /* ModalTransitioning.swift */; };
 		1A844F4E20A931B500C47E73 /* PermissionsManager+Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A844F4D20A931B500C47E73 /* PermissionsManager+Location.swift */; };
 		1A844F5020A932A400C47E73 /* PermissionsManager+Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A844F4F20A932A400C47E73 /* PermissionsManager+Notifications.swift */; };
@@ -35,8 +41,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1A205C4520AF56D2002D5E06 /* SplashVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashVideoViewController.swift; sourceTree = "<group>"; };
+		1A205C4720AF5769002D5E06 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		1A205C4D20AF5B56002D5E06 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		1A205C5020AF6EDB002D5E06 /* Storyboardable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboardable.swift; sourceTree = "<group>"; };
+		1A205C6420AF98F5002D5E06 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		1A205C6620AFA052002D5E06 /* UIScreen+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extensions.swift"; sourceTree = "<group>"; };
 		1A844F4420A908FF00C47E73 /* PermissionsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsManager.swift; sourceTree = "<group>"; };
-		1A844F4620A90AEB00C47E73 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
+		1A844F4620A90AEB00C47E73 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		1A844F4920A90B3B00C47E73 /* ModalTransitioning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalTransitioning.swift; sourceTree = "<group>"; };
 		1A844F4D20A931B500C47E73 /* PermissionsManager+Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PermissionsManager+Location.swift"; sourceTree = "<group>"; };
 		1A844F4F20A932A400C47E73 /* PermissionsManager+Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PermissionsManager+Notifications.swift"; sourceTree = "<group>"; };
@@ -77,7 +89,10 @@
 			isa = PBXGroup;
 			children = (
 				1A844F5220A934A800C47E73 /* UIApplication+Extensions.swift */,
+				1A205C6620AFA052002D5E06 /* UIScreen+Extensions.swift */,
 				1A8ECB5820AE5A0D00523E7D /* UIScrollView+Extensions.swift */,
+				1A205C4720AF5769002D5E06 /* UIView+Extensions.swift */,
+				1A205C4D20AF5B56002D5E06 /* UIViewController+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -85,11 +100,21 @@
 		1A058FBD1F3E64A900D23193 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				1AD5F57A20A7A3BC008F9082 /* PermissionPromptTableViewCell.swift */,
+				1A844F4620A90AEB00C47E73 /* AlertController.swift */,
 				1AD5F57E20A7B23D008F9082 /* LocationTableViewCell.swift */,
-				1A844F4620A90AEB00C47E73 /* AlertViewController.swift */,
+				1AD5F57A20A7A3BC008F9082 /* PermissionPromptTableViewCell.swift */,
+				1A205C4520AF56D2002D5E06 /* SplashVideoViewController.swift */,
+				1A205C6420AF98F5002D5E06 /* Button.swift */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		1A205C4F20AF6EC3002D5E06 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				1A205C5020AF6EDB002D5E06 /* Storyboardable.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		1A844F4820A90B0B00C47E73 /* Transitions */ = {
@@ -132,6 +157,7 @@
 		1AEE1DA61F3E606100C4ECE7 /* AppmazoKit */ = {
 			isa = PBXGroup;
 			children = (
+				1A205C4F20AF6EC3002D5E06 /* Protocols */,
 				1AD5F57C20A7A488008F9082 /* Media.xcassets */,
 				1AE7DA9F20A78C0F00847B92 /* Managers */,
 				1AEE1DA71F3E606100C4ECE7 /* AppmazoKit.h */,
@@ -264,13 +290,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A844F4520A908FF00C47E73 /* PermissionsManager.swift in Sources */,
-				1A844F4720A90AEB00C47E73 /* AlertViewController.swift in Sources */,
+				1A844F4720A90AEB00C47E73 /* AlertController.swift in Sources */,
+				1A205C5120AF6EDB002D5E06 /* Storyboardable.swift in Sources */,
+				1A205C6520AF98F5002D5E06 /* Button.swift in Sources */,
+				1A205C4E20AF5B56002D5E06 /* UIViewController+Extensions.swift in Sources */,
 				1A844F5320A934A800C47E73 /* UIApplication+Extensions.swift in Sources */,
 				1AD5F57F20A7B23D008F9082 /* LocationTableViewCell.swift in Sources */,
 				1A844F4A20A90B3B00C47E73 /* ModalTransitioning.swift in Sources */,
+				1A205C4620AF56D2002D5E06 /* SplashVideoViewController.swift in Sources */,
+				1A205C4820AF5769002D5E06 /* UIView+Extensions.swift in Sources */,
 				1AD5F57B20A7A3BC008F9082 /* PermissionPromptTableViewCell.swift in Sources */,
 				1A844F5020A932A400C47E73 /* PermissionsManager+Notifications.swift in Sources */,
 				1A8ECB5920AE5A0D00523E7D /* UIScrollView+Extensions.swift in Sources */,
+				1A205C6720AFA052002D5E06 /* UIScreen+Extensions.swift in Sources */,
 				1A844F4E20A931B500C47E73 /* PermissionsManager+Location.swift in Sources */,
 				1AE7DAA120A78C5700847B92 /* LocationManager.swift in Sources */,
 			);
