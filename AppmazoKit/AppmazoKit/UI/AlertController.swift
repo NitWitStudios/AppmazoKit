@@ -273,7 +273,7 @@ public class AlertAction: Button {
         addTarget(self, action: #selector(actionPressed(_:)), for: .touchUpInside)
     }
     
-    // MARK: EBUIAlertAction
+    // MARK: AlertAction
     
     class func actionWithTitle(_ title: String, style: AlertAction.Style, handler: ((AlertAction) -> Void)?) -> AlertAction {
         return AlertAction(withTitle: title, style: style, handler: handler)

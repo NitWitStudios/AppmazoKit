@@ -15,7 +15,7 @@ extension PermissionsManager {
     public func requestLocationPermission(_ authorizationStatus: CLAuthorizationStatus) {
         guard CLLocationManager.authorizationStatus() == .notDetermined  else {
             let alertViewController = AlertController.alertControllerWithTitle("Uh-Oh", message: "Looks like you already set the location permissions.\n\nYou can update the authorization in Settings.")
-            alertViewController.addAction(AlertAction.actionWithTitle("Go to Settings", style: .normal, handler: { (alertAction) in
+            alertViewController.addAction(AlertAction.actionWithTitle("Go to Settings", style: .filled, handler: { (alertAction) in
                 UIApplication.shared.open(URL(string:UIApplicationOpenSettingsURLString)!, options:[:], completionHandler:nil)
             }))
             alertViewController.addAction(AlertAction.actionWithTitle("Maybe Later", style: .normal, handler: nil))
