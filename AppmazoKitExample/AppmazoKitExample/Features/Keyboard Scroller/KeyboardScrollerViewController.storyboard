@@ -62,9 +62,18 @@
                                             <constraint firstItem="weR-u9-QO6" firstAttribute="top" secondItem="GWI-e7-vhj" secondAttribute="top" id="uAB-AT-YBI"/>
                                         </constraints>
                                     </view>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="logo-appmazo" translatesAutoresizingMaskIntoConstraints="NO" id="wal-RP-zBW">
+                                        <rect key="frame" x="119" y="133" width="137" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="137" id="WJF-ZB-JyQ"/>
+                                            <constraint firstAttribute="height" constant="34" id="yXI-oi-RHt"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <gestureRecognizers/>
                                 <constraints>
+                                    <constraint firstItem="weR-u9-QO6" firstAttribute="top" secondItem="wal-RP-zBW" secondAttribute="bottom" constant="93" id="BOa-MK-fM5"/>
+                                    <constraint firstItem="wal-RP-zBW" firstAttribute="centerX" secondItem="I43-Kt-90W" secondAttribute="centerX" id="N9d-Yx-Ivp"/>
                                     <constraint firstAttribute="bottom" secondItem="GWI-e7-vhj" secondAttribute="bottom" id="Tus-jT-fFC"/>
                                     <constraint firstItem="GWI-e7-vhj" firstAttribute="centerY" secondItem="I43-Kt-90W" secondAttribute="centerY" id="Yxy-3S-9Oo"/>
                                     <constraint firstItem="GWI-e7-vhj" firstAttribute="centerX" secondItem="I43-Kt-90W" secondAttribute="centerX" id="aRF-S4-qVY"/>
@@ -103,4 +112,7 @@
             <point key="canvasLocation" x="76" y="176.76161919040482"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="logo-appmazo" width="137" height="34"/>
+    </resources>
 </document>

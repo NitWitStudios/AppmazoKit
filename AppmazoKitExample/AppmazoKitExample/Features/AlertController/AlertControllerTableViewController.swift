@@ -92,7 +92,7 @@ class AlertControllerTableViewController: UITableViewController, Storyboardable 
             title = "Triple Button Alert"
             message = "This alert has three CTAs with different styles."
             let coloredAlertAction = AlertAction(withTitle: "Whoa!", style: .filled, handler: nil)
-            coloredAlertAction.color = UIColor(red: 255.0/255.0, green: 76.0/255.0, blue: 0.0, alpha: 1.0)
+            coloredAlertAction.color = UIColor.appmazoLightOrange
             alertActions.append(coloredAlertAction)
             alertActions.append(AlertAction(withTitle: "Cool!", style: .hollow, handler: nil))
             alertActions.append(AlertAction(withTitle: "Dismiss", style: .normal, handler: nil))

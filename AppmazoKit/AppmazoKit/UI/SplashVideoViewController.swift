@@ -15,8 +15,6 @@ public class SplashVideoViewController: UIViewController {
     private var videoSize: CGSize
 
     private let videoView = UIView()
-    
-    private var avPlayer: AVPlayer
     private var completion: (() -> Void)?
     
     // MARK: - Init
@@ -28,10 +26,11 @@ public class SplashVideoViewController: UIViewController {
     public init(videoURL: URL, videoSize: CGSize) {
         self.videoURL = videoURL
         self.videoSize = videoSize
-        avPlayer = AVPlayer(url: videoURL)
         
         super.init(nibName: nil, bundle: nil)
     
+        view.backgroundColor = UIColor.black
+        
         NotificationCenter.default.addObserver(self, selector:#selector(playerDidFinishPlaying(_:)),name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
     }
     
@@ -55,6 +54,7 @@ public class SplashVideoViewController: UIViewController {
     public func playVideo(completion: (() -> Void)?) {
         self.completion = completion
         
+        let avPlayer = AVPlayer(url: videoURL)
         let avPlayerController = AVPlayerViewController()
         avPlayerController.player = avPlayer
         avPlayerController.view.frame = videoView.bounds

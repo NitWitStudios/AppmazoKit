@@ -9,7 +9,7 @@
 import UIKit
 
 public class AlertController: UIViewController {
-    private var modalTransitioning: ModalTransitioning!
+    private var modalTransitioning = ModalTransitioning()
     
     private var containerView = UIView()
     private var imageView = UIImageView()
@@ -24,7 +24,22 @@ public class AlertController: UIViewController {
     public var image: UIImage?
     public var imageTintColor: UIColor?
     
-    var actions = [AlertAction]()
+    private var actions = [AlertAction]()
+    
+    public var modalBackgroundStyle: ModalTransitioning.BackgroundStyle = .clear {
+        didSet {
+            modalTransitioning.backgroundStyle = modalBackgroundStyle
+            if modalBackgroundStyle == .clear {
+                addShadow()
+            }
+        }
+    }
+    
+    public var showsShadow: Bool = false {
+        didSet {
+            showsShadow ? addShadow() : removeShadow()
+        }
+    }
     
     // MARK: - Init
     
@@ -52,7 +67,6 @@ public class AlertController: UIViewController {
         self.attributedMessage = attributedMessage
         self.customView = customView
         
-        modalTransitioning = ModalTransitioning()
         transitioningDelegate = modalTransitioning
         modalPresentationStyle = .overFullScreen
     }
@@ -66,7 +80,6 @@ public class AlertController: UIViewController {
         containerView.layer.borderColor = UIColor.white.cgColor
         containerView.layer.borderWidth = 1.0
         containerView.layer.cornerRadius = 3.0
-        containerView.clipsToBounds = true
         view.addSubview(containerView)
         
         let views = ["containerView": containerView]
@@ -212,6 +225,20 @@ public class AlertController: UIViewController {
             
             previousAction = action
         }
+    }
+    
+    private func addShadow() {
+        containerView.layer.shadowColor = UIColor.darkGray.cgColor
+        containerView.layer.shadowOpacity = 0.8
+        containerView.layer.shadowRadius = 5.0
+        containerView.layer.shadowOffset = CGSize(width: 2.0, height: 2.0)
+    }
+    
+    private func removeShadow() {
+        containerView.layer.shadowColor = UIColor.clear.cgColor
+        containerView.layer.shadowOpacity = 0.0
+        containerView.layer.shadowRadius = 0.0
+        containerView.layer.shadowOffset = CGSize.zero
     }
 }
 

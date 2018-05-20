@@ -45,6 +45,9 @@ extension UIScrollView {
         }
     }
     
+    /**
+     Automatically changes the scroll view's content size to accommodate the keyboard.
+     */
     public var automaticallytAdjustsInsetsForKeyboard: Bool {
         get {
             return !(keyboardObserver == nil)
@@ -59,6 +62,9 @@ extension UIScrollView {
         }
     }
     
+    /**
+     Manually changes the scroll view's content size to accommodate the keyboard.
+     */
     public func adjustInsetsForKeyboard() {
         adjustBottomInset(forKeyboardFrame: KeyboardObserver.keyboardFrame)
     }

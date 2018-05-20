@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().tintColor = UIColor.white
         UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
         
-        if let filepath = Bundle.main.path(forResource: "Appmazo Logo Animation", ofType: "mp4") {
+        if let filepath = Bundle.main.path(forResource: "appmazo-logo-animation-3840x2160", ofType: "mp4") {
             let fileURL = URL(fileURLWithPath: filepath)
             let splashVideoViewController = SplashVideoViewController(videoURL: fileURL, videoSize: CGSize(width: 250.0, height: 150.0))
             window?.rootViewController = splashVideoViewController

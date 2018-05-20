@@ -8,27 +8,31 @@
 
 import UIKit
 
-public enum ModalTransitioningType {
-    case transparent
-    case blurred
-}
 
-public class ModalTransitioning: NSObject, UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate {
-    public var type: ModalTransitioningType = .transparent
+public class ModalTransitioning: NSObject {
+    public enum BackgroundStyle {
+        case clear
+        case transparent
+        case blurred
+    }
+
+    public var backgroundStyle: BackgroundStyle = .transparent
     
-    private var isPresenting: Bool!
-    private var backgroundView: UIView!
-    private var containerView: UIView!
+    private var isPresenting = false
+    private var backgroundView: UIView?
+    private var containerView = UIView()
     
     // MARK: - ModalTransitioning
     
-    public func performPresentationAnimation(transitionContext: UIViewControllerContextTransitioning) {
+    private func performPresentationAnimation(transitionContext: UIViewControllerContextTransitioning) {
         let toViewController = transitionContext.viewController(forKey: .to)!
         let fromViewController = transitionContext.viewController(forKey: .from)!
         containerView = transitionContext.containerView
         
-        var backgroundView: UIView!
-        switch type {
+        var backgroundView: UIView?
+        switch backgroundStyle {
+        case .clear:
+            backgroundView = nil
         case .transparent:
             backgroundView = transparentBackgroundView()
         case .blurred:
@@ -36,7 +40,9 @@ public class ModalTransitioning: NSObject, UIViewControllerAnimatedTransitioning
         }
         
         self.backgroundView = backgroundView
-        containerView.addSubview(backgroundView)
+        if let backgroundView = backgroundView {
+            containerView.addSubview(backgroundView)
+        }
         
         toViewController.view.frame = transitionContext.finalFrame(for: toViewController)
         toViewController.view.transform = CGAffineTransform(translationX: 0.0, y: toViewController.view.bounds.size.height)
@@ -56,11 +62,11 @@ public class ModalTransitioning: NSObject, UIViewControllerAnimatedTransitioning
         }
         
         UIView.animate(withDuration: animationDuration * 0.75, delay: 0.0, options: [.curveEaseIn], animations: {
-            self.backgroundView.alpha = 1.0
+            self.backgroundView?.alpha = 1.0
         }, completion: nil)
     }
     
-    public func performDismissalAnimation(transitionContext: UIViewControllerContextTransitioning) {
+    private func performDismissalAnimation(transitionContext: UIViewControllerContextTransitioning) {
         let animationDuration = self.transitionDuration(using: transitionContext)
         let fromViewController = transitionContext.viewController(forKey: .from)!
         fromViewController.view.frame = transitionContext.finalFrame(for: fromViewController)
@@ -78,9 +84,9 @@ public class ModalTransitioning: NSObject, UIViewControllerAnimatedTransitioning
         }
         
         UIView.animate(withDuration: animationDuration, delay: 0.0, options: .curveEaseInOut, animations: {
-            self.backgroundView.alpha = 0.0
+            self.backgroundView?.alpha = 0.0
         }) { (finished) in
-            self.backgroundView.removeFromSuperview()
+            self.backgroundView?.removeFromSuperview()
         }
     }
     
@@ -99,9 +105,9 @@ public class ModalTransitioning: NSObject, UIViewControllerAnimatedTransitioning
         
         return backgroundView
     }
-    
-    // MARK: - UIViewControllerAnimatedTransitioning
-    
+}
+
+extension ModalTransitioning: UIViewControllerAnimatedTransitioning {
     public func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         if self.isPresenting {
             performPresentationAnimation(transitionContext: transitionContext)
@@ -116,9 +122,9 @@ public class ModalTransitioning: NSObject, UIViewControllerAnimatedTransitioning
         }
         return 0.3
     }
-    
-    // MARK: - UIViewControllerTransitioningDelegate
-    
+}
+
+extension ModalTransitioning: UIViewControllerTransitioningDelegate {
     public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         isPresenting = false
         return self

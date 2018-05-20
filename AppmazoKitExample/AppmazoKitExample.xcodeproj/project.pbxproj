@@ -7,13 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1A205C4C20AF58EE002D5E06 /* Appmazo Logo Animation.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1A205C4B20AF58EE002D5E06 /* Appmazo Logo Animation.mp4 */; };
 		1A205C5620AF7828002D5E06 /* LocationManagerTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A205C5520AF7828002D5E06 /* LocationManagerTableViewController.storyboard */; };
 		1A205C5820AF7838002D5E06 /* PermissionsManagerTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A205C5720AF7838002D5E06 /* PermissionsManagerTableViewController.storyboard */; };
 		1A205C5A20AF8C3B002D5E06 /* AlertControllerTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A205C5920AF8C3B002D5E06 /* AlertControllerTableViewController.storyboard */; };
 		1A205C5C20AF8C54002D5E06 /* AlertControllerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A205C5B20AF8C54002D5E06 /* AlertControllerTableViewController.swift */; };
 		1A4B81EE20B0D5C600ADBAE2 /* KeyboardScrollerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A4B81ED20B0D5C600ADBAE2 /* KeyboardScrollerViewController.storyboard */; };
 		1A4B81F020B0D5CE00ADBAE2 /* KeyboardScrollerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4B81EF20B0D5CE00ADBAE2 /* KeyboardScrollerViewController.swift */; };
+		1A4B81F720B0F72A00ADBAE2 /* ModalTransitioningTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A4B81F620B0F72A00ADBAE2 /* ModalTransitioningTableViewController.storyboard */; };
+		1A4B81F920B0F73600ADBAE2 /* ModalTransitioningTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4B81F820B0F73600ADBAE2 /* ModalTransitioningTableViewController.swift */; };
+		1A4B81FB20B10C7C00ADBAE2 /* appmazo-logo-animation-3840x2160.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1A4B81FA20B10C7C00ADBAE2 /* appmazo-logo-animation-3840x2160.mp4 */; };
+		1A4B81FE20B1111400ADBAE2 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4B81FD20B1111400ADBAE2 /* UIColor+Extensions.swift */; };
 		1A844F4C20A911C800C47E73 /* LocationManagerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A844F4B20A911C800C47E73 /* LocationManagerTableViewController.swift */; };
 		1A8ECB5B20AE5B9800523E7D /* AppmazoKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1AD5F58020A7C58F008F9082 /* AppmazoKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1AD5F54420A79976008F9082 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5F54320A79976008F9082 /* AppDelegate.swift */; };
@@ -58,13 +61,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1A205C4B20AF58EE002D5E06 /* Appmazo Logo Animation.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Appmazo Logo Animation.mp4"; sourceTree = "<group>"; };
 		1A205C5520AF7828002D5E06 /* LocationManagerTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LocationManagerTableViewController.storyboard; sourceTree = "<group>"; };
 		1A205C5720AF7838002D5E06 /* PermissionsManagerTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PermissionsManagerTableViewController.storyboard; sourceTree = "<group>"; };
 		1A205C5920AF8C3B002D5E06 /* AlertControllerTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AlertControllerTableViewController.storyboard; sourceTree = "<group>"; };
 		1A205C5B20AF8C54002D5E06 /* AlertControllerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertControllerTableViewController.swift; sourceTree = "<group>"; };
 		1A4B81ED20B0D5C600ADBAE2 /* KeyboardScrollerViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = KeyboardScrollerViewController.storyboard; sourceTree = "<group>"; };
 		1A4B81EF20B0D5CE00ADBAE2 /* KeyboardScrollerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardScrollerViewController.swift; sourceTree = "<group>"; };
+		1A4B81F620B0F72A00ADBAE2 /* ModalTransitioningTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ModalTransitioningTableViewController.storyboard; sourceTree = "<group>"; };
+		1A4B81F820B0F73600ADBAE2 /* ModalTransitioningTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalTransitioningTableViewController.swift; sourceTree = "<group>"; };
+		1A4B81FA20B10C7C00ADBAE2 /* appmazo-logo-animation-3840x2160.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "appmazo-logo-animation-3840x2160.mp4"; sourceTree = "<group>"; };
+		1A4B81FD20B1111400ADBAE2 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		1A844F4B20A911C800C47E73 /* LocationManagerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManagerTableViewController.swift; sourceTree = "<group>"; };
 		1A8ECB5D20AE5F9D00523E7D /* AppmazoKitExample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AppmazoKitExample.entitlements; sourceTree = "<group>"; };
 		1AD5F54020A79976008F9082 /* AppmazoKitExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppmazoKitExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,7 +127,7 @@
 		1A205C4A20AF58E2002D5E06 /* Videos */ = {
 			isa = PBXGroup;
 			children = (
-				1A205C4B20AF58EE002D5E06 /* Appmazo Logo Animation.mp4 */,
+				1A4B81FA20B10C7C00ADBAE2 /* appmazo-logo-animation-3840x2160.mp4 */,
 			);
 			path = Videos;
 			sourceTree = "<group>";
@@ -142,6 +148,7 @@
 				1A205C5E20AF93C1002D5E06 /* Examples */,
 				1A4B81EC20B0D59000ADBAE2 /* Keyboard Scroller */,
 				1A205C6120AF93E6002D5E06 /* LocationManager */,
+				1A4B81F520B0F70E00ADBAE2 /* Modal Transitioning */,
 				1A205C6020AF93DC002D5E06 /* PermissionsManager */,
 			);
 			path = Features;
@@ -192,6 +199,23 @@
 			path = "Keyboard Scroller";
 			sourceTree = "<group>";
 		};
+		1A4B81F520B0F70E00ADBAE2 /* Modal Transitioning */ = {
+			isa = PBXGroup;
+			children = (
+				1A4B81F620B0F72A00ADBAE2 /* ModalTransitioningTableViewController.storyboard */,
+				1A4B81F820B0F73600ADBAE2 /* ModalTransitioningTableViewController.swift */,
+			);
+			path = "Modal Transitioning";
+			sourceTree = "<group>";
+		};
+		1A4B81FC20B110FD00ADBAE2 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				1A4B81FD20B1111400ADBAE2 /* UIColor+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		1AD5F53720A79976008F9082 = {
 			isa = PBXGroup;
 			children = (
@@ -219,6 +243,7 @@
 				1AD5F54C20A79977008F9082 /* LaunchScreen.storyboard */,
 				1AD5F54320A79976008F9082 /* AppDelegate.swift */,
 				1A205C4920AF58D6002D5E06 /* Assets */,
+				1A4B81FC20B110FD00ADBAE2 /* Extensions */,
 				1A205C5D20AF93B7002D5E06 /* Features */,
 				1A205C5420AF77A2002D5E06 /* Supporting Files */,
 			);
@@ -362,13 +387,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				1AD5F57620A79A11008F9082 /* ExampleTableViewController.storyboard in Resources */,
+				1A4B81F720B0F72A00ADBAE2 /* ModalTransitioningTableViewController.storyboard in Resources */,
 				1A205C5820AF7838002D5E06 /* PermissionsManagerTableViewController.storyboard in Resources */,
 				1AD5F54E20A79977008F9082 /* LaunchScreen.storyboard in Resources */,
-				1A205C4C20AF58EE002D5E06 /* Appmazo Logo Animation.mp4 in Resources */,
 				1A205C5A20AF8C3B002D5E06 /* AlertControllerTableViewController.storyboard in Resources */,
 				1AD5F54B20A79977008F9082 /* Assets.xcassets in Resources */,
 				1A4B81EE20B0D5C600ADBAE2 /* KeyboardScrollerViewController.storyboard in Resources */,
 				1A205C5620AF7828002D5E06 /* LocationManagerTableViewController.storyboard in Resources */,
+				1A4B81FB20B10C7C00ADBAE2 /* appmazo-logo-animation-3840x2160.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,8 +422,10 @@
 				1A205C5C20AF8C54002D5E06 /* AlertControllerTableViewController.swift in Sources */,
 				1AD5F54420A79976008F9082 /* AppDelegate.swift in Sources */,
 				1AD5F57420A79A11008F9082 /* ExampleTableViewController.swift in Sources */,
+				1A4B81FE20B1111400ADBAE2 /* UIColor+Extensions.swift in Sources */,
 				1A844F4C20A911C800C47E73 /* LocationManagerTableViewController.swift in Sources */,
 				1AD5F57520A79A11008F9082 /* PermissionsManagerTableViewController.swift in Sources */,
+				1A4B81F920B0F73600ADBAE2 /* ModalTransitioningTableViewController.swift in Sources */,
 				1A4B81F020B0D5CE00ADBAE2 /* KeyboardScrollerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

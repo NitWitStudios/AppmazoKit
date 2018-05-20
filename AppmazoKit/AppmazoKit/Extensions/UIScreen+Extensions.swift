@@ -7,7 +7,12 @@
 //
 
 extension UIScreen {
-    func modalWidth() -> CGFloat {
+    /**
+     Get the preferred modal width for current device.
+     
+     - returns: Preferred width for modal presentations.
+     */
+    public func modalWidth() -> CGFloat {
         let portraitWidth = min(bounds.width, bounds.height)
         if UIDevice.current.userInterfaceIdiom == .pad || portraitWidth == 414.0 {
             // iPad / iPhone 7+

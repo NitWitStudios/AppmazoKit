@@ -13,7 +13,7 @@ extension UIView {
      Adds the subview to the parent and attaches constraints to all edges.
      
      - parameters:
-     - view: The subview to add.
+        - view: The subview to add.
      
      */
     public func fillWithSubview(_ view: UIView) {
@@ -24,11 +24,10 @@ extension UIView {
      Adds the subview to the parent and attaches constraints to all edges.
      
      - parameters:
-     - view: The subview to add.
-     - usingSafeAreaGuide: If *true* then it will use the view's *safeAreaGuide* anchors *(available on iOS 11+)*.
-     
-     - Important:
-     You should only set *safeAreaGuide* to *true* if the view is the outermost view of the view controller. Using *safeAreaGuide* with embedded views will cause problems. *(i.e. UIScrollView's content won't scroll)*
+        - view: The subview to add.
+        - usingSafeAreaGuide: Determines if the safeAreaGuide should be used if available.
+     - important:
+     You should only set safeAreaGuide to true if the view is the outermost view of the view controller. Using safeAreaGuide with embedded views will cause problems. *(i.e. UIScrollView's content won't scroll)*
      */
     public func fillWithSubview(_ view: UIView, usingSafeAreaGuide: Bool) {
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -51,9 +50,8 @@ extension UIView {
      Adds the subview to the parent, and centers on another view.
      
      - parameters:
-     - view: The view to add.
-     - centeredView: The view to center on. It does not need to be the view's superview, but must be within the superview.
-     
+        - view: The view to add.
+        - centeredView: The view to center on. It does not need to be the view's superview, but must be within the same superview.
      */
     public func addSubview(_ view: UIView, centeredWithView centeredView: UIView) {
         view.translatesAutoresizingMaskIntoConstraints = false
