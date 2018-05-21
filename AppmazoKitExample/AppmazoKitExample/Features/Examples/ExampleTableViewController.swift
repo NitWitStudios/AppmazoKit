@@ -20,6 +20,7 @@ class ExampleTableViewController: UITableViewController, Storyboardable {
     private enum ManagersRow: Int {
         case permissionsManager
         case locationManager
+        case biometrics
         case count
     }
 
@@ -54,6 +55,8 @@ class ExampleTableViewController: UITableViewController, Storyboardable {
             return "Permissions Manager"
         case (Section.managers.rawValue, ManagersRow.locationManager.rawValue):
             return "Location Manager"
+        case (Section.managers.rawValue, ManagersRow.biometrics.rawValue):
+            return "Biometrics Manager"
         case (Section.ui.rawValue, UIRow.splashAnimationViewController.rawValue):
             return "Splash Animation"
         case (Section.ui.rawValue, UIRow.alertController.rawValue):
@@ -73,6 +76,8 @@ class ExampleTableViewController: UITableViewController, Storyboardable {
             return "Helps streamline and manage common OS level permissions such as Location, Push Notifications and more."
         case (Section.managers.rawValue, ManagersRow.locationManager.rawValue):
             return "Helps manage the user's location by providing a simplified manager with useful functions like getting user's current location, allowing custom locations entered as an address, storing last used location and more."
+        case (Section.managers.rawValue, ManagersRow.biometrics.rawValue):
+            return "A simple way for storing user credentials for use with Biometric verification."
         case (Section.ui.rawValue, UIRow.splashAnimationViewController.rawValue):
             return "A simple view controller for showing a splash screen animation."
         case (Section.ui.rawValue, UIRow.alertController.rawValue):
@@ -135,6 +140,8 @@ class ExampleTableViewController: UITableViewController, Storyboardable {
             navigationController?.pushViewController(PermissionsManagerTableViewController.viewControllerFromStoryboard(), animated: true)
         case (Section.managers.rawValue, ManagersRow.locationManager.rawValue):
             navigationController?.pushViewController(LocationManagerTableViewController.viewControllerFromStoryboard(), animated: true)
+        case (Section.managers.rawValue, ManagersRow.biometrics.rawValue):
+            navigationController?.pushViewController(BiometricsViewController.viewControllerFromStoryboard(), animated: true)
         case (Section.ui.rawValue, UIRow.splashAnimationViewController.rawValue):
             if let filepath = Bundle.main.path(forResource: "appmazo-logo-animation-3840x2160", ofType: "mp4") {
                 let fileURL = URL(fileURLWithPath: filepath)

@@ -13,8 +13,12 @@
 		1A205C5120AF6EDB002D5E06 /* Storyboardable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A205C5020AF6EDB002D5E06 /* Storyboardable.swift */; };
 		1A205C6520AF98F5002D5E06 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A205C6420AF98F5002D5E06 /* Button.swift */; };
 		1A205C6720AFA052002D5E06 /* UIScreen+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A205C6620AFA052002D5E06 /* UIScreen+Extensions.swift */; };
+		1A361B9420B252B70080A6C4 /* BiometricsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A361B9320B252B70080A6C4 /* BiometricsManager.swift */; };
 		1A4B81F220B0ECD100ADBAE2 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4B81F120B0ECD100ADBAE2 /* Date+Extensions.swift */; };
 		1A4B81F420B0EDA600ADBAE2 /* UINavigationController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4B81F320B0EDA600ADBAE2 /* UINavigationController+Extensions.swift */; };
+		1A4D4DA720B1F03D00659ADF /* UIDevice+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4D4DA620B1F03D00659ADF /* UIDevice+Extensions.swift */; };
+		1A4D4DAA20B1F0E900659ADF /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A4D4DA920B1F0E900659ADF /* LocalAuthentication.framework */; };
+		1A4D4DAF20B1FA9200659ADF /* KeychainPasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4D4DAE20B1FA9200659ADF /* KeychainPasswordItem.swift */; };
 		1A844F4520A908FF00C47E73 /* PermissionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A844F4420A908FF00C47E73 /* PermissionsManager.swift */; };
 		1A844F4720A90AEB00C47E73 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A844F4620A90AEB00C47E73 /* AlertController.swift */; };
 		1A844F4A20A90B3B00C47E73 /* ModalTransitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A844F4920A90B3B00C47E73 /* ModalTransitioning.swift */; };
@@ -49,8 +53,12 @@
 		1A205C5020AF6EDB002D5E06 /* Storyboardable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storyboardable.swift; sourceTree = "<group>"; };
 		1A205C6420AF98F5002D5E06 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		1A205C6620AFA052002D5E06 /* UIScreen+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extensions.swift"; sourceTree = "<group>"; };
+		1A361B9320B252B70080A6C4 /* BiometricsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricsManager.swift; sourceTree = "<group>"; };
 		1A4B81F120B0ECD100ADBAE2 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		1A4B81F320B0EDA600ADBAE2 /* UINavigationController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extensions.swift"; sourceTree = "<group>"; };
+		1A4D4DA620B1F03D00659ADF /* UIDevice+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extensions.swift"; sourceTree = "<group>"; };
+		1A4D4DA920B1F0E900659ADF /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
+		1A4D4DAE20B1FA9200659ADF /* KeychainPasswordItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainPasswordItem.swift; sourceTree = "<group>"; };
 		1A844F4420A908FF00C47E73 /* PermissionsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsManager.swift; sourceTree = "<group>"; };
 		1A844F4620A90AEB00C47E73 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		1A844F4920A90B3B00C47E73 /* ModalTransitioning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalTransitioning.swift; sourceTree = "<group>"; };
@@ -75,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A4D4DAA20B1F0E900659ADF /* LocalAuthentication.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +103,7 @@
 			children = (
 				1A4B81F120B0ECD100ADBAE2 /* Date+Extensions.swift */,
 				1A844F5220A934A800C47E73 /* UIApplication+Extensions.swift */,
+				1A4D4DA620B1F03D00659ADF /* UIDevice+Extensions.swift */,
 				1A4B81F320B0EDA600ADBAE2 /* UINavigationController+Extensions.swift */,
 				1A205C6620AFA052002D5E06 /* UIScreen+Extensions.swift */,
 				1A8ECB5820AE5A0D00523E7D /* UIScrollView+Extensions.swift */,
@@ -123,6 +133,22 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		1A4D4DA820B1F0E900659ADF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1A4D4DA920B1F0E900659ADF /* LocalAuthentication.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1A4D4DAD20B1FA6900659ADF /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				1A4D4DAE20B1FA9200659ADF /* KeychainPasswordItem.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		1A844F4820A90B0B00C47E73 /* Transitions */ = {
 			isa = PBXGroup;
 			children = (
@@ -134,6 +160,7 @@
 		1AE7DA9F20A78C0F00847B92 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				1A361B9320B252B70080A6C4 /* BiometricsManager.swift */,
 				1AE7DAA020A78C5700847B92 /* LocationManager.swift */,
 				1A844F4420A908FF00C47E73 /* PermissionsManager.swift */,
 				1A844F4D20A931B500C47E73 /* PermissionsManager+Location.swift */,
@@ -148,6 +175,7 @@
 				1AEE1DA61F3E606100C4ECE7 /* AppmazoKit */,
 				1AEE1DB11F3E606100C4ECE7 /* AppmazoKitTests */,
 				1AEE1DA51F3E606100C4ECE7 /* Products */,
+				1A4D4DA820B1F0E900659ADF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -163,12 +191,13 @@
 		1AEE1DA61F3E606100C4ECE7 /* AppmazoKit */ = {
 			isa = PBXGroup;
 			children = (
-				1A205C4F20AF6EC3002D5E06 /* Protocols */,
 				1AD5F57C20A7A488008F9082 /* Media.xcassets */,
+				1A058FBC1F3E64A900D23193 /* Extensions */,
+				1A4D4DAD20B1FA6900659ADF /* Helpers */,
 				1AE7DA9F20A78C0F00847B92 /* Managers */,
 				1AEE1DA71F3E606100C4ECE7 /* AppmazoKit.h */,
 				1AEE1DA81F3E606100C4ECE7 /* Info.plist */,
-				1A058FBC1F3E64A900D23193 /* Extensions */,
+				1A205C4F20AF6EC3002D5E06 /* Protocols */,
 				1A844F4820A90B0B00C47E73 /* Transitions */,
 				1A058FBD1F3E64A900D23193 /* UI */,
 			);
@@ -303,13 +332,16 @@
 				1A844F5320A934A800C47E73 /* UIApplication+Extensions.swift in Sources */,
 				1AD5F57F20A7B23D008F9082 /* LocationTableViewCell.swift in Sources */,
 				1A4B81F420B0EDA600ADBAE2 /* UINavigationController+Extensions.swift in Sources */,
+				1A4D4DA720B1F03D00659ADF /* UIDevice+Extensions.swift in Sources */,
 				1A844F4A20A90B3B00C47E73 /* ModalTransitioning.swift in Sources */,
 				1A4B81F220B0ECD100ADBAE2 /* Date+Extensions.swift in Sources */,
 				1A205C4620AF56D2002D5E06 /* SplashVideoViewController.swift in Sources */,
 				1A205C4820AF5769002D5E06 /* UIView+Extensions.swift in Sources */,
+				1A361B9420B252B70080A6C4 /* BiometricsManager.swift in Sources */,
 				1AD5F57B20A7A3BC008F9082 /* PermissionPromptTableViewCell.swift in Sources */,
 				1A844F5020A932A400C47E73 /* PermissionsManager+Notifications.swift in Sources */,
 				1A8ECB5920AE5A0D00523E7D /* UIScrollView+Extensions.swift in Sources */,
+				1A4D4DAF20B1FA9200659ADF /* KeychainPasswordItem.swift in Sources */,
 				1A205C6720AFA052002D5E06 /* UIScreen+Extensions.swift in Sources */,
 				1A844F4E20A931B500C47E73 /* PermissionsManager+Location.swift in Sources */,
 				1AE7DAA120A78C5700847B92 /* LocationManager.swift in Sources */,
@@ -465,7 +497,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AppmazoKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.appmazo.AppmazoKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -488,7 +520,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = AppmazoKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.appmazo.AppmazoKit;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";

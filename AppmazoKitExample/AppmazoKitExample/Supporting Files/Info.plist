@@ -30,6 +30,8 @@
 	<string>To use your location for our app features.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>To use your location for our app features.</string>
+	<key>NSFaceIDUsageDescription</key>
+	<string>To verify your identity.</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

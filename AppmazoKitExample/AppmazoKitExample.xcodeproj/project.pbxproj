@@ -17,6 +17,8 @@
 		1A4B81F920B0F73600ADBAE2 /* ModalTransitioningTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4B81F820B0F73600ADBAE2 /* ModalTransitioningTableViewController.swift */; };
 		1A4B81FB20B10C7C00ADBAE2 /* appmazo-logo-animation-3840x2160.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 1A4B81FA20B10C7C00ADBAE2 /* appmazo-logo-animation-3840x2160.mp4 */; };
 		1A4B81FE20B1111400ADBAE2 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4B81FD20B1111400ADBAE2 /* UIColor+Extensions.swift */; };
+		1A4D4DB220B1FE5300659ADF /* BiometricsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A4D4DB120B1FE5300659ADF /* BiometricsViewController.storyboard */; };
+		1A4D4DB420B1FE6100659ADF /* BiometricsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4D4DB320B1FE6100659ADF /* BiometricsViewController.swift */; };
 		1A844F4C20A911C800C47E73 /* LocationManagerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A844F4B20A911C800C47E73 /* LocationManagerTableViewController.swift */; };
 		1A8ECB5B20AE5B9800523E7D /* AppmazoKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1AD5F58020A7C58F008F9082 /* AppmazoKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1AD5F54420A79976008F9082 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5F54320A79976008F9082 /* AppDelegate.swift */; };
@@ -71,6 +73,8 @@
 		1A4B81F820B0F73600ADBAE2 /* ModalTransitioningTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalTransitioningTableViewController.swift; sourceTree = "<group>"; };
 		1A4B81FA20B10C7C00ADBAE2 /* appmazo-logo-animation-3840x2160.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "appmazo-logo-animation-3840x2160.mp4"; sourceTree = "<group>"; };
 		1A4B81FD20B1111400ADBAE2 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
+		1A4D4DB120B1FE5300659ADF /* BiometricsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = BiometricsViewController.storyboard; sourceTree = "<group>"; };
+		1A4D4DB320B1FE6100659ADF /* BiometricsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricsViewController.swift; sourceTree = "<group>"; };
 		1A844F4B20A911C800C47E73 /* LocationManagerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManagerTableViewController.swift; sourceTree = "<group>"; };
 		1A8ECB5D20AE5F9D00523E7D /* AppmazoKitExample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AppmazoKitExample.entitlements; sourceTree = "<group>"; };
 		1AD5F54020A79976008F9082 /* AppmazoKitExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppmazoKitExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -145,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				1A205C5F20AF93D2002D5E06 /* AlertController */,
+				1A4D4DB020B1FE3D00659ADF /* Biometrics */,
 				1A205C5E20AF93C1002D5E06 /* Examples */,
 				1A4B81EC20B0D59000ADBAE2 /* Keyboard Scroller */,
 				1A205C6120AF93E6002D5E06 /* LocationManager */,
@@ -214,6 +219,15 @@
 				1A4B81FD20B1111400ADBAE2 /* UIColor+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		1A4D4DB020B1FE3D00659ADF /* Biometrics */ = {
+			isa = PBXGroup;
+			children = (
+				1A4D4DB120B1FE5300659ADF /* BiometricsViewController.storyboard */,
+				1A4D4DB320B1FE6100659ADF /* BiometricsViewController.swift */,
+			);
+			path = Biometrics;
 			sourceTree = "<group>";
 		};
 		1AD5F53720A79976008F9082 = {
@@ -346,6 +360,9 @@
 					1AD5F53F20A79976008F9082 = {
 						CreatedOnToolsVersion = 9.3;
 						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
 							com.apple.Push = {
 								enabled = 1;
 							};
@@ -386,6 +403,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A4D4DB220B1FE5300659ADF /* BiometricsViewController.storyboard in Resources */,
 				1AD5F57620A79A11008F9082 /* ExampleTableViewController.storyboard in Resources */,
 				1A4B81F720B0F72A00ADBAE2 /* ModalTransitioningTableViewController.storyboard in Resources */,
 				1A205C5820AF7838002D5E06 /* PermissionsManagerTableViewController.storyboard in Resources */,
@@ -426,6 +444,7 @@
 				1A844F4C20A911C800C47E73 /* LocationManagerTableViewController.swift in Sources */,
 				1AD5F57520A79A11008F9082 /* PermissionsManagerTableViewController.swift in Sources */,
 				1A4B81F920B0F73600ADBAE2 /* ModalTransitioningTableViewController.swift in Sources */,
+				1A4D4DB420B1FE6100659ADF /* BiometricsViewController.swift in Sources */,
 				1A4B81F020B0D5CE00ADBAE2 /* KeyboardScrollerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -524,7 +543,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -578,7 +597,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -595,6 +614,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7X84H4EGBM;
 				INFOPLIST_FILE = "AppmazoKitExample/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -614,6 +634,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7X84H4EGBM;
 				INFOPLIST_FILE = "AppmazoKitExample/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

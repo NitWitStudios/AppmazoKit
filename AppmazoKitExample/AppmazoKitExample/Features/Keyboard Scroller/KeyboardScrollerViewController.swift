@@ -23,7 +23,7 @@ class KeyboardScrollerViewController: UIViewController, Storyboardable {
     
         title = "Keyboard Scroller"
         
-        scrollView.backgroundColor = UIColor(red: 51.0/255.0, green: 51.0/255.0, blue: 51.0/255.0, alpha: 1.0)
+        view.backgroundColor = UIColor(red: 51.0/255.0, green: 51.0/255.0, blue: 51.0/255.0, alpha: 1.0)
         scrollView.automaticallytAdjustsInsetsForKeyboard = true
         
         loginButton.style = .filled

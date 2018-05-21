@@ -49,6 +49,7 @@ public class Button: UIButton {
         
         super.init(frame: CGRect.zero)
         
+        titleEdgeInsets = UIEdgeInsets(top: 5.0, left: 5.0, bottom: 5.0, right: 5.0)
         update()
     }
     
@@ -56,6 +57,8 @@ public class Button: UIButton {
         self.style = .normal
         
         super.init(coder: aDecoder)
+        
+        titleEdgeInsets = UIEdgeInsets(top: 5.0, left: 5.0, bottom: 5.0, right: 5.0)
     }
     
     // MARK: - UIButton

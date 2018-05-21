@@ -16,10 +16,7 @@ class PermissionsManagerTableViewController: UITableViewController, Storyboardab
     enum Section: Int {
         case location
         case notifications
-//        case biometricID
-//        case camera
-//        case microphone
-//        case photoLibrary
+        case biometrics
         case count
     }
     
@@ -34,6 +31,14 @@ class PermissionsManagerTableViewController: UITableViewController, Storyboardab
         case count
     }
 
+    enum BiometricsRow: Int {
+        case faceID
+        case touchID
+        case count
+    }
+
+    let biometricsManager = BiometricsManager()
+    
     // MARK: - UITableViewController
   
     override func viewDidLoad() {
@@ -56,6 +61,27 @@ class PermissionsManagerTableViewController: UITableViewController, Storyboardab
         }
     }
 
+    // MARK: - PermissionsManagerTableViewController
+    
+    private func verifyUserWithBiometrics() {
+        biometricsManager.verifyUserWithBiometrics { [weak self] (success, error) in
+            DispatchQueue.main.async {
+                if success {
+                    self?.tableView.reloadData()
+                } else if let error = error {
+                    let message = self?.biometricsManager.isFaceIDAvailable() == true ? "Looks like we had a problem verifying you with FaceID." : "Looks like we had a problem verifying you with TouchID."
+                    let alertController = AlertController.alertControllerWithTitle("Uh-Oh", message: message)
+                    alertController.image = self?.biometricsManager.isFaceIDAvailable() == true ? UIImage(named: "icon-face-id") : UIImage(named: "icon-touch-id")
+                    alertController.addAction(AlertAction(withTitle: "Try Again", style: .filled, handler: { (alertAction) in
+                        self?.verifyUserWithBiometrics()
+                    }))
+                    alertController.addAction(AlertAction(withTitle: "Dismiss", style: .normal, handler: nil))
+                    self?.present(alertController, animated: true, completion: nil)
+                }
+            }
+        }
+    }
+    
     // MARK: - UITableViewDataSource
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -68,6 +94,8 @@ class PermissionsManagerTableViewController: UITableViewController, Storyboardab
             return "Location"
         case Section.notifications.rawValue:
             return "Notifications"
+        case Section.biometrics.rawValue:
+            return "Biometrics"
         default:
             return nil
         }
@@ -79,6 +107,8 @@ class PermissionsManagerTableViewController: UITableViewController, Storyboardab
             return LocationRow.count.rawValue
         case Section.notifications.rawValue:
             return NotificationsRow.count.rawValue
+        case Section.biometrics.rawValue:
+            return BiometricsRow.count.rawValue
         default:
             return 0
         }
@@ -108,6 +138,17 @@ class PermissionsManagerTableViewController: UITableViewController, Storyboardab
                 default:
                     break
                 }
+            case Section.biometrics.rawValue:
+                switch indexPath.row {
+                case BiometricsRow.faceID.rawValue:
+                    cell.permissionType = .faceID
+                    cell.enabled = biometricsManager.isFaceIDAvailable()
+                case BiometricsRow.touchID.rawValue:
+                    cell.permissionType = .touchID
+                    cell.enabled = biometricsManager.isTouchIDAvailable()
+                default:
+                    break
+                }
             default:
                 break
             }
@@ -117,8 +158,6 @@ class PermissionsManagerTableViewController: UITableViewController, Storyboardab
         
         return UITableViewCell()
     }
-    
-    // MARK: - UITableViewDelegate
     
     // MARK: - PermissionPromptTableViewCellDelegate
     
@@ -139,6 +178,13 @@ class PermissionsManagerTableViewController: UITableViewController, Storyboardab
             switch indexPath?.row {
             case NotificationsRow.push.rawValue:
                 permissionsManager.requestNotificationsPermission()
+            default:
+                break
+            }
+        case Section.biometrics.rawValue:
+            switch indexPath?.row {
+            case BiometricsRow.faceID.rawValue, BiometricsRow.touchID.rawValue:
+                verifyUserWithBiometrics()
             default:
                 break
             }

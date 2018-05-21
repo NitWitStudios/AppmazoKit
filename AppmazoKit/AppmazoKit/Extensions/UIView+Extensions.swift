@@ -76,4 +76,29 @@ extension UIView {
         animation.toValue = CGPoint(x: midX + 10.0, y: midY)
         layer.add(animation, forKey: "position")
     }
+    
+    /**
+     Replaces the view with a centered UIActivityIndicatorView
+     
+     - parameters activityIndicatorStyle: The style for the UIActivityIndicatorView.
+     */
+    static var activityIndicatorView: UIActivityIndicatorView?
+    public func replaceWithActivityIndicator(activityIndicatorStyle: UIActivityIndicatorViewStyle) {
+        isHidden = true
+        
+        let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: activityIndicatorStyle)
+        superview?.addSubview(activityIndicatorView, centeredWithView: self)
+        activityIndicatorView.startAnimating()
+        UIView.activityIndicatorView = activityIndicatorView
+    }
+    
+    /**
+     Hides the view's UIActivityIndicatorView.
+     */
+    public func hideActivityIndicator() {
+        UIView.activityIndicatorView?.stopAnimating()
+        UIView.activityIndicatorView?.removeFromSuperview()
+        isHidden = false
+    }
+
 }

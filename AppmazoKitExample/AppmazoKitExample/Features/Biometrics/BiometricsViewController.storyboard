@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="L2o-wu-0Xd">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Biometrics View Controller-->
+        <scene sceneID="z3X-WF-Mg7">
+            <objects>
+                <viewController id="L2o-wu-0Xd" customClass="BiometricsViewController" customModule="AppmazoKitExample" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lis-Rv-6ex">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rNJ-YG-bXQ">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="quy-Bj-Rzs">
+                                        <rect key="frame" x="8" y="260" width="359" height="126"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FoH-8F-sda">
+                                                <rect key="frame" x="0.0" y="0.0" width="359" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" textContentType="email"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sld-TA-dTI">
+                                                <rect key="frame" x="0.0" y="38" width="359" height="30"/>
+                                                <nil key="textColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nV6-UA-A4M" customClass="Button" customModule="AppmazoKit">
+                                                <rect key="frame" x="0.0" y="76" width="359" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="A5b-n7-Y85"/>
+                                                </constraints>
+                                                <state key="normal" title="Verify"/>
+                                                <connections>
+                                                    <action selector="verifyButtonPressed:" destination="L2o-wu-0Xd" eventType="touchUpInside" id="oOh-TN-BWU"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="nV6-UA-A4M" firstAttribute="top" secondItem="Sld-TA-dTI" secondAttribute="bottom" constant="8" symbolic="YES" id="7mQ-hM-Wm2"/>
+                                            <constraint firstItem="FoH-8F-sda" firstAttribute="trailing" secondItem="Sld-TA-dTI" secondAttribute="trailing" id="DjI-Dc-MAu"/>
+                                            <constraint firstItem="Sld-TA-dTI" firstAttribute="trailing" secondItem="nV6-UA-A4M" secondAttribute="trailing" id="EVj-9C-coL"/>
+                                            <constraint firstItem="FoH-8F-sda" firstAttribute="leading" secondItem="Sld-TA-dTI" secondAttribute="leading" id="H38-oJ-Z2x"/>
+                                            <constraint firstItem="Sld-TA-dTI" firstAttribute="top" secondItem="FoH-8F-sda" secondAttribute="bottom" constant="8" symbolic="YES" id="NvE-4f-ziT"/>
+                                            <constraint firstAttribute="trailing" secondItem="FoH-8F-sda" secondAttribute="trailing" id="Rau-V7-7yr"/>
+                                            <constraint firstItem="Sld-TA-dTI" firstAttribute="leading" secondItem="nV6-UA-A4M" secondAttribute="leading" id="YZX-3Z-RJI"/>
+                                            <constraint firstItem="FoH-8F-sda" firstAttribute="top" secondItem="quy-Bj-Rzs" secondAttribute="top" id="a6D-Uh-a9V"/>
+                                            <constraint firstItem="FoH-8F-sda" firstAttribute="leading" secondItem="quy-Bj-Rzs" secondAttribute="leading" id="ahu-Ql-scH"/>
+                                            <constraint firstAttribute="height" constant="126" id="epF-bO-UKH"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register a user and password to test Biometrics." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8NT-nt-1v3">
+                                        <rect key="frame" x="8" y="211" width="359" height="41"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="logo-appmazo" translatesAutoresizingMaskIntoConstraints="NO" id="zby-ow-p95">
+                                        <rect key="frame" x="119" y="169" width="137" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="N0z-ev-b6G"/>
+                                            <constraint firstAttribute="width" constant="137" id="tHC-Q1-bgK"/>
+                                        </constraints>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kDT-eQ-vlw" customClass="Button" customModule="AppmazoKit">
+                                        <rect key="frame" x="8" y="394" width="359" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="MZu-jS-aFg"/>
+                                        </constraints>
+                                        <state key="normal" title="Reset Credentials">
+                                            <color key="titleColor" red="1" green="0.0049735469999147019" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="resetCredentialsButtonPressed:" destination="L2o-wu-0Xd" eventType="touchUpInside" id="z6D-JE-zr7"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstItem="quy-Bj-Rzs" firstAttribute="centerX" secondItem="rNJ-YG-bXQ" secondAttribute="centerX" id="1zC-VU-BJN"/>
+                                    <constraint firstItem="8NT-nt-1v3" firstAttribute="top" secondItem="zby-ow-p95" secondAttribute="bottom" constant="8" id="6M0-M9-Wc9"/>
+                                    <constraint firstItem="quy-Bj-Rzs" firstAttribute="centerY" secondItem="rNJ-YG-bXQ" secondAttribute="centerY" id="8lr-nr-twJ"/>
+                                    <constraint firstAttribute="trailing" secondItem="8NT-nt-1v3" secondAttribute="trailing" constant="8" id="Ac2-x9-Stx"/>
+                                    <constraint firstAttribute="bottom" secondItem="quy-Bj-Rzs" secondAttribute="bottom" id="BkI-SE-vtd"/>
+                                    <constraint firstItem="kDT-eQ-vlw" firstAttribute="top" secondItem="nV6-UA-A4M" secondAttribute="bottom" constant="8" id="GeR-Sz-inC"/>
+                                    <constraint firstItem="quy-Bj-Rzs" firstAttribute="trailing" secondItem="rNJ-YG-bXQ" secondAttribute="trailingMargin" id="KDN-UG-sZF"/>
+                                    <constraint firstItem="quy-Bj-Rzs" firstAttribute="leading" secondItem="rNJ-YG-bXQ" secondAttribute="leadingMargin" id="OKU-CY-Ich"/>
+                                    <constraint firstItem="8NT-nt-1v3" firstAttribute="leading" secondItem="rNJ-YG-bXQ" secondAttribute="leading" constant="8" id="Q8u-wo-XBM"/>
+                                    <constraint firstItem="zby-ow-p95" firstAttribute="centerX" secondItem="rNJ-YG-bXQ" secondAttribute="centerX" id="RCv-fG-acX"/>
+                                    <constraint firstItem="kDT-eQ-vlw" firstAttribute="leading" secondItem="rNJ-YG-bXQ" secondAttribute="leading" constant="8" id="Xhd-Ua-v0f"/>
+                                    <constraint firstItem="quy-Bj-Rzs" firstAttribute="top" secondItem="8NT-nt-1v3" secondAttribute="bottom" constant="8" id="hgG-9L-n97"/>
+                                    <constraint firstAttribute="trailing" secondItem="kDT-eQ-vlw" secondAttribute="trailing" constant="8" id="xbr-kC-O84"/>
+                                </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="6k8-nJ-gBx" appends="YES" id="7GK-7U-kpG"/>
+                                </connections>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="rNJ-YG-bXQ" firstAttribute="trailing" secondItem="gtt-Kp-5WY" secondAttribute="trailing" id="0mc-Ln-H28"/>
+                            <constraint firstItem="rNJ-YG-bXQ" firstAttribute="top" secondItem="gtt-Kp-5WY" secondAttribute="top" id="7sX-th-5bi"/>
+                            <constraint firstItem="rNJ-YG-bXQ" firstAttribute="bottom" secondItem="gtt-Kp-5WY" secondAttribute="bottom" id="aC7-TI-hFY"/>
+                            <constraint firstItem="rNJ-YG-bXQ" firstAttribute="leading" secondItem="gtt-Kp-5WY" secondAttribute="leading" id="dge-yY-Q9a"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="gtt-Kp-5WY"/>
+                    </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="FoH-8F-sda" id="mBf-XH-e8U"/>
+                        <outlet property="passwordTextField" destination="Sld-TA-dTI" id="vKf-GI-ywP"/>
+                        <outlet property="promptLabel" destination="8NT-nt-1v3" id="KHC-VE-WBX"/>
+                        <outlet property="resetCredentialsButton" destination="kDT-eQ-vlw" id="iYd-Hs-GLx"/>
+                        <outlet property="scrollView" destination="rNJ-YG-bXQ" id="kev-fa-eJI"/>
+                        <outlet property="tapGestureRecognizer" destination="6k8-nJ-gBx" id="9Px-NH-BHN"/>
+                        <outlet property="verifyButton" destination="nV6-UA-A4M" id="08q-aX-EOr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NNc-gs-5xl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="6k8-nJ-gBx">
+                    <connections>
+                        <action selector="tapGestureRecognizerTapped:" destination="L2o-wu-0Xd" id="bcK-ec-oK1"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="76" y="176.76161919040482"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="logo-appmazo" width="137" height="34"/>
+    </resources>
+</document>
