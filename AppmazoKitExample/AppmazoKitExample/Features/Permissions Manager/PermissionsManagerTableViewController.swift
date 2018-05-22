@@ -10,7 +10,6 @@ import UIKit
 import AppmazoKit
 
 class PermissionsManagerTableViewController: UITableViewController, Storyboardable, PermissionPromptTableViewCellDelegate {    
-    private let UITableViewCellReuseIdentifier = "UITableViewCellReuseIdentifier"
     private let permissionsManager = PermissionsManager()
     
     enum Section: Int {
@@ -46,7 +45,7 @@ class PermissionsManagerTableViewController: UITableViewController, Storyboardab
         
         title = "Permissions Manager"
 
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: UITableViewCellReuseIdentifier)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: UITableViewCell.reuseIdentifier)
         tableView.register(PermissionPromptTableViewCell.self, forCellReuseIdentifier: PermissionPromptTableViewCell.reuseIdentifier)
         
         permissionsManager.permissionsUpdatedBlock = { [weak self] (permissionType) in
@@ -68,7 +67,7 @@ class PermissionsManagerTableViewController: UITableViewController, Storyboardab
             DispatchQueue.main.async {
                 if success {
                     self?.tableView.reloadData()
-                } else if let error = error {
+                } else if let _ = error {
                     let message = self?.biometricsManager.isFaceIDAvailable() == true ? "Looks like we had a problem verifying you with FaceID." : "Looks like we had a problem verifying you with TouchID."
                     let alertController = AlertController.alertControllerWithTitle("Uh-Oh", message: message)
                     alertController.image = self?.biometricsManager.isFaceIDAvailable() == true ? UIImage(named: "icon-face-id") : UIImage(named: "icon-touch-id")

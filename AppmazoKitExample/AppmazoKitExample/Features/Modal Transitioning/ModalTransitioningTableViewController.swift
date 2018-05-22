@@ -22,8 +22,6 @@ class ModalTransitioningTableViewController: UITableViewController, Storyboardab
         case count
     }
     
-    private let UITableViewCellReuseIdentifier = "UITableViewCellReuseIdentifier"
-
     // MARK: - UITableViewController
     
     override func viewDidLoad() {
@@ -58,7 +56,7 @@ class ModalTransitioningTableViewController: UITableViewController, Storyboardab
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: UITableViewCellReuseIdentifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: UITableViewCell.reuseIdentifier, for: indexPath)
         cell.textLabel?.text = titleForRowAtIndexPath(indexPath)
         
         return cell

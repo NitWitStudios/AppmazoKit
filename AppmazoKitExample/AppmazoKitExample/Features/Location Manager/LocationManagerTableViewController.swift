@@ -9,9 +9,7 @@
 import AppmazoKit
 import UIKit
 
-class LocationManagerTableViewController: UITableViewController, Storyboardable {    
-    private let UITableViewCellReuseIdentifier = "UITableViewCellReuseIdentifier"
-    
+class LocationManagerTableViewController: UITableViewController, Storyboardable {
     private enum LocationManagerTableViewControllerSection: Int {
         case location
         case count
@@ -39,7 +37,7 @@ class LocationManagerTableViewController: UITableViewController, Storyboardable 
         title = "Location Manager"        
         LocationManager.shared.initialize()
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: UITableViewCellReuseIdentifier)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: UITableViewCell.reuseIdentifier)
         tableView.register(PermissionPromptTableViewCell.self, forCellReuseIdentifier: PermissionPromptTableViewCell.reuseIdentifier)
         tableView.register(LocationTableViewCell.self, forCellReuseIdentifier: LocationTableViewCell.reuseIdentifier)
         
@@ -52,7 +50,7 @@ class LocationManagerTableViewController: UITableViewController, Storyboardable 
         if permissionsManager.isLocationsAuthorized() {
             switch indexPath.row {
             case LocationManagerTableViewControllerLocationRow.currentLocation.rawValue:
-                let cell = tableView.dequeueReusableCell(withIdentifier: UITableViewCellReuseIdentifier, for: indexPath)
+                let cell = tableView.dequeueReusableCell(withIdentifier: UITableViewCell.reuseIdentifier, for: indexPath)
                 cell.textLabel?.text = "Use Current Location"
                 let locationSwitch = UISwitch()
                 locationSwitch.isOn = !LocationManager.shared.useCustomLocation

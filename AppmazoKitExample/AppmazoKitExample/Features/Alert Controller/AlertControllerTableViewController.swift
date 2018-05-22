@@ -10,7 +10,6 @@ import UIKit
 import AppmazoKit
 
 class AlertControllerTableViewController: UITableViewController, Storyboardable {
-    private let UITableViewCellReuseIdentifier = "UITableViewCellReuseIdentifier"
     
     private enum Section: Int {
         case alerts
@@ -31,7 +30,7 @@ class AlertControllerTableViewController: UITableViewController, Storyboardable 
         
         title = "Alert Controllers"
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: UITableViewCellReuseIdentifier)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: UITableViewCell.reuseIdentifier)
     }
     
     // MARK: - AlertControllerTableViewController
@@ -60,7 +59,7 @@ class AlertControllerTableViewController: UITableViewController, Storyboardable 
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: UITableViewCellReuseIdentifier, for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: UITableViewCell.reuseIdentifier, for: indexPath)
         
         cell.textLabel?.text = titleForRowAtIndexPath(indexPath)
 

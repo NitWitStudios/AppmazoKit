@@ -15,7 +15,7 @@ public extension Date {
      - parameter date: The date to compare against.
      - returns: Number of years between the two dates.
      */
-    func years(fromDate date: Date) -> Int? {
+    public func years(fromDate date: Date) -> Int? {
         return Calendar.current.dateComponents([.year], from: date, to: self).year
     }
     
@@ -25,7 +25,7 @@ public extension Date {
      - parameter date: The date to compare against.
      - returns: Number of months between the two dates.
      */
-    func months(fromDate date: Date) -> Int? {
+    public func months(fromDate date: Date) -> Int? {
         return Calendar.current.dateComponents([.month], from: date, to: self).month
     }
     
@@ -35,7 +35,7 @@ public extension Date {
      - parameter date: The date to compare against.
      - returns: Number of weeks between the two dates.
      */
-    func weeks(fromDate date: Date) -> Int? {
+    public func weeks(fromDate date: Date) -> Int? {
         return Calendar.current.dateComponents([.weekOfYear], from: date, to: self).weekOfYear
     }
     
@@ -45,7 +45,7 @@ public extension Date {
      - parameter date: The date to compare against.
      - returns: Number of days between the two dates.
      */
-    func days(fromDate date: Date) -> Int? {
+    public func days(fromDate date: Date) -> Int? {
         return Calendar.current.dateComponents([.day], from: date, to: self).day
     }
     
@@ -55,7 +55,7 @@ public extension Date {
      - parameter date: The date to compare against.
      - returns: Number of hours between the two dates.
      */
-    func hours(fromDate date: Date) -> Int? {
+    public func hours(fromDate date: Date) -> Int? {
         return Calendar.current.dateComponents([.hour], from: date, to: self).hour
     }
     
@@ -65,7 +65,7 @@ public extension Date {
      - parameter date: The date to compare against.
      - returns: Number of minutes between the two dates.
      */
-    func minutes(fromDate date: Date) -> Int? {
+    public func minutes(fromDate date: Date) -> Int? {
         return Calendar.current.dateComponents([.minute], from: date, to: self).minute
     }
     
@@ -75,7 +75,16 @@ public extension Date {
      - parameter date: The date to compare against.
      - returns: Number of seconds between the two dates.
      */
-    func seconds(fromDate date: Date) -> Int? {
+    public func seconds(fromDate date: Date) -> Int? {
         return Calendar.current.dateComponents([.second], from: date, to: self).second
+    }
+        
+    /// Convert Date to String
+    public func convertToString() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let newDate: String = dateFormatter.string(from: self) // pass Date here
+        
+        return newDate
     }
 }

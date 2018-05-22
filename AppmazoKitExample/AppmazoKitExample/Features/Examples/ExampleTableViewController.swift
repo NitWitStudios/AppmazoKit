@@ -33,6 +33,7 @@ class ExampleTableViewController: UITableViewController, Storyboardable {
 
     private enum ExtensionsRow: Int {
         case keyboardScroller
+        case dateHelper
         case count
     }
 
@@ -65,6 +66,8 @@ class ExampleTableViewController: UITableViewController, Storyboardable {
             return "Modal Transitioning"
         case (Section.extensions.rawValue, ExtensionsRow.keyboardScroller.rawValue):
             return "Keyboard Scroller"
+        case (Section.extensions.rawValue, ExtensionsRow.dateHelper.rawValue):
+            return "Date Helper"
         default:
             return nil
         }
@@ -86,6 +89,8 @@ class ExampleTableViewController: UITableViewController, Storyboardable {
             return "UIViewControllerContextTransitioning for presenting modals."
         case (Section.extensions.rawValue, ExtensionsRow.keyboardScroller.rawValue):
             return "A simple keyboard observer to allow UIScrollView to automatically scroll fields into view when the keyboard appears."
+        case (Section.extensions.rawValue, ExtensionsRow.dateHelper.rawValue):
+            return "A simple way to compare dates."
         default:
             return nil
         }
@@ -159,6 +164,8 @@ class ExampleTableViewController: UITableViewController, Storyboardable {
             navigationController?.pushViewController(ModalTransitioningTableViewController.viewControllerFromStoryboard(), animated: true)
         case (Section.extensions.rawValue, ExtensionsRow.keyboardScroller.rawValue):
             navigationController?.pushViewController(KeyboardScrollerViewController.viewControllerFromStoryboard(), animated: true)
+        case (Section.extensions.rawValue, ExtensionsRow.dateHelper.rawValue):
+            navigationController?.pushViewController(DateHelperTableViewController.viewControllerFromStoryboard(), animated: true)
         default:
             break
         }
