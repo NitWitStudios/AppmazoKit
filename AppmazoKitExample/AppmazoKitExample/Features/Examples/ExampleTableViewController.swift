@@ -34,6 +34,7 @@ class ExampleTableViewController: UITableViewController, Storyboardable {
     private enum ExtensionsRow: Int {
         case keyboardScroller
         case dateHelper
+        case urlValidation
         case count
     }
 
@@ -68,6 +69,8 @@ class ExampleTableViewController: UITableViewController, Storyboardable {
             return "Keyboard Scroller"
         case (Section.extensions.rawValue, ExtensionsRow.dateHelper.rawValue):
             return "Date Helper"
+        case (Section.extensions.rawValue, ExtensionsRow.urlValidation.rawValue):
+            return "URL Validation"
         default:
             return nil
         }
@@ -91,13 +94,15 @@ class ExampleTableViewController: UITableViewController, Storyboardable {
             return "A simple keyboard observer to allow UIScrollView to automatically scroll fields into view when the keyboard appears."
         case (Section.extensions.rawValue, ExtensionsRow.dateHelper.rawValue):
             return "A simple way to compare dates."
+        case (Section.extensions.rawValue, ExtensionsRow.urlValidation.rawValue):
+            return "A simple way to check if a URL can load a valid website."
         default:
             return nil
         }
     }
-    
-    // MARK: - UITableViewDataSource
-    
+}
+
+extension ExampleTableViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
         return Section.count.rawValue
     }
@@ -136,9 +141,9 @@ class ExampleTableViewController: UITableViewController, Storyboardable {
         
         return cell
     }
-    
-    // MARK: - UITableViewDelegate
+}
 
+extension ExampleTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch (indexPath.section, indexPath.row) {
         case (Section.managers.rawValue, ManagersRow.permissionsManager.rawValue):
@@ -166,6 +171,8 @@ class ExampleTableViewController: UITableViewController, Storyboardable {
             navigationController?.pushViewController(KeyboardScrollerViewController.viewControllerFromStoryboard(), animated: true)
         case (Section.extensions.rawValue, ExtensionsRow.dateHelper.rawValue):
             navigationController?.pushViewController(DateHelperTableViewController.viewControllerFromStoryboard(), animated: true)
+        case (Section.extensions.rawValue, ExtensionsRow.urlValidation.rawValue):
+            navigationController?.pushViewController(URLValidationViewController.viewControllerFromStoryboard(), animated: true)
         default:
             break
         }

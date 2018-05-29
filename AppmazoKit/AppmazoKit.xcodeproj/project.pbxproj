@@ -23,6 +23,8 @@
 		1A5035AB20B4BD2300F90B6B /* ReuseIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5035AA20B4BD2300F90B6B /* ReuseIdentifiable.swift */; };
 		1A5035AE20B4C66B00F90B6B /* DatePickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5035AD20B4C66B00F90B6B /* DatePickerTableViewCell.swift */; };
 		1A5035B020B4DCD600F90B6B /* SubtitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5035AF20B4DCD600F90B6B /* SubtitleTableViewCell.swift */; };
+		1A6E276020BDF91F00F54FD4 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6E275F20BDF91F00F54FD4 /* ErrorView.swift */; };
+		1A76D72620BDDE4A00C4BF4B /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A76D72520BDDE4A00C4BF4B /* URL+Extensions.swift */; };
 		1A844F4520A908FF00C47E73 /* PermissionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A844F4420A908FF00C47E73 /* PermissionsManager.swift */; };
 		1A844F4720A90AEB00C47E73 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A844F4620A90AEB00C47E73 /* AlertController.swift */; };
 		1A844F4A20A90B3B00C47E73 /* ModalTransitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A844F4920A90B3B00C47E73 /* ModalTransitioning.swift */; };
@@ -67,6 +69,8 @@
 		1A5035AA20B4BD2300F90B6B /* ReuseIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifiable.swift; sourceTree = "<group>"; };
 		1A5035AD20B4C66B00F90B6B /* DatePickerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerTableViewCell.swift; sourceTree = "<group>"; };
 		1A5035AF20B4DCD600F90B6B /* SubtitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtitleTableViewCell.swift; sourceTree = "<group>"; };
+		1A6E275F20BDF91F00F54FD4 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		1A76D72520BDDE4A00C4BF4B /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
 		1A844F4420A908FF00C47E73 /* PermissionsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsManager.swift; sourceTree = "<group>"; };
 		1A844F4620A90AEB00C47E73 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
 		1A844F4920A90B3B00C47E73 /* ModalTransitioning.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalTransitioning.swift; sourceTree = "<group>"; };
@@ -117,6 +121,7 @@
 				1A8ECB5820AE5A0D00523E7D /* UIScrollView+Extensions.swift */,
 				1A205C4720AF5769002D5E06 /* UIView+Extensions.swift */,
 				1A205C4D20AF5B56002D5E06 /* UIViewController+Extensions.swift */,
+				1A76D72520BDDE4A00C4BF4B /* URL+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -126,8 +131,7 @@
 			children = (
 				1A5035AC20B4C65400F90B6B /* Table Cells */,
 				1A844F4620A90AEB00C47E73 /* AlertController.swift */,
-				1AD5F57E20A7B23D008F9082 /* LocationTableViewCell.swift */,
-				1AD5F57A20A7A3BC008F9082 /* PermissionPromptTableViewCell.swift */,
+				1A6E275F20BDF91F00F54FD4 /* ErrorView.swift */,
 				1A205C4520AF56D2002D5E06 /* SplashVideoViewController.swift */,
 				1A205C6420AF98F5002D5E06 /* Button.swift */,
 			);
@@ -162,9 +166,11 @@
 		1A5035AC20B4C65400F90B6B /* Table Cells */ = {
 			isa = PBXGroup;
 			children = (
-				1A5035A820B4B78200F90B6B /* TextFieldTableViewCell.swift */,
 				1A5035AD20B4C66B00F90B6B /* DatePickerTableViewCell.swift */,
+				1AD5F57E20A7B23D008F9082 /* LocationTableViewCell.swift */,
+				1AD5F57A20A7A3BC008F9082 /* PermissionPromptTableViewCell.swift */,
 				1A5035AF20B4DCD600F90B6B /* SubtitleTableViewCell.swift */,
+				1A5035A820B4B78200F90B6B /* TextFieldTableViewCell.swift */,
 			);
 			path = "Table Cells";
 			sourceTree = "<group>";
@@ -351,6 +357,7 @@
 				1A205C6520AF98F5002D5E06 /* Button.swift in Sources */,
 				1A205C4E20AF5B56002D5E06 /* UIViewController+Extensions.swift in Sources */,
 				1A5035A920B4B78200F90B6B /* TextFieldTableViewCell.swift in Sources */,
+				1A6E276020BDF91F00F54FD4 /* ErrorView.swift in Sources */,
 				1A844F5320A934A800C47E73 /* UIApplication+Extensions.swift in Sources */,
 				1AD5F57F20A7B23D008F9082 /* LocationTableViewCell.swift in Sources */,
 				1A4B81F420B0EDA600ADBAE2 /* UINavigationController+Extensions.swift in Sources */,
@@ -361,6 +368,7 @@
 				1A205C4820AF5769002D5E06 /* UIView+Extensions.swift in Sources */,
 				1A361B9420B252B70080A6C4 /* BiometricsManager.swift in Sources */,
 				1AD5F57B20A7A3BC008F9082 /* PermissionPromptTableViewCell.swift in Sources */,
+				1A76D72620BDDE4A00C4BF4B /* URL+Extensions.swift in Sources */,
 				1A5035B020B4DCD600F90B6B /* SubtitleTableViewCell.swift in Sources */,
 				1A844F5020A932A400C47E73 /* PermissionsManager+Notifications.swift in Sources */,
 				1A8ECB5920AE5A0D00523E7D /* UIScrollView+Extensions.swift in Sources */,

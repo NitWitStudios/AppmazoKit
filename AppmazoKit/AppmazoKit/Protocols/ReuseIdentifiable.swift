@@ -18,4 +18,11 @@ extension ReuseIdentifiable where Self: UITableViewCell {
     }
 }
 
+extension ReuseIdentifiable where Self: UICollectionViewCell {
+    public static var reuseIdentifier: String {
+        return String(describing: self)
+    }
+}
+
 extension UITableViewCell: ReuseIdentifiable { }
+extension UICollectionViewCell: ReuseIdentifiable { }
