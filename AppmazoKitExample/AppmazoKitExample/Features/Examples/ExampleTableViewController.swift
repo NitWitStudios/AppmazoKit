@@ -18,9 +18,10 @@ class ExampleTableViewController: UITableViewController, Storyboardable {
     }
     
     private enum ManagersRow: Int {
-        case permissionsManager
-        case locationManager
+        case permissions
+        case location
         case biometrics
+        case ratings
         case count
     }
 
@@ -53,12 +54,14 @@ class ExampleTableViewController: UITableViewController, Storyboardable {
     
     private func titleForRowAtIndexPath(_ indexPath: IndexPath) -> String? {
         switch (indexPath.section, indexPath.row) {
-        case (Section.managers.rawValue, ManagersRow.permissionsManager.rawValue):
+        case (Section.managers.rawValue, ManagersRow.permissions.rawValue):
             return "Permissions Manager"
-        case (Section.managers.rawValue, ManagersRow.locationManager.rawValue):
+        case (Section.managers.rawValue, ManagersRow.location.rawValue):
             return "Location Manager"
         case (Section.managers.rawValue, ManagersRow.biometrics.rawValue):
             return "Biometrics Manager"
+        case (Section.managers.rawValue, ManagersRow.ratings.rawValue):
+            return "Ratings Manager"
         case (Section.ui.rawValue, UIRow.splashAnimationViewController.rawValue):
             return "Splash Animation"
         case (Section.ui.rawValue, UIRow.alertController.rawValue):
@@ -78,12 +81,14 @@ class ExampleTableViewController: UITableViewController, Storyboardable {
     
     private func subtitleForRowAtIndexPath(_ indexPath: IndexPath) -> String? {
         switch (indexPath.section, indexPath.row) {
-        case (Section.managers.rawValue, ManagersRow.permissionsManager.rawValue):
+        case (Section.managers.rawValue, ManagersRow.permissions.rawValue):
             return "Helps streamline and manage common OS level permissions such as Location, Push Notifications and more."
-        case (Section.managers.rawValue, ManagersRow.locationManager.rawValue):
+        case (Section.managers.rawValue, ManagersRow.location.rawValue):
             return "Helps manage the user's location by providing a simplified manager with useful functions like getting user's current location, allowing custom locations entered as an address, storing last used location and more."
         case (Section.managers.rawValue, ManagersRow.biometrics.rawValue):
             return "A simple way for storing user credentials for use with Biometric verification."
+        case (Section.managers.rawValue, ManagersRow.ratings.rawValue):
+            return "A simple way for tracking and prompting users to rate your app."
         case (Section.ui.rawValue, UIRow.splashAnimationViewController.rawValue):
             return "A simple view controller for showing a splash screen animation."
         case (Section.ui.rawValue, UIRow.alertController.rawValue):
@@ -146,10 +151,12 @@ extension ExampleTableViewController {
 extension ExampleTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch (indexPath.section, indexPath.row) {
-        case (Section.managers.rawValue, ManagersRow.permissionsManager.rawValue):
+        case (Section.managers.rawValue, ManagersRow.permissions.rawValue):
             navigationController?.pushViewController(PermissionsManagerTableViewController.viewControllerFromStoryboard(), animated: true)
-        case (Section.managers.rawValue, ManagersRow.locationManager.rawValue):
+        case (Section.managers.rawValue, ManagersRow.location.rawValue):
             navigationController?.pushViewController(LocationManagerTableViewController.viewControllerFromStoryboard(), animated: true)
+        case (Section.managers.rawValue, ManagersRow.ratings.rawValue):
+            navigationController?.pushViewController(RatingsManagerTableViewController.viewControllerFromStoryboard(), animated: true)
         case (Section.managers.rawValue, ManagersRow.biometrics.rawValue):
             navigationController?.pushViewController(BiometricsViewController.viewControllerFromStoryboard(), animated: true)
         case (Section.ui.rawValue, UIRow.splashAnimationViewController.rawValue):

@@ -167,11 +167,10 @@ class DateHelperTableViewController: UITableViewController, Storyboardable {
 }
 
 extension DateHelperTableViewController: DatePickerTableViewCellDelegate {
-    func datePickerTableViewCellDidFinish(_ datePickerTableViewCell: DatePickerTableViewCell) {
-        tableView.reloadData()
-    }
-    
-    func datePickerTableViewCell(_ datePickerTableViewCell: DatePickerTableViewCell, didUpdateDate date: Date) {
+    func datePickerTableViewCell(_ datePickerTableViewCell: DatePickerTableViewCell, didFinishPickingDate date: Date?) {
+        guard let date = date else { return }
+        
         dateToCompare = date
+        tableView.reloadData()
     }
 }

@@ -25,6 +25,8 @@
 		1A76D72B20BDE25700C4BF4B /* URLValidationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A76D72A20BDE25700C4BF4B /* URLValidationViewController.swift */; };
 		1A844F4C20A911C800C47E73 /* LocationManagerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A844F4B20A911C800C47E73 /* LocationManagerTableViewController.swift */; };
 		1A8ECB5B20AE5B9800523E7D /* AppmazoKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1AD5F58020A7C58F008F9082 /* AppmazoKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1A9EC01020D0850D005864E7 /* RatingsManagerTableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A9EC00F20D0850D005864E7 /* RatingsManagerTableViewController.storyboard */; };
+		1A9EC01220D0851C005864E7 /* RatingsManagerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9EC01120D0851C005864E7 /* RatingsManagerTableViewController.swift */; };
 		1AD5F54420A79976008F9082 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5F54320A79976008F9082 /* AppDelegate.swift */; };
 		1AD5F54B20A79977008F9082 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AD5F54A20A79977008F9082 /* Assets.xcassets */; };
 		1AD5F54E20A79977008F9082 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1AD5F54C20A79977008F9082 /* LaunchScreen.storyboard */; };
@@ -85,6 +87,8 @@
 		1A76D72A20BDE25700C4BF4B /* URLValidationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLValidationViewController.swift; sourceTree = "<group>"; };
 		1A844F4B20A911C800C47E73 /* LocationManagerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManagerTableViewController.swift; sourceTree = "<group>"; };
 		1A8ECB5D20AE5F9D00523E7D /* AppmazoKitExample.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AppmazoKitExample.entitlements; sourceTree = "<group>"; };
+		1A9EC00F20D0850D005864E7 /* RatingsManagerTableViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = RatingsManagerTableViewController.storyboard; sourceTree = "<group>"; };
+		1A9EC01120D0851C005864E7 /* RatingsManagerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingsManagerTableViewController.swift; sourceTree = "<group>"; };
 		1AD5F54020A79976008F9082 /* AppmazoKitExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppmazoKitExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1AD5F54320A79976008F9082 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1AD5F54A20A79977008F9082 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -164,6 +168,7 @@
 				1A205C6120AF93E6002D5E06 /* Location Manager */,
 				1A4B81F520B0F70E00ADBAE2 /* Modal Transitioning */,
 				1A205C6020AF93DC002D5E06 /* Permissions Manager */,
+				1A9EC00E20D084E3005864E7 /* Ratings Manager */,
 				1A76D72720BDE00F00C4BF4B /* URL Validation */,
 			);
 			path = Features;
@@ -256,6 +261,15 @@
 				1A76D72A20BDE25700C4BF4B /* URLValidationViewController.swift */,
 			);
 			path = "URL Validation";
+			sourceTree = "<group>";
+		};
+		1A9EC00E20D084E3005864E7 /* Ratings Manager */ = {
+			isa = PBXGroup;
+			children = (
+				1A9EC00F20D0850D005864E7 /* RatingsManagerTableViewController.storyboard */,
+				1A9EC01120D0851C005864E7 /* RatingsManagerTableViewController.swift */,
+			);
+			path = "Ratings Manager";
 			sourceTree = "<group>";
 		};
 		1AD5F53720A79976008F9082 = {
@@ -431,6 +445,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1A9EC01020D0850D005864E7 /* RatingsManagerTableViewController.storyboard in Resources */,
 				1A4D4DB220B1FE5300659ADF /* BiometricsViewController.storyboard in Resources */,
 				1AD5F57620A79A11008F9082 /* ExampleTableViewController.storyboard in Resources */,
 				1A76D72920BDE04E00C4BF4B /* URLValidationViewController.storyboard in Resources */,
@@ -475,6 +490,7 @@
 				1A844F4C20A911C800C47E73 /* LocationManagerTableViewController.swift in Sources */,
 				1AD5F57520A79A11008F9082 /* PermissionsManagerTableViewController.swift in Sources */,
 				1A4B81F920B0F73600ADBAE2 /* ModalTransitioningTableViewController.swift in Sources */,
+				1A9EC01220D0851C005864E7 /* RatingsManagerTableViewController.swift in Sources */,
 				1A5035A720B4B6B500F90B6B /* DateHelperTableViewController.swift in Sources */,
 				1A4D4DB420B1FE6100659ADF /* BiometricsViewController.swift in Sources */,
 				1A4B81F020B0D5CE00ADBAE2 /* KeyboardScrollerViewController.swift in Sources */,

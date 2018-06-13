@@ -1,24 +1,16 @@
 //
-//  TextFieldTableViewCell.swift
+//  FormFieldTableViewCell.swift
 //  AppmazoKit
 //
-//  Created by James Hickman on 5/22/18.
+//  Created by James Hickman on 6/12/18.
 //  Copyright © 2018 Appmazo, LLC. All rights reserved.
 //
 
 import UIKit
 
-public protocol TextFieldTableViewCellDelegate: NSObjectProtocol {
-    func textFieldTableViewCell(_ textFieldTableViewCell: TextFieldTableViewCell, didUpdateText text: String?)
-    func textFieldTableViewCellDidBeginEditing(_ textFieldTableViewCell: TextFieldTableViewCell)
-    func textFieldTableViewCellDidEndEditing(_ textFieldTableViewCell: TextFieldTableViewCell)
-}
-
-public class TextFieldTableViewCell: UITableViewCell {
-    public weak var delegate : TextFieldTableViewCellDelegate?
-
+public class FormFieldTableViewCell: UITableViewCell {
     private var promptLabel = UILabel()
-    private var textField = UITextField()
+    var textField = UITextField()
     
     public var promptText: String? {
         didSet {
@@ -31,13 +23,13 @@ public class TextFieldTableViewCell: UITableViewCell {
             textField.placeholder = placeholderText
         }
     }
-
+    
     public var textFieldText: String? {
         didSet {
             textField.text = textFieldText
         }
     }
-
+    
     // MARK: - Init
     
     public required init?(coder aDecoder: NSCoder) {
@@ -47,13 +39,12 @@ public class TextFieldTableViewCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        self.selectionStyle = .none
+        selectionStyle = .none
         
         promptLabel.font = UIFont.systemFont(ofSize: 10.0, weight: .regular)
         contentView.addSubview(promptLabel)
         
         textField = UITextField()
-        textField.delegate = self
         textField.borderStyle = .none
         textField.returnKeyType = .done
         textField.clearButtonMode = .whileEditing
@@ -68,23 +59,8 @@ public class TextFieldTableViewCell: UITableViewCell {
             view.translatesAutoresizingMaskIntoConstraints = false
         }
         
-        NSLayoutConstraint.activate(NSLayoutConstraint.constraints(withVisualFormat: "|-[promptLabel(90)]-|", options: [.alignAllLastBaseline], metrics: nil, views: views))
-        NSLayoutConstraint.activate(NSLayoutConstraint.constraints(withVisualFormat: "|-16-[textField]-16-|", options: [.alignAllLastBaseline], metrics: nil, views: views))
+        NSLayoutConstraint.activate(NSLayoutConstraint.constraints(withVisualFormat: "|-[promptLabel]-|", options: [], metrics: nil, views: views))
+        NSLayoutConstraint.activate(NSLayoutConstraint.constraints(withVisualFormat: "|-16-[textField]-16-|", options: [], metrics: nil, views: views))
         NSLayoutConstraint.activate(NSLayoutConstraint.constraints(withVisualFormat: "V:|-[promptLabel][textField]-|", options: [], metrics: nil, views: views))
-    }
-}
-
-extension TextFieldTableViewCell: UITextFieldDelegate {
-    public func textFieldDidBeginEditing(_ sender: UITextField) {
-        delegate?.textFieldTableViewCellDidBeginEditing(self)
-    }
-    
-    public func textFieldDidEndEditing(_ sender: UITextField) {
-        delegate?.textFieldTableViewCellDidEndEditing(self)
-    }
-    
-    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.endEditing(true)
-        return true
     }
 }

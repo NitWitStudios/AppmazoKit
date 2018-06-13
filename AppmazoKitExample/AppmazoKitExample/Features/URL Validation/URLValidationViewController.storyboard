@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uop-ur-GtK">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="uop-ur-GtK">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -17,19 +17,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-a-dark" translatesAutoresizingMaskIntoConstraints="NO" id="yhH-1Q-cwu">
+                                <rect key="frame" x="137" y="190" width="100" height="125"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="FVm-iL-4Z5"/>
+                                    <constraint firstAttribute="height" constant="125" id="qt1-I7-h5G"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Test out full URL validation below" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pTY-6r-HYI">
+                                <rect key="frame" x="16" y="323" width="343" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Fh8-dc-mnR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="2Su-eT-4bc">
                                 <rect key="frame" x="0.0" y="20" width="375" height="2"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="2" id="yxH-em-bgd"/>
                                 </constraints>
                             </progressView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NsQ-Eq-f9Y" customClass="ErrorView" customModule="AppmazoKit">
+                            <wkWebView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Se-Gs-zgp">
                                 <rect key="frame" x="0.0" y="22" width="375" height="583"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Se-Gs-zgp">
-                                <rect key="frame" x="0.0" y="22" width="375" height="583"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
@@ -52,30 +64,32 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="LvG-uw-BWA" firstAttribute="top" secondItem="6Se-Gs-zgp" secondAttribute="bottom" constant="16" id="0P8-q5-gT2"/>
                             <constraint firstItem="3u4-rd-46i" firstAttribute="bottom" secondItem="LvG-uw-BWA" secondAttribute="bottom" constant="16" id="AuJ-Cs-fhy"/>
+                            <constraint firstItem="pTY-6r-HYI" firstAttribute="leading" secondItem="3u4-rd-46i" secondAttribute="leading" constant="16" id="BSd-aN-F2W"/>
                             <constraint firstItem="LvG-uw-BWA" firstAttribute="leading" secondItem="3u4-rd-46i" secondAttribute="leading" constant="16" id="CDm-85-Nk0"/>
-                            <constraint firstItem="NsQ-Eq-f9Y" firstAttribute="top" secondItem="2Su-eT-4bc" secondAttribute="bottom" id="Ovz-eE-d9g"/>
+                            <constraint firstItem="pTY-6r-HYI" firstAttribute="top" secondItem="yhH-1Q-cwu" secondAttribute="bottom" constant="8" id="Kq5-up-7ll"/>
+                            <constraint firstItem="yhH-1Q-cwu" firstAttribute="centerX" secondItem="xI7-uK-HwB" secondAttribute="centerX" id="OlD-e2-xcf"/>
                             <constraint firstItem="2Su-eT-4bc" firstAttribute="leading" secondItem="xI7-uK-HwB" secondAttribute="leading" id="P1Q-kF-SG8"/>
+                            <constraint firstItem="pTY-6r-HYI" firstAttribute="centerY" secondItem="xI7-uK-HwB" secondAttribute="centerY" id="Sd9-rJ-iJ0"/>
                             <constraint firstItem="uDk-6c-SKX" firstAttribute="centerY" secondItem="LvG-uw-BWA" secondAttribute="centerY" id="Xsv-8o-X6c"/>
                             <constraint firstItem="2Su-eT-4bc" firstAttribute="top" secondItem="3u4-rd-46i" secondAttribute="top" id="bDm-27-4uQ"/>
                             <constraint firstAttribute="trailing" secondItem="2Su-eT-4bc" secondAttribute="trailing" id="cie-V2-0fj"/>
                             <constraint firstItem="3u4-rd-46i" firstAttribute="trailing" secondItem="uDk-6c-SKX" secondAttribute="trailing" constant="16" id="crb-YG-zEh"/>
-                            <constraint firstItem="LvG-uw-BWA" firstAttribute="top" secondItem="NsQ-Eq-f9Y" secondAttribute="bottom" constant="16" id="gfK-yE-Jya"/>
-                            <constraint firstItem="NsQ-Eq-f9Y" firstAttribute="leading" secondItem="3u4-rd-46i" secondAttribute="leading" id="hMg-Td-FEI"/>
                             <constraint firstItem="6Se-Gs-zgp" firstAttribute="trailing" secondItem="3u4-rd-46i" secondAttribute="trailing" id="j2w-F4-K2K"/>
                             <constraint firstItem="6Se-Gs-zgp" firstAttribute="top" secondItem="2Su-eT-4bc" secondAttribute="bottom" id="jD0-0P-9ry"/>
-                            <constraint firstItem="NsQ-Eq-f9Y" firstAttribute="trailing" secondItem="3u4-rd-46i" secondAttribute="trailing" id="uTp-R7-JCq"/>
                             <constraint firstItem="6Se-Gs-zgp" firstAttribute="leading" secondItem="3u4-rd-46i" secondAttribute="leading" id="uXX-za-3RX"/>
                             <constraint firstItem="uDk-6c-SKX" firstAttribute="leading" secondItem="LvG-uw-BWA" secondAttribute="trailing" constant="8" id="v61-Vi-bTL"/>
+                            <constraint firstItem="3u4-rd-46i" firstAttribute="trailing" secondItem="pTY-6r-HYI" secondAttribute="trailing" constant="16" id="yiV-QC-N53"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3u4-rd-46i"/>
                     </view>
                     <connections>
-                        <outlet property="errorView" destination="NsQ-Eq-f9Y" id="WVg-e5-WvK"/>
+                        <outlet property="detailsLabel" destination="pTY-6r-HYI" id="EWm-sG-LbM"/>
                         <outlet property="imageView" destination="uDk-6c-SKX" id="sMs-JP-v8n"/>
+                        <outlet property="imageViewWidthConstraint" destination="JKi-zs-FEy" id="8fk-vV-cdn"/>
                         <outlet property="progressView" destination="2Su-eT-4bc" id="PzV-07-Lun"/>
                         <outlet property="progressViewHeightConstraint" destination="yxH-em-bgd" id="ggZ-7r-WBd"/>
                         <outlet property="textField" destination="LvG-uw-BWA" id="caV-32-fmL"/>
@@ -89,5 +103,6 @@
     </scenes>
     <resources>
         <image name="icon-checkmark-circle" width="40" height="40"/>
+        <image name="logo-a-dark" width="200" height="250"/>
     </resources>
 </document>

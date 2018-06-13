@@ -8,9 +8,13 @@
 
 import UIKit
 
-public protocol DatePickerTableViewCellDelegate: NSObjectProtocol {
-    func datePickerTableViewCell(_ datePickerTableViewCell: DatePickerTableViewCell, didUpdateDate date: Date)
-    func datePickerTableViewCellDidFinish(_ datePickerTableViewCell: DatePickerTableViewCell)
+public protocol DatePickerTableViewCellDelegate: class {
+    func datePickerTableViewCell(_ datePickerTableViewCell: DatePickerTableViewCell, didFinishPickingDate date: Date?)
+    func datePickerTableViewCell(_ datePickerTableViewCell: DatePickerTableViewCell, didChangeDate date: Date?)
+}
+
+public extension DatePickerTableViewCellDelegate {
+    func datePickerTableViewCell(_ datePickerTableViewCell: DatePickerTableViewCell, didChangeDate date: Date?) { }
 }
 
 public class DatePickerTableViewCell: UITableViewCell {
@@ -32,12 +36,15 @@ public class DatePickerTableViewCell: UITableViewCell {
         }
     }
     
-    public var textFieldText: String? {
+    var date: Date? {
         didSet {
-            textField.text = textFieldText
+            textField.text = date?.convertToString()
+            if let date = date {
+                datePicker.date = date
+            }
         }
     }
-    
+
     // MARK: - Init
     
     public required init?(coder aDecoder: NSCoder) {
@@ -47,7 +54,7 @@ public class DatePickerTableViewCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        self.selectionStyle = .none
+        selectionStyle = .none
         
         promptLabel.font = UIFont.systemFont(ofSize: 10.0, weight: .regular)
         contentView.addSubview(promptLabel)
@@ -81,18 +88,17 @@ public class DatePickerTableViewCell: UITableViewCell {
             view.translatesAutoresizingMaskIntoConstraints = false
         }
         
-        NSLayoutConstraint.activate(NSLayoutConstraint.constraints(withVisualFormat: "|-[promptLabel(90)]-|", options: [.alignAllLastBaseline], metrics: nil, views: views))
-        NSLayoutConstraint.activate(NSLayoutConstraint.constraints(withVisualFormat: "|-16-[textField]-16-|", options: [.alignAllLastBaseline], metrics: nil, views: views))
+        NSLayoutConstraint.activate(NSLayoutConstraint.constraints(withVisualFormat: "|-[promptLabel]-|", options: [], metrics: nil, views: views))
+        NSLayoutConstraint.activate(NSLayoutConstraint.constraints(withVisualFormat: "|-16-[textField]-16-|", options: [], metrics: nil, views: views))
         NSLayoutConstraint.activate(NSLayoutConstraint.constraints(withVisualFormat: "V:|-[promptLabel][textField]-|", options: [], metrics: nil, views: views))
     }
     
     @objc private func doneBarButtonItemPressed(_ sender: UIBarButtonItem) {
         endEditing(true)
-        delegate?.datePickerTableViewCellDidFinish(self)
+        delegate?.datePickerTableViewCell(self, didFinishPickingDate: date)
     }
     
     @objc private func datePickerValueChanged(_ sender: UIDatePicker) {
-        textField.text = sender.date.convertToString()
-        delegate?.datePickerTableViewCell(self, didUpdateDate: sender.date)
+        date = sender.date
     }
 }

@@ -44,7 +44,7 @@ public class Button: UIButton {
 
     // MARK: - Init
     
-    init(style: Button.Style) {
+    public init(style: Button.Style) {
         self.style = style
         
         super.init(frame: CGRect.zero)

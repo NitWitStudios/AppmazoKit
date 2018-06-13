@@ -19,11 +19,10 @@
 		1A4D4DA720B1F03D00659ADF /* UIDevice+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4D4DA620B1F03D00659ADF /* UIDevice+Extensions.swift */; };
 		1A4D4DAA20B1F0E900659ADF /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1A4D4DA920B1F0E900659ADF /* LocalAuthentication.framework */; };
 		1A4D4DAF20B1FA9200659ADF /* KeychainPasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A4D4DAE20B1FA9200659ADF /* KeychainPasswordItem.swift */; };
-		1A5035A920B4B78200F90B6B /* TextFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5035A820B4B78200F90B6B /* TextFieldTableViewCell.swift */; };
+		1A5035A920B4B78200F90B6B /* TextFormFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5035A820B4B78200F90B6B /* TextFormFieldTableViewCell.swift */; };
 		1A5035AB20B4BD2300F90B6B /* ReuseIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5035AA20B4BD2300F90B6B /* ReuseIdentifiable.swift */; };
 		1A5035AE20B4C66B00F90B6B /* DatePickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5035AD20B4C66B00F90B6B /* DatePickerTableViewCell.swift */; };
 		1A5035B020B4DCD600F90B6B /* SubtitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A5035AF20B4DCD600F90B6B /* SubtitleTableViewCell.swift */; };
-		1A6E276020BDF91F00F54FD4 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A6E275F20BDF91F00F54FD4 /* ErrorView.swift */; };
 		1A76D72620BDDE4A00C4BF4B /* URL+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A76D72520BDDE4A00C4BF4B /* URL+Extensions.swift */; };
 		1A844F4520A908FF00C47E73 /* PermissionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A844F4420A908FF00C47E73 /* PermissionsManager.swift */; };
 		1A844F4720A90AEB00C47E73 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A844F4620A90AEB00C47E73 /* AlertController.swift */; };
@@ -32,6 +31,13 @@
 		1A844F5020A932A400C47E73 /* PermissionsManager+Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A844F4F20A932A400C47E73 /* PermissionsManager+Notifications.swift */; };
 		1A844F5320A934A800C47E73 /* UIApplication+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A844F5220A934A800C47E73 /* UIApplication+Extensions.swift */; };
 		1A8ECB5920AE5A0D00523E7D /* UIScrollView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8ECB5820AE5A0D00523E7D /* UIScrollView+Extensions.swift */; };
+		1A9EC00D20D07B96005864E7 /* RatingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9EC00C20D07B96005864E7 /* RatingsManager.swift */; };
+		1A9EC01420D0860C005864E7 /* FormFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9EC01320D0860C005864E7 /* FormFieldTableViewCell.swift */; };
+		1A9EC01620D087FE005864E7 /* DateFormFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9EC01520D087FE005864E7 /* DateFormFieldTableViewCell.swift */; };
+		1A9EC01920D09104005864E7 /* QuantityFormFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9EC01820D09104005864E7 /* QuantityFormFieldTableViewCell.swift */; };
+		1A9EC01B20D09A3A005864E7 /* LabelFormFieldTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9EC01A20D09A3A005864E7 /* LabelFormFieldTableViewCell.swift */; };
+		1A9EC01D20D0A31E005864E7 /* ButtonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9EC01C20D0A31E005864E7 /* ButtonTableViewCell.swift */; };
+		1A9EC01F20D0A4AB005864E7 /* UIColor+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A9EC01E20D0A4AB005864E7 /* UIColor+Extensions.swift */; };
 		1AD5F57B20A7A3BC008F9082 /* PermissionPromptTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5F57A20A7A3BC008F9082 /* PermissionPromptTableViewCell.swift */; };
 		1AD5F57D20A7A488008F9082 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1AD5F57C20A7A488008F9082 /* Media.xcassets */; };
 		1AD5F57F20A7B23D008F9082 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AD5F57E20A7B23D008F9082 /* LocationTableViewCell.swift */; };
@@ -65,11 +71,10 @@
 		1A4D4DA620B1F03D00659ADF /* UIDevice+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+Extensions.swift"; sourceTree = "<group>"; };
 		1A4D4DA920B1F0E900659ADF /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		1A4D4DAE20B1FA9200659ADF /* KeychainPasswordItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainPasswordItem.swift; sourceTree = "<group>"; };
-		1A5035A820B4B78200F90B6B /* TextFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTableViewCell.swift; sourceTree = "<group>"; };
+		1A5035A820B4B78200F90B6B /* TextFormFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFormFieldTableViewCell.swift; sourceTree = "<group>"; };
 		1A5035AA20B4BD2300F90B6B /* ReuseIdentifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReuseIdentifiable.swift; sourceTree = "<group>"; };
 		1A5035AD20B4C66B00F90B6B /* DatePickerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerTableViewCell.swift; sourceTree = "<group>"; };
 		1A5035AF20B4DCD600F90B6B /* SubtitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubtitleTableViewCell.swift; sourceTree = "<group>"; };
-		1A6E275F20BDF91F00F54FD4 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		1A76D72520BDDE4A00C4BF4B /* URL+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URL+Extensions.swift"; sourceTree = "<group>"; };
 		1A844F4420A908FF00C47E73 /* PermissionsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionsManager.swift; sourceTree = "<group>"; };
 		1A844F4620A90AEB00C47E73 /* AlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertController.swift; sourceTree = "<group>"; };
@@ -78,6 +83,13 @@
 		1A844F4F20A932A400C47E73 /* PermissionsManager+Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PermissionsManager+Notifications.swift"; sourceTree = "<group>"; };
 		1A844F5220A934A800C47E73 /* UIApplication+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extensions.swift"; sourceTree = "<group>"; };
 		1A8ECB5820AE5A0D00523E7D /* UIScrollView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Extensions.swift"; sourceTree = "<group>"; };
+		1A9EC00C20D07B96005864E7 /* RatingsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingsManager.swift; sourceTree = "<group>"; };
+		1A9EC01320D0860C005864E7 /* FormFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormFieldTableViewCell.swift; sourceTree = "<group>"; };
+		1A9EC01520D087FE005864E7 /* DateFormFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormFieldTableViewCell.swift; sourceTree = "<group>"; };
+		1A9EC01820D09104005864E7 /* QuantityFormFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuantityFormFieldTableViewCell.swift; sourceTree = "<group>"; };
+		1A9EC01A20D09A3A005864E7 /* LabelFormFieldTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelFormFieldTableViewCell.swift; sourceTree = "<group>"; };
+		1A9EC01C20D0A31E005864E7 /* ButtonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonTableViewCell.swift; sourceTree = "<group>"; };
+		1A9EC01E20D0A4AB005864E7 /* UIColor+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extensions.swift"; sourceTree = "<group>"; };
 		1AD5F57A20A7A3BC008F9082 /* PermissionPromptTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PermissionPromptTableViewCell.swift; sourceTree = "<group>"; };
 		1AD5F57C20A7A488008F9082 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		1AD5F57E20A7B23D008F9082 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
@@ -122,6 +134,7 @@
 				1A205C4720AF5769002D5E06 /* UIView+Extensions.swift */,
 				1A205C4D20AF5B56002D5E06 /* UIViewController+Extensions.swift */,
 				1A76D72520BDDE4A00C4BF4B /* URL+Extensions.swift */,
+				1A9EC01E20D0A4AB005864E7 /* UIColor+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -131,7 +144,6 @@
 			children = (
 				1A5035AC20B4C65400F90B6B /* Table Cells */,
 				1A844F4620A90AEB00C47E73 /* AlertController.swift */,
-				1A6E275F20BDF91F00F54FD4 /* ErrorView.swift */,
 				1A205C4520AF56D2002D5E06 /* SplashVideoViewController.swift */,
 				1A205C6420AF98F5002D5E06 /* Button.swift */,
 			);
@@ -166,11 +178,12 @@
 		1A5035AC20B4C65400F90B6B /* Table Cells */ = {
 			isa = PBXGroup;
 			children = (
+				1A9EC01C20D0A31E005864E7 /* ButtonTableViewCell.swift */,
 				1A5035AD20B4C66B00F90B6B /* DatePickerTableViewCell.swift */,
 				1AD5F57E20A7B23D008F9082 /* LocationTableViewCell.swift */,
 				1AD5F57A20A7A3BC008F9082 /* PermissionPromptTableViewCell.swift */,
 				1A5035AF20B4DCD600F90B6B /* SubtitleTableViewCell.swift */,
-				1A5035A820B4B78200F90B6B /* TextFieldTableViewCell.swift */,
+				1A9EC01720D090DF005864E7 /* Form Fields */,
 			);
 			path = "Table Cells";
 			sourceTree = "<group>";
@@ -183,6 +196,18 @@
 			path = Transitions;
 			sourceTree = "<group>";
 		};
+		1A9EC01720D090DF005864E7 /* Form Fields */ = {
+			isa = PBXGroup;
+			children = (
+				1A9EC01320D0860C005864E7 /* FormFieldTableViewCell.swift */,
+				1A9EC01520D087FE005864E7 /* DateFormFieldTableViewCell.swift */,
+				1A9EC01A20D09A3A005864E7 /* LabelFormFieldTableViewCell.swift */,
+				1A9EC01820D09104005864E7 /* QuantityFormFieldTableViewCell.swift */,
+				1A5035A820B4B78200F90B6B /* TextFormFieldTableViewCell.swift */,
+			);
+			path = "Form Fields";
+			sourceTree = "<group>";
+		};
 		1AE7DA9F20A78C0F00847B92 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -191,6 +216,7 @@
 				1A844F4420A908FF00C47E73 /* PermissionsManager.swift */,
 				1A844F4D20A931B500C47E73 /* PermissionsManager+Location.swift */,
 				1A844F4F20A932A400C47E73 /* PermissionsManager+Notifications.swift */,
+				1A9EC00C20D07B96005864E7 /* RatingsManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -356,8 +382,7 @@
 				1A205C5120AF6EDB002D5E06 /* Storyboardable.swift in Sources */,
 				1A205C6520AF98F5002D5E06 /* Button.swift in Sources */,
 				1A205C4E20AF5B56002D5E06 /* UIViewController+Extensions.swift in Sources */,
-				1A5035A920B4B78200F90B6B /* TextFieldTableViewCell.swift in Sources */,
-				1A6E276020BDF91F00F54FD4 /* ErrorView.swift in Sources */,
+				1A5035A920B4B78200F90B6B /* TextFormFieldTableViewCell.swift in Sources */,
 				1A844F5320A934A800C47E73 /* UIApplication+Extensions.swift in Sources */,
 				1AD5F57F20A7B23D008F9082 /* LocationTableViewCell.swift in Sources */,
 				1A4B81F420B0EDA600ADBAE2 /* UINavigationController+Extensions.swift in Sources */,
@@ -370,12 +395,19 @@
 				1AD5F57B20A7A3BC008F9082 /* PermissionPromptTableViewCell.swift in Sources */,
 				1A76D72620BDDE4A00C4BF4B /* URL+Extensions.swift in Sources */,
 				1A5035B020B4DCD600F90B6B /* SubtitleTableViewCell.swift in Sources */,
+				1A9EC01D20D0A31E005864E7 /* ButtonTableViewCell.swift in Sources */,
 				1A844F5020A932A400C47E73 /* PermissionsManager+Notifications.swift in Sources */,
+				1A9EC01B20D09A3A005864E7 /* LabelFormFieldTableViewCell.swift in Sources */,
 				1A8ECB5920AE5A0D00523E7D /* UIScrollView+Extensions.swift in Sources */,
+				1A9EC01920D09104005864E7 /* QuantityFormFieldTableViewCell.swift in Sources */,
+				1A9EC01620D087FE005864E7 /* DateFormFieldTableViewCell.swift in Sources */,
 				1A4D4DAF20B1FA9200659ADF /* KeychainPasswordItem.swift in Sources */,
+				1A9EC01420D0860C005864E7 /* FormFieldTableViewCell.swift in Sources */,
 				1A205C6720AFA052002D5E06 /* UIScreen+Extensions.swift in Sources */,
 				1A844F4E20A931B500C47E73 /* PermissionsManager+Location.swift in Sources */,
 				1AE7DAA120A78C5700847B92 /* LocationManager.swift in Sources */,
+				1A9EC00D20D07B96005864E7 /* RatingsManager.swift in Sources */,
+				1A9EC01F20D0A4AB005864E7 /* UIColor+Extensions.swift in Sources */,
 				1A5035AE20B4C66B00F90B6B /* DatePickerTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

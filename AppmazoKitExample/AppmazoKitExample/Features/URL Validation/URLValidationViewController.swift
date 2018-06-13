@@ -12,12 +12,15 @@ import AppmazoKit
 
 class URLValidationViewController: UIViewController, Storyboardable {
     @IBOutlet weak var progressView: UIProgressView!
-    @IBOutlet weak var errorView: ErrorView!
     @IBOutlet weak var webView: WKWebView!
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var detailsLabel: UILabel!
     
+    @IBOutlet weak var imageViewWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var progressViewHeightConstraint: NSLayoutConstraint!
+    
+    private let imageViewSize = CGSize(width: 40.0, height: 40.0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +30,6 @@ class URLValidationViewController: UIViewController, Storyboardable {
         progressView.tintColor = UIColor.appmazoDarkOrange
         progressViewHeightConstraint.constant = 0.0
 
-        webView.uiDelegate = self
         webView.navigationDelegate = self
         webView.isHidden = true
         webView.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil)
@@ -35,11 +37,15 @@ class URLValidationViewController: UIViewController, Storyboardable {
         textField.delegate = self
         textField.keyboardType = .URL
         textField.returnKeyType = .go
+        textField.autocorrectionType = .no
+        textField.clearButtonMode = .whileEditing
         
         imageView.isHidden = true
+        imageViewWidthConstraint.constant = 0.0
     }
     
     func showValidURL(_ url: URL) {
+        imageViewWidthConstraint.constant = imageViewSize.width
         progressViewHeightConstraint.constant = 0.0
         
         webView.isHidden = false
@@ -52,6 +58,7 @@ class URLValidationViewController: UIViewController, Storyboardable {
     }
     
     func showInvalidURL() {
+        imageViewWidthConstraint.constant = imageViewSize.width
         progressViewHeightConstraint.constant = 0.0
         
         webView.isHidden = true
@@ -59,6 +66,12 @@ class URLValidationViewController: UIViewController, Storyboardable {
         
         imageView.image = UIImage(named: "icon-x-circle")
         imageView.tintColor = UIColor.appmazoErrorRed
+        
+        detailsLabel.text = "Oops! Looks like thats not a valid URL."
+    }
+    
+    @objc private func enterURLButtonPressed(_ sender: Button) {
+        textField.becomeFirstResponder()
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?)
@@ -75,16 +88,26 @@ class URLValidationViewController: UIViewController, Storyboardable {
 }
 
 extension URLValidationViewController: UITextFieldDelegate {
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        imageViewWidthConstraint.constant = 0.0
+        return true
+    }
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         imageView.isHidden = true
-        
+        imageViewWidthConstraint.constant = 0.0
+
         return true
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        imageViewWidthConstraint.constant = imageViewSize.width
+        imageView.replaceWithActivityIndicator(activityIndicatorStyle: .gray)
+        
         if let text = textField.text, var url = URL(string: text) {
             url.isValid { [weak self] (valid) in
                 DispatchQueue.main.async {
+                    self?.imageView.hideActivityIndicator()
                     if valid {
                         self?.showValidURL(url)
                     } else {
@@ -98,10 +121,6 @@ extension URLValidationViewController: UITextFieldDelegate {
         
         return true
     }
-}
-
-extension URLValidationViewController: WKUIDelegate {
-    
 }
 
 extension URLValidationViewController: WKNavigationDelegate {
