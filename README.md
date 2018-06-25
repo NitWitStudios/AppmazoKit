@@ -1,7 +1,7 @@
 # AppmazoKit
 AppmazoKit is a collection of commonly used boilerplate features.
 
-[![CI Status](http://img.shields.io/travis/Appmazo/AppmazoKit.svg?style=flat)](https://travis-ci.org/Appmazo/AppmazoKit)
+[![CI Status](http://img.shields.io/travis/Appmazo/AppmazoKit.svg?style=flat)](https://travis-ci.com/Appmazo/AppmazoKit)
 [![Version](https://img.shields.io/cocoapods/v/AppmazoKit.svg?style=flat)](http://cocoapods.org/pods/AppmazoKit.svg)
 [![License](https://img.shields.io/cocoapods/l/AppmazoKit.svg?style=flat)](http://cocoapods.org/pods/AppmazoKit.svg)
 [![Platform](https://img.shields.io/cocoapods/p/AppmazoKit.svg?style=flat)](http://cocoapods.org/pods/AppmazoKit.svg)
