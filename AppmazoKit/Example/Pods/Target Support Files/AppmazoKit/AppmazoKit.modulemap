@@ -1,0 +1,6 @@
+framework module AppmazoKit {
+  umbrella header "AppmazoKit-umbrella.h"
+
+  export *
+  module * { export * }
+}

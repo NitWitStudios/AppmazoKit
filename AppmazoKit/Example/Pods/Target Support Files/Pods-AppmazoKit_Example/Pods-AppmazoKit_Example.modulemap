@@ -1,0 +1,6 @@
+framework module Pods_AppmazoKit_Example {
+  umbrella header "Pods-AppmazoKit_Example-umbrella.h"
+
+  export *
+  module * { export * }
+}

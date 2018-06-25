@@ -1,0 +1,16 @@
+PODS:
+  - AppmazoKit (1.0.0)
+
+DEPENDENCIES:
+  - AppmazoKit (from `../`)
+
+EXTERNAL SOURCES:
+  AppmazoKit:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  AppmazoKit: 426ecad45c7dfadda5f33fc83d16348620412a25
+
+PODFILE CHECKSUM: a58a74ef9455f7603d5673b20c99e3bb9e005016
+
+COCOAPODS: 1.5.3
