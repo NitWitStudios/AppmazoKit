@@ -34,58 +34,80 @@ import AppmazoKit
 
 The Managers are great for simplifying common app flows like permissions, location services, biometric authentication and more.
 
-- [Sub-heading](#permissionsmanager)
-- [Sub-heading](#locationslanager)
-- [Sub-heading](#biometricsmanager)
-- [Sub-heading](#ratingsmanager)
+- [Permissions Manager](#permissionsmanager)
+- [Locations Manager](#locationsmanager)
+- [Biometrics Manager](#biometricsmanager)
+- [Ratings Manager](#ratingsmanager)
 
 # UI Elements
 
 The UI Elements contain frequently used UI for quick app prototyping and implementation.
 
-- [Sub-heading](#alertcontroller)
-- [Sub-heading](#splashanimation)
-- [Sub-heading](#modaltransitioning)
+- [Alert Controller](#alertcontroller)
+- [Splash Animation](#splashanimation)
+- [Modal Transitioning](#modaltransitioning)
 
 # Class Extensions
 
 The Class Extensions contain a lot of useful extensions of existing classes that should have been availble by default.
 
-- [Sub-heading](#keyboardscroller)
+- [Keyboard Scroller](#keyboardscroller)
+- [Date Extensions](#dateextensions)
+- [URL Extensions](#urlextensions)
+
+<a name="permissionsmanager">
 
 ## Permissions Manager
 
 Helps streamline and manage common OS level permissions such as Location, Push Notifications and more.
 
+<a name="locationsmanager">
+
 ## Locations Manager
 
 Helps manage the user's location by providing a simplified manager with useful functions like getting user's current location, allowing custom locations entered as an address, storing last used location and more..
+
+<a name="biometricsmanager">
 
 ## Biometrics Manager
 
 A simple way for storing user credentials for use with Biometric verification.
 
+<a name="ratingsmanager">
+
 ## Ratings Manager
 
 A simple way for tracking and prompting users to rate your app.
+
+<a name="alertcontroller">
 
 ## Alert Controller
 
 A simple, efficient and familiar alert controller for a more elegant way to alert users.
 
+<a name="splashanimation">
+
 ## Splash Animation
 
 A simple view controller for showing a splash screen animation.
+
+<a name="modaltransitioning">
 
 ## Modal Transitioning
 
 UIViewControllerContextTransitioning for presenting modals.
 
+<a name="keyboardscroller">
+
 ## Keyboard Scroller
 
 A simple keyboard observer to allow UIScrollView to automatically scroll fields into view when the keyboard appears.
 
+<a name="dateextensions">
+
 ## Date+Extensions
+
+<a name="urlextensions">
 
 ## URL+Extensions
 
