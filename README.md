@@ -34,24 +34,24 @@ import AppmazoKit
 
 The Managers are great for simplifying common app flows like permissions, location services, biometric authentication and more.
 
-- [Sub-heading](#Permissions Manager)
-- [Sub-heading](#Locations Manager)
-- [Sub-heading](#Biometrics Manager)
-- [Sub-heading](#Ratings Manager)
+- [Sub-heading](#permissionsmanager)
+- [Sub-heading](#locationslanager)
+- [Sub-heading](#biometricsmanager)
+- [Sub-heading](#ratingsmanager)
 
 # UI Elements
 
 The UI Elements contain frequently used UI for quick app prototyping and implementation.
 
-- [Sub-heading](#Alert Controller)
-- [Sub-heading](#Splash Animation)
-- [Sub-heading](#Modal Transitioning)
+- [Sub-heading](#alertcontroller)
+- [Sub-heading](#splashanimation)
+- [Sub-heading](#modaltransitioning)
 
 # Class Extensions
 
 The Class Extensions contain a lot of useful extensions of existing classes that should have been availble by default.
 
-- [Sub-heading](#Keyboard Scroller)
+- [Sub-heading](#keyboardscroller)
 
 ## Permissions Manager
 
