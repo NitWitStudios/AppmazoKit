@@ -27,6 +27,12 @@ The Class Extensions contain a lot of useful extensions of existing classes that
 
   s.ios.deployment_target = '11.0'
 
-  s.source_files = 'AppmazoKit/AppmazoKit/Classes/**/*'
-  s.resources = 'AppmazoKit/AppmazoKit/Assets/**/*'
+### There is an odd error where running `pod trunk push AppmazoKit.podspec` always fails due to bad path. Not sure why, but must change path when running local vs. remote:
+# Local lib lint path:
+#s.source_files = 'AppmazoKit/Classes/**/*'
+#s.resources = 'AppmazoKit/Assets/**/*'
+# Trunk lib lint path:
+s.source_files = 'AppmazoKit/AppmazoKit/Classes/**/*'
+s.resources = 'AppmazoKit/AppmazoKit/Assets/**/*'
+
 end
