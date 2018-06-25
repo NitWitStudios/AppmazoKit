@@ -37,7 +37,7 @@
 
 /* Begin PBXFileReference section */
 		0039C5707EE1DA5FEC915449 /* Pods-AppmazoKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppmazoKit_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AppmazoKit_Example/Pods-AppmazoKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		1690CD2766A53229B8637F94 /* AppmazoKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = AppmazoKit.podspec; path = ../AppmazoKit.podspec; sourceTree = "<group>"; };
+		1690CD2766A53229B8637F94 /* AppmazoKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = AppmazoKit.podspec; path = ../AppmazoKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		1A9500C420E0793C003B90AB /* ExampleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleTableViewController.swift; sourceTree = "<group>"; };
 		1A9500C520E0793C003B90AB /* ExampleTableViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ExampleTableViewController.storyboard; sourceTree = "<group>"; };
 		1ADF7D9A20E0711D005121D6 /* AppmazoKit_Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppmazoKit_Example-Bridging-Header.h"; sourceTree = "<group>"; };
