@@ -66,6 +66,7 @@ public class LocationTableViewCell: UITableViewCell {
         contentView.addSubview(textField)
         
         primaryButton.isHidden = true
+        primaryButton.titleLabel?.textAlignment = .right
         primaryButton.imageView?.tintColor = UIColor.darkGray
         primaryButton.imageView?.contentMode = .scaleAspectFit
         primaryButton.setTitleColor(UIColor.blue, for: .normal)
@@ -84,7 +85,7 @@ public class LocationTableViewCell: UITableViewCell {
         
         editingConstraints = NSLayoutConstraint.constraints(withVisualFormat: "|-[textField]-|", options: [], metrics: nil, views: views)
         loadingConstraints = NSLayoutConstraint.constraints(withVisualFormat: "|-[activtyIndicatorView(30)]-[textField]-|", options: [.alignAllCenterY], metrics: nil, views: views)
-        changeButtonConstraints = NSLayoutConstraint.constraints(withVisualFormat: "|-[textField]-[primaryButton]-16-|", options: [.alignAllCenterY], metrics: nil, views: views)
+        changeButtonConstraints = NSLayoutConstraint.constraints(withVisualFormat: "|-[textField]-[primaryButton(80)]-16-|", options: [.alignAllCenterY], metrics: nil, views: views)
         updateLocationButtonConstraints = NSLayoutConstraint.constraints(withVisualFormat: "|-[textField]-[primaryButton(25)]-16-|", options: [.alignAllCenterY], metrics: nil, views: views)
         
         NSLayoutConstraint.activate(NSLayoutConstraint.constraints(withVisualFormat: "V:[activtyIndicatorView(30)]", options: [], metrics: nil, views: views))
@@ -100,9 +101,6 @@ public class LocationTableViewCell: UITableViewCell {
         if state != .loading {
             hideLoadingIndicator()
         }
-//        else if self.state == .editingLocation {
-//            stopEditing()
-//        }
         
         removeConstraints(editingConstraints)
         removeConstraints(loadingConstraints)

@@ -10,82 +10,91 @@ import Foundation
 import StoreKit
 
 public class RatingsManager: NSObject {
-    private struct KeychainConfiguration {
-        static let serviceName = "RatingsManagerServiceName"
-        static let account = "RatingsManagerAccount"
-        static let accessGroup: String? = nil
-    }
-    
     private enum UserDefaultsKey: String {
-        case isVersionRated = "RatingsManager.isVersionRated"
-        case eventCount = "RatingsManager.eventCount"
-        case eventsUntilPrompt = "RatingsManager.eventsUntilPrompt"
-        case lastReminded = "RatingsManager.lastReminded"
-        case remindPeriod = "RatingsManager.remindPeriod"
+        case ratedVersion = "RatingsManager.ratedVersion"
+        case currentEventCount = "RatingsManager.currentEventCount"
+        case requiredEventCount = "RatingsManager.requiredEventCount"
+        case datePrompted = "RatingsManager.datePrompted"
+        case dateShouldPrompt = "RatingsManager.dateShouldPrompt"
+        case daysToPrompt = "RatingsManager.daysToPrompt"
     }
 
     public static var isVersionRated: Bool {
         get {
-            return UserDefaults.standard.bool(forKey: UserDefaultsKey.isVersionRated.rawValue)
+            return UserDefaults.standard.string(forKey: UserDefaultsKey.ratedVersion.rawValue) == Bundle.appVersion()
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: UserDefaultsKey.isVersionRated.rawValue)
+            UserDefaults.standard.set(newValue ? Bundle.appVersion(): nil, forKey: UserDefaultsKey.ratedVersion.rawValue)
             UserDefaults.standard.synchronize()
         }
     }
     
-    public static var eventCount: Int {
+    public static var currentEventCount: Int {
         get {
-            return UserDefaults.standard.integer(forKey: UserDefaultsKey.eventCount.rawValue)
+            return UserDefaults.standard.integer(forKey: UserDefaultsKey.currentEventCount.rawValue)
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: UserDefaultsKey.eventCount.rawValue)
+            UserDefaults.standard.set(newValue, forKey: UserDefaultsKey.currentEventCount.rawValue)
             UserDefaults.standard.synchronize()
         }
     }
     
-    public static var eventsUntilPrompt: Int {
+    public static var requiredEventCount: Int {
         get {
-            return UserDefaults.standard.integer(forKey: UserDefaultsKey.eventsUntilPrompt.rawValue)
+            return UserDefaults.standard.integer(forKey: UserDefaultsKey.requiredEventCount.rawValue)
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: UserDefaultsKey.eventsUntilPrompt.rawValue)
+            UserDefaults.standard.set(newValue, forKey: UserDefaultsKey.requiredEventCount.rawValue)
             UserDefaults.standard.synchronize()
         }
     }
     
-    public static var lastReminded: Date? {
+    public static var datePrompted: Date? {
         get {
-            return UserDefaults.standard.object(forKey: UserDefaultsKey.lastReminded.rawValue) as? Date
+            return UserDefaults.standard.object(forKey: UserDefaultsKey.datePrompted.rawValue) as? Date
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: UserDefaultsKey.lastReminded.rawValue)
+            UserDefaults.standard.set(newValue, forKey: UserDefaultsKey.datePrompted.rawValue)
             UserDefaults.standard.synchronize()
         }
     }
     
-    public static var remindPeriod: Int {
+    public static var daysToPrompt: Int {
         get {
-            return UserDefaults.standard.integer(forKey: UserDefaultsKey.remindPeriod.rawValue)
+            return UserDefaults.standard.integer(forKey: UserDefaultsKey.daysToPrompt.rawValue)
         }
         set {
-            UserDefaults.standard.set(newValue, forKey: UserDefaultsKey.remindPeriod.rawValue)
+            UserDefaults.standard.set(newValue, forKey: UserDefaultsKey.daysToPrompt.rawValue)
+            UserDefaults.standard.synchronize()
+
+            if newValue > 0 {
+                RatingsManager.dateShouldPrompt = Date(timeIntervalSinceNow: TimeInterval(60*60*24*newValue))
+            } else {
+                RatingsManager.dateShouldPrompt = nil
+            }
+        }
+    }
+
+    public static var dateShouldPrompt: Date? {
+        get {
+            return UserDefaults.standard.object(forKey: UserDefaultsKey.dateShouldPrompt.rawValue) as? Date
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: UserDefaultsKey.dateShouldPrompt.rawValue)
             UserDefaults.standard.synchronize()
         }
     }
 
     public class func shouldPromptForRating() -> Bool {
-        let isEventCountMet = RatingsManager.eventCount >= RatingsManager.eventsUntilPrompt
+        let isEventCountMet = RatingsManager.currentEventCount >= RatingsManager.requiredEventCount
         var isPastRemindPeriod = true
         
-        if let lastReminded = RatingsManager.lastReminded, let daysSinceLastReminder = lastReminded.days(fromDate: Date()) {
-            isPastRemindPeriod = daysSinceLastReminder > RatingsManager.remindPeriod
+        if let dateShouldPrompt = RatingsManager.dateShouldPrompt, RatingsManager.datePrompted != nil {
+            isPastRemindPeriod = Date() >= dateShouldPrompt
         }
         
         if !RatingsManager.isVersionRated && isEventCountMet && isPastRemindPeriod {
             return true
-        } else {
-            RatingsManager.eventCount = RatingsManager.eventCount + 1
         }
         
         return false
@@ -93,6 +102,14 @@ public class RatingsManager: NSObject {
     
     public class func promptForRating() {
         SKStoreReviewController.requestReview()
-        RatingsManager.lastReminded = Date()
+        RatingsManager.datePrompted = Date()
+        RatingsManager.isVersionRated = true
+    }
+    
+    public class func reset() {
+        RatingsManager.currentEventCount = 0
+        RatingsManager.datePrompted = nil
+        RatingsManager.dateShouldPrompt = nil
+        RatingsManager.isVersionRated = false
     }
 }

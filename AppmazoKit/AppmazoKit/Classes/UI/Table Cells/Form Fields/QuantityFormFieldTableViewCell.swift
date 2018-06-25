@@ -29,7 +29,6 @@ public class QuantityFormFieldTableViewCell: FormFieldTableViewCell, UIPickerVie
     
     public var quantityRange: ClosedRange<Int> = 1...100 {
         didSet {
-            quantity = quantityRange.lowerBound
             picker.reloadAllComponents()
         }
     }
@@ -89,7 +88,7 @@ public class QuantityFormFieldTableViewCell: FormFieldTableViewCell, UIPickerVie
     // MARK: - UIPickerViewDelegate
     
     public func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        textField.text = String(quantityRange.lowerBound + row)
+        quantity = quantityRange.lowerBound + row
         delegate?.quantityFormFieldTableViewCell(self, didUpdateValue: row)
     }
 }

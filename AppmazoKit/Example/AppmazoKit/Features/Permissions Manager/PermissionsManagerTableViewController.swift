@@ -8,6 +8,7 @@
 
 import UIKit
 import AppmazoKit
+import LocalAuthentication
 
 class PermissionsManagerTableViewController: UITableViewController, Storyboardable, PermissionPromptTableViewCellDelegate {    
     private let permissionsManager = PermissionsManager()
@@ -67,8 +68,20 @@ class PermissionsManagerTableViewController: UITableViewController, Storyboardab
             DispatchQueue.main.async {
                 if success {
                     self?.tableView.reloadData()
-                } else if let _ = error {
-                    let message = self?.biometricsManager.isFaceIDAvailable() == true ? "Looks like we had a problem verifying you with FaceID." : "Looks like we had a problem verifying you with TouchID."
+                } else if let error = error, error.code != LAError.userCancel {
+                    var message = self?.biometricsManager.isFaceIDAvailable() == true ? "Looks like we had a problem verifying you with FaceID." : "Looks like we had a problem verifying you with TouchID."
+                    
+                    switch error.code {
+                    case .biometryNotEnrolled:
+                        message = "Oops! Looks like there aren't any enrolled biometrics on this device yet. Try adding some in the iOS Settings app."
+                    case .biometryNotAvailable:
+                        message = "Oops! Looks like this device doesn't support biometrics."
+                    case .biometryLockout:
+                        message = "Oops! Looks like there were too many failed attempts. Try locking then unlocking the device to disable biometrics lockout."
+                    default:
+                        break
+                    }
+                    
                     let alertController = AlertController.alertControllerWithTitle("Uh-Oh", message: message)
                     alertController.image = self?.biometricsManager.isFaceIDAvailable() == true ? UIImage(named: "icon-face-id") : UIImage(named: "icon-touch-id")
                     alertController.addAction(AlertAction(withTitle: "Try Again", style: .filled, handler: { (alertAction) in

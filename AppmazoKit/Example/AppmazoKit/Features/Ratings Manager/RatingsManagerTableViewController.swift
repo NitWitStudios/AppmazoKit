@@ -17,10 +17,10 @@ class RatingsManagerTableViewController: UITableViewController, Storyboardable {
     
     private enum Row: Int {
         case isVersionRated
-        case eventCount
-        case eventsUntilPrompt
-        case lastReminded
-        case remindPeriod
+        case currentEventCount
+        case requiredEventCount
+        case datePrompted
+        case daysToPrompt
         case checkForPrompt
         case count
     }
@@ -32,11 +32,9 @@ class RatingsManagerTableViewController: UITableViewController, Storyboardable {
     
         title = "Ratings Manager"
         
-        RatingsManager.eventCount = 0
-        RatingsManager.eventsUntilPrompt = 5
-        RatingsManager.lastReminded = nil
-        RatingsManager.isVersionRated = false
-        RatingsManager.remindPeriod = 2
+        RatingsManager.reset()
+        RatingsManager.requiredEventCount = 5
+        RatingsManager.daysToPrompt = 2
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: UITableViewCell.reuseIdentifier)
         tableView.register(FormFieldTableViewCell.self, forCellReuseIdentifier: FormFieldTableViewCell.reuseIdentifier)
@@ -64,31 +62,35 @@ class RatingsManagerTableViewController: UITableViewController, Storyboardable {
                 cell.textField.text = RatingsManager.isVersionRated ? "Yes" : "No"
                 return cell
             }
-        case Row.eventCount.rawValue:
+        case Row.currentEventCount.rawValue:
             if let cell = tableView.dequeueReusableCell(withIdentifier: QuantityFormFieldTableViewCell.reuseIdentifier, for: indexPath) as? QuantityFormFieldTableViewCell {
+                cell.delegate = self
                 cell.promptText = "CURRENT EVENT COUNT"
-                cell.quantity = RatingsManager.eventCount
+                cell.quantity = RatingsManager.currentEventCount
                 cell.quantityRange = 1...10
                 return cell
             }
-        case Row.eventsUntilPrompt.rawValue:
+        case Row.requiredEventCount.rawValue:
             if let cell = tableView.dequeueReusableCell(withIdentifier: QuantityFormFieldTableViewCell.reuseIdentifier, for: indexPath) as? QuantityFormFieldTableViewCell {
+                cell.delegate = self
                 cell.promptText = "REQUIRED EVENT COUNT"
+                cell.quantity = RatingsManager.requiredEventCount
                 cell.quantityRange = 1...10
-                cell.quantity = RatingsManager.eventsUntilPrompt
                 return cell
             }
-        case Row.lastReminded.rawValue:
+        case Row.datePrompted.rawValue:
             if let cell = tableView.dequeueReusableCell(withIdentifier: TextFormFieldTableViewCell.reuseIdentifier, for: indexPath) as? TextFormFieldTableViewCell {
-                cell.promptText = "LAST REMINDED"
-                cell.textField.text = RatingsManager.lastReminded?.convertToString()
+                cell.promptText = "LAST PROMPTED"
+                cell.textField.text = RatingsManager.datePrompted != nil ? RatingsManager.datePrompted?.convertToString() : "Not Yet Reminded"
                 cell.textField.isUserInteractionEnabled = false
                 return cell
             }
-        case Row.remindPeriod.rawValue:
+        case Row.daysToPrompt.rawValue:
             if let cell = tableView.dequeueReusableCell(withIdentifier: QuantityFormFieldTableViewCell.reuseIdentifier, for: indexPath) as? QuantityFormFieldTableViewCell {
-                cell.promptText = "REMIND IN DAYS"
-                cell.quantityRange = 1...10
+                cell.delegate = self
+                cell.promptText = "DAYS TO PROMPT"
+                cell.quantity = RatingsManager.daysToPrompt
+                cell.quantityRange = 0...10
                 return cell
             }
         case Row.checkForPrompt.rawValue:
@@ -107,17 +109,32 @@ class RatingsManagerTableViewController: UITableViewController, Storyboardable {
 
 extension RatingsManagerTableViewController: QuantityFormFieldTableViewCellDelegate {
     func quantityFormFieldTableViewCell(_ quantityFormFieldTableViewCell: QuantityFormFieldTableViewCell, didFinishPickingValue value: Int) {
+        guard let indexPath = tableView.indexPath(for: quantityFormFieldTableViewCell) else { return }
         
+        switch indexPath.row {
+        case Row.currentEventCount.rawValue:
+            RatingsManager.currentEventCount = value
+        case Row.requiredEventCount.rawValue:
+            RatingsManager.requiredEventCount = value
+        case Row.daysToPrompt.rawValue:
+            RatingsManager.daysToPrompt = value
+        default:
+            break
+        }
+        
+        tableView.reloadRows(at: [indexPath], with: .automatic)
     }
 }
 
 extension RatingsManagerTableViewController: ButtonTableViewCellDelegate {
     func buttonTableViewCell(_ buttonTableViewCell: ButtonTableViewCell, buttonPressed: Button) {
+        RatingsManager.currentEventCount = RatingsManager.currentEventCount + 1
+
         if RatingsManager.shouldPromptForRating() {
             RatingsManager.promptForRating()
+            RatingsManager.currentEventCount = 0
         }
         
-        RatingsManager.eventCount = RatingsManager.eventCount + 1
         tableView.reloadData()
     }
 }

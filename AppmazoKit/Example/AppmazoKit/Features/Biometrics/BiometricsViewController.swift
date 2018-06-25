@@ -8,6 +8,7 @@
 
 import UIKit
 import AppmazoKit
+import LocalAuthentication
 
 class BiometricsViewController: UIViewController, Storyboardable {
     @IBOutlet weak var scrollView: UIScrollView!
@@ -76,7 +77,13 @@ class BiometricsViewController: UIViewController, Storyboardable {
                     if success {
                         self?.promptLabel.text = "Success! Your credentials were loaded through biometric verification."
                         self?.passwordTextField.text = password
-                    } else if error != nil {
+                    } else if error?.code == LAError.biometryNotEnrolled {
+                        self?.promptLabel.text = "Oops! Looks like there aren't any enrolled biometrics on this device yet. Try adding some in the iOS Settings app."
+                    } else if error?.code == LAError.biometryNotAvailable {
+                        self?.promptLabel.text = "Oops! Looks like this device doesn't support biometrics."
+                    } else if error?.code == LAError.biometryLockout {
+                        self?.promptLabel.text = "Oops! Looks like there were too many failed attempts. Try locking then unlocking the device to disable biometrics lockout."
+                    } else if error != nil && error?.code != LAError.userCancel {
                         self?.promptLabel.text = "Oops! Looks like there was a problem verifying you with biometrics. Please try again."
                     }
                     self?.verifyButton.hideActivityIndicator()

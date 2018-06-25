@@ -20,7 +20,7 @@ public class ButtonTableViewCell: UITableViewCell {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
         
         button.setTitle("Click Me", for: .normal)
-        button.backgroundColor = UIColor.appmazoDarkOrange
+        button.backgroundColor = UIColor(red: 218.0/255.0, green: 67.0/255.0, blue: 38.0/255.0, alpha: 1.0)
         button.cornerRadius = 4.0
         button.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
         contentView.addSubview(button)
