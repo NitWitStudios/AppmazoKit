@@ -23,7 +23,7 @@ The Class Extensions contain a lot of useful extensions of existing classes that
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'appmazo' => 'jhickman@appmazo.com' }
-  s.source           = { :git => 'https://github.com/Appmazo/AppmazoKit.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/Appmazo/AppmazoKit.git', :tag => s.version }
 
   s.ios.deployment_target = '11.0'
 
