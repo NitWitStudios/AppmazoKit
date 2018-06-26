@@ -27,7 +27,7 @@ The Class Extensions contain a lot of useful extensions of existing classes that
 
   s.ios.deployment_target = '11.0'
 
-  s.source_files = 'AppmazoKit/Classes/**/*'
-  s.resources = 'AppmazoKit/Assets/**/*'
+  s.source_files = 'AppmazoKit/Classes/**/*.*'
+  s.resources = 'AppmazoKit/Assets/**/*.*'
 
 end
