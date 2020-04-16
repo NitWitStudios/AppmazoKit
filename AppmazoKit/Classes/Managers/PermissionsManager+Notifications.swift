@@ -55,7 +55,7 @@ extension PermissionsManager {
                 } else {
                     let alertViewController = AlertController.alertControllerWithTitle("Uh-Oh", message: "Looks like you previously set notifications authorization for our app.\nPlease visit the Settings App and change the notifications permissions there.")
                     alertViewController.addAction(AlertAction.actionWithTitle("Go to Settings", style: .filled, handler: { (alertAction) in
-                        UIApplication.shared.open(URL(string:UIApplicationOpenSettingsURLString)!, options:[:], completionHandler:nil)
+                        UIApplication.shared.open(URL(string:UIApplication.openSettingsURLString)!, options:[:], completionHandler:nil)
                     }))
                     alertViewController.addAction(AlertAction.actionWithTitle("Maybe Later", style: .normal, handler: nil))
                     UIApplication.shared.keyWindow?.rootViewController?.present(alertViewController, animated: true, completion: nil)

@@ -83,10 +83,10 @@ extension UIView {
      - parameters activityIndicatorStyle: The style for the UIActivityIndicatorView.
      */
     static var activityIndicatorView: UIActivityIndicatorView?
-    public func replaceWithActivityIndicator(activityIndicatorStyle: UIActivityIndicatorViewStyle) {
+    public func replaceWithActivityIndicator(activityIndicatorStyle: UIActivityIndicatorView.Style) {
         isHidden = true
         
-        let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: activityIndicatorStyle)
+        let activityIndicatorView = UIActivityIndicatorView(style: activityIndicatorStyle)
         superview?.addSubview(activityIndicatorView, centeredWithView: self)
         activityIndicatorView.startAnimating()
         UIView.activityIndicatorView = activityIndicatorView

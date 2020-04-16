@@ -54,7 +54,7 @@ class DateHelperTableViewController: UITableViewController, Storyboardable {
                 }
             }
         })
-        RunLoop.main.add(countdownTimer, forMode: RunLoopMode.commonModes)
+        RunLoop.main.add(countdownTimer, forMode: RunLoop.Mode.common)
         self.countdownTimer = countdownTimer
     }
     

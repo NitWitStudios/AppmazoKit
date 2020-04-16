@@ -28,12 +28,12 @@ extension UIScrollView {
             super.init()
 
             originalContentInset = scrollView.contentInset.bottom
-            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-            NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(keyboardDidHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
         }
         
         @objc func keyboardWillShow(_ notification: Notification) {
-            guard let keyboardData: NSValue = notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue, let scrollView = scrollView else { return }
+            guard let keyboardData: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue, let scrollView = scrollView else { return }
             KeyboardObserver.keyboardFrame = keyboardData.cgRectValue
             scrollView.adjustBottomInset(forKeyboardFrame: keyboardData.cgRectValue)
         }
