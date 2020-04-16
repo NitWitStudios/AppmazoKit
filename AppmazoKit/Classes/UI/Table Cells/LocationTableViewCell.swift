@@ -26,7 +26,7 @@ public class LocationTableViewCell: UITableViewCell {
     
     private let textField = UITextField()
     private let primaryButton = Button(style: .normal)
-    private let activtyIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.gray)
+    private let activtyIndicatorView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.gray)
     private var editingConstraints: [NSLayoutConstraint]!
     private var loadingConstraints: [NSLayoutConstraint]!
     private var changeButtonConstraints: [NSLayoutConstraint]!
@@ -50,7 +50,7 @@ public class LocationTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         selectionStyle = .none

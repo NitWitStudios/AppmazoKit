@@ -13,7 +13,7 @@ public extension URL {
         static var queue = OperationQueue()
     }
 
-    public mutating func isValid(_ completion: @escaping (Bool) -> Void) {
+    mutating func isValid(_ completion: @escaping (Bool) -> Void) {
         if self.absoluteString.count == 0 {
             completion(false)
             return

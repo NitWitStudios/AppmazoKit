@@ -13,11 +13,11 @@ public extension Bundle {
      
      - returns: Returns the app bundle display name.
      */
-    public class func appBundleDisplayName() -> String {
+    class func appBundleDisplayName() -> String {
         return Bundle.main.object(forInfoDictionaryKey: "CFBundleDisplayName") as! String
     }
 
-    public class func appVersion() -> String {
+    class func appVersion() -> String {
         return Bundle.main.infoDictionary!["CFBundleShortVersionString"] as! String
     }
 }

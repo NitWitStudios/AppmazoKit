@@ -16,7 +16,7 @@ public class ButtonTableViewCell: UITableViewCell {
     public weak var delegate: ButtonTableViewCellDelegate?
     public let button = Button(style: .filled)
     
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
         
         button.setTitle("Click Me", for: .normal)

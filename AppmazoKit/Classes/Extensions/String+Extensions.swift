@@ -13,7 +13,7 @@ public extension String {
      
      - returns: A camel cased version of the string.
      */
-    public func camelCased() -> String {
+    func camelCased() -> String {
         var camelCasedString = ""
         let components = self.components(separatedBy: CharacterSet.whitespacesAndNewlines)
         for (index, string) in components.enumerated() {

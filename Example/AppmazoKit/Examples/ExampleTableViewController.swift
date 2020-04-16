@@ -27,7 +27,6 @@ class ExampleTableViewController: UITableViewController, Storyboardable {
 
     private enum UIRow: Int {
         case alertController
-        case splashAnimationViewController
         case modalTransitioning
         case count
     }
@@ -62,8 +61,6 @@ class ExampleTableViewController: UITableViewController, Storyboardable {
             return "Biometrics Manager"
         case (Section.managers.rawValue, ManagersRow.ratings.rawValue):
             return "Ratings Manager"
-        case (Section.ui.rawValue, UIRow.splashAnimationViewController.rawValue):
-            return "Splash Animation"
         case (Section.ui.rawValue, UIRow.alertController.rawValue):
             return "Alert Controllers"
         case (Section.ui.rawValue, UIRow.modalTransitioning.rawValue):
@@ -89,8 +86,6 @@ class ExampleTableViewController: UITableViewController, Storyboardable {
             return "A simple way for storing user credentials for use with Biometric verification."
         case (Section.managers.rawValue, ManagersRow.ratings.rawValue):
             return "A simple way for tracking and prompting users to rate your app."
-        case (Section.ui.rawValue, UIRow.splashAnimationViewController.rawValue):
-            return "A simple view controller for showing a splash screen animation."
         case (Section.ui.rawValue, UIRow.alertController.rawValue):
             return "A simple, efficient and familiar alert controller for a more elegant way to alert users."
         case (Section.ui.rawValue, UIRow.modalTransitioning.rawValue):
@@ -159,17 +154,6 @@ extension ExampleTableViewController {
             navigationController?.pushViewController(RatingsManagerTableViewController.viewControllerFromStoryboard(), animated: true)
         case (Section.managers.rawValue, ManagersRow.biometrics.rawValue):
             navigationController?.pushViewController(BiometricsViewController.viewControllerFromStoryboard(), animated: true)
-        case (Section.ui.rawValue, UIRow.splashAnimationViewController.rawValue):
-            if let filepath = Bundle.main.path(forResource: "appmazo-logo-animation-3840x2160", ofType: "mp4") {
-                let fileURL = URL(fileURLWithPath: filepath)
-                let splashVideoViewController = SplashVideoViewController(videoURL: fileURL, videoSize: CGSize(width: 250.0, height: 150.0))
-                splashVideoViewController.modalTransitionStyle = .crossDissolve
-                present(splashVideoViewController, animated: true) {
-                    splashVideoViewController.playVideo(completion: {
-                        splashVideoViewController.dismiss(animated: true, completion: nil)
-                    })
-                }
-            }
         case (Section.ui.rawValue, UIRow.alertController.rawValue):
             navigationController?.pushViewController(AlertControllerTableViewController.viewControllerFromStoryboard(), animated: true)
         case (Section.ui.rawValue, UIRow.modalTransitioning.rawValue):

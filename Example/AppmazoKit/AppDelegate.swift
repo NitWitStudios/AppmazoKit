@@ -14,27 +14,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         UINavigationBar.appearance().barTintColor = UIColor(red: 51.0/255.0, green: 51.0/255.0, blue: 51.0/255.0, alpha: 1.0)
         UINavigationBar.appearance().isTranslucent = false
         UINavigationBar.appearance().tintColor = UIColor.white
-        UINavigationBar.appearance().titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         
-        if let filepath = Bundle.main.path(forResource: "appmazo-logo-animation-3840x2160", ofType: "mp4") {
-            let fileURL = URL(fileURLWithPath: filepath)
-            let splashVideoViewController = SplashVideoViewController(videoURL: fileURL, videoSize: CGSize(width: 250.0, height: 150.0))
-            window?.rootViewController = splashVideoViewController
-            splashVideoViewController.playVideo { [weak self] in
-                let transition = CATransition()
-                transition.duration = 0.5
-                transition.type = kCATransitionMoveIn
-                transition.subtype = kCATransitionFade
-                self?.window?.layer.add(transition, forKey: kCATransition)
-                self?.window?.rootViewController = UINavigationController(rootViewController: ExampleTableViewController.viewControllerFromStoryboard())
-            }
-        }
-
+        window?.rootViewController = UINavigationController(rootViewController: ExampleTableViewController.viewControllerFromStoryboard())
+        
         return true
     }
 

@@ -8,9 +8,9 @@
 
 Pod::Spec.new do |s|
   s.name             = 'AppmazoKit'
-  s.version          = '1.0.0'
+  s.version          = '1.0.1'
   s.summary          = 'AppmazoKit is a collection of commonly used boilerplate code, UI elements and class extensions.'
-  s.swift_version    = '4.1'
+  s.swift_version    = '5.0'
 
   s.description      = <<-DESC
 AppmazoKit is broken into three categories: Managers, UI Elements and Class Extensions.
